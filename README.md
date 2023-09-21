@@ -6,7 +6,8 @@ Ideas:
 -->
 <details>
 <summary>Table of Contents</summary>
-
+    
+- [Objective](#Objective)
 - [Description of the project](#description-of-the-project)
 - [Built with](#built-with)
 - [Team Members](#team-members)
@@ -19,6 +20,9 @@ Ideas:
 - [Contact](#contact)
 </details>
 
+## Objective 
+Develop a real estate web application that facilitates property search, appointment requests, listing management, and real estate transactions for homebuyers, property renters, brokers, and administrators.
+
 ## Description of the project
 (description of the project)
 
@@ -29,10 +33,13 @@ This project has been developed using the MERN stack. MERN stands for MongoDB, E
 *  Express.js
 *  React
 *  Node.js
+*  HTML5
+*  CSS3/Bootstrap
+*  TypeScript
 
 ## Team Members
 - Azmi Abidi (40248132) - (role)
-- Full name (ID) - (role)
+- Nemroud Mohamed (40153847) - (role)
 - Full name (ID) - (role)
 - Full name (ID) - (role)
 - Full name (ID) - (role)
