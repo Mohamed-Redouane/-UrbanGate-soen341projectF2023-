@@ -38,12 +38,12 @@ This project has been developed using the MERN stack. MERN stands for MongoDB, E
 *  TypeScript
 
 ## Team Members
-- Azmi Abidi (40248132) - (role)
-- Nemroud Mohamed (40153847) - (role)
-- Tanzir Hoque (40210275) - (role)
 - Anthony El-Khoury (40262893) - (role)
+- Azmi Abidi (40248132) - (role)
+- Matthew Thomas Pompeo (40263242) - (role)
+- Mohamed Nemroud (40153847) - (role)
 - Nguyen-My-Linh Tang (40229505) - (role)
-- Full name (ID) - (role)
+- Tanzir Hoque (40210275) - (role)
 
 ## Project Structure
 
@@ -64,9 +64,9 @@ Here are some relevant resources that helped us build this project:
 -
 
 ## Contact
-* Azmi Abidi - a_abidi@live.concordia.ca
-* Tanzir Hoque - ta_hoque@live.concordia.ca
 * Anthony El-Khoury - anthony_elie@outlook.com
+* Azmi Abidi - a_abidi@live.concordia.ca
+* Matthew Thomas Pompeo - matthewpompeo22@gmail.com
+* Mohamed Nemroud - m_nemrou@mail.concordia.ca
 * Nguyen-My-Linh Tang - ng_tang@live.concordia.ca
-* Nemroud Mohamed - m_nemrou@mail.concordia.ca
-* Full name - email
+* Tanzir Hoque - ta_hoque@live.concordia.ca
