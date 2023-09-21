@@ -40,7 +40,7 @@ This project has been developed using the MERN stack. MERN stands for MongoDB, E
 ## Team Members
 - Azmi Abidi (40248132) - (role)
 - Nemroud Mohamed (40153847) - (role)
-- Full name (ID) - (role)
+- Tanzir Hoque (40210275) - (role)
 - Full name (ID) - (role)
 - Full name (ID) - (role)
 - Full name (ID) - (role)
@@ -65,7 +65,7 @@ Here are some relevant resources that helped us build this project:
 
 ## Contact
 * Azmi Abidi - a_abidi@live.concordia.ca
-* Full name - email
+* Tanzir Hoque - ta_hoque@live.concordia.ca
 * Full name - email
 * Full name - email
 * Full name - email
