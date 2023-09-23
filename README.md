@@ -54,13 +54,13 @@ This project has been developed using the MERN stack. MERN stands for MongoDB, E
 Here are some relevant resources that helped us build this project:
 
 ### Documentation
--
+- 
 -
 ### Learning Resources
--
--
+- [WebFX](https://www.webfx.com/blog/web-design/design-mockup-fidelity/): UI design mockup fidelity options
+- [W3schools](https://www.w3schools.com/nodejs/nodejs_get_started.asp): Online learning platform for Node.js 
 ### Video Tutorials
--
+- [freeCodeCamp.org](https://www.youtube.com/watch?v=mrHNSanmqQ4&ab_channel=freeCodeCamp.org): Video tutorial for basic MERN stack introduction
 -
 
 ## Contact
