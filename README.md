@@ -35,7 +35,7 @@ Companies are looking for experienced developers who have can work with these po
 4) Open the Terminal from that folder (or through VScode) and run the command "npm i" to download all the dependencies (node modules)
 5) Again through the terminal, run the command "npm run dev" and click on the localhost link
 
-## Usage guidelines (through Gitbash)
+## Usage guidelines
 
 (LOCAL)
 * Initialize git on the project
