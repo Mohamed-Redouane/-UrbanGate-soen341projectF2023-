@@ -1,18 +1,13 @@
 # UrbanGate
-<!-- 
-Ideas: 
-- add a "go to top" button after each section
-- add logos
--->
+
 <details>
 <summary>Table of Contents</summary>
     
-- [Objective](#Objective)
 - [Description of the project](#description-of-the-project)
 - [Built with](#built-with)
+- [Installation Instructions](#installation-instructions)
+- [Usage Guidelines](#usage-guidelines)
 - [Team Members](#team-members)
-- [Project Structure](#project-structure)
-- [Contribution Guidelines](#contribution-guidelines)
 - [Relevant resources](#relevant-resources)
     - [Documentation](#documentation)
     - [Learning Resources](#learning-resources)
@@ -20,22 +15,40 @@ Ideas:
 - [Contact](#contact)
 </details>
 
-## Objective 
-Develop a real estate web application that facilitates property search, appointment requests, listing management, and real estate transactions for homebuyers, property renters, brokers, and administrators.
-
 ## Description of the project
-(description of the project)
+The goal of this project is to develop a real estate web application that facilitates property search, appointment requests, listing management, and real estate transactions for homebuyers, property renters, brokers, and administrators.
 
 ## Built with
 This project has been developed using the MERN stack. MERN stands for MongoDB, Express.js, React, and Node.js.
-<!-- (why using this?) -->
+Companies are looking for experienced developers who have can work with these popular frameworks, and so it is a good idea to start learning them as soon as possible.
 *  MongoDB
 *  Express.js
-*  React
+*  React.js
 *  Node.js
 *  HTML5
 *  CSS3/Bootstrap
-*  TypeScript
+
+## Installation Instructions
+1) Click on "Code" and download the Zip file
+2) Save the contents of that file in a new folder
+3) Open the project folder through an IDE (preferably VScode)
+4) Open the Terminal from that folder (or through VScode) and run the command "npm i" to download all the dependencies (node modules)
+5) Again through the terminal, run the command "npm run dev" and click on the localhost link
+
+## Usage guidelines (through Gitbash)
+
+(LOCAL)
+* Initialize git on the project
+-     git init
+* Track the file by putting it in the stagging area
+-     git add file_name
+* Get the status of the files
+-     git status
+* commit the project
+-     git commit -m message_update
+
+(REMOTE)
+
 
 ## Team Members
 - Anthony El-Khoury (40262893) - (role)
@@ -45,23 +58,16 @@ This project has been developed using the MERN stack. MERN stands for MongoDB, E
 - Nguyen-My-Linh Tang (40229505) - (role)
 - Tanzir Hoque (40210275) - (role)
 
-## Project Structure
-
-## Contribution Guidelines
-(list and explain Contribution Guidelines)
-
 ## Relevant resources 
 Here are some relevant resources that helped us build this project:
 
 ### Documentation
-- 
--
+
 ### Learning Resources
 - [WebFX](https://www.webfx.com/blog/web-design/design-mockup-fidelity/): UI design mockup fidelity options
 - [W3schools](https://www.w3schools.com/nodejs/nodejs_get_started.asp): Online learning platform for Node.js 
 ### Video Tutorials
 - [freeCodeCamp.org](https://www.youtube.com/watch?v=mrHNSanmqQ4&ab_channel=freeCodeCamp.org): Video tutorial for basic MERN stack introduction
--
 
 ## Contact
 * Anthony El-Khoury - anthony_elie@outlook.com
