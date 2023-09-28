@@ -34,6 +34,7 @@ Companies are looking for experienced developers who have can work with these po
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+This technology stack empowers us to make a real estate platform that excels on multiple dimensions. MongoDB efficiently manages our real estate data, Express.js manages server-side logic seamlessly, React engineers an engaging and responsive frontend, Node.js ensures optimal performance with non-blocking I/O operations, while Bootstrap enhances our design aesthetics, fostering a visually appealing and user-friendly interface.
 ## Installation Instructions
 1) Click on "Code" and download the Zip file
 2) Save the contents of that file in a new folder
@@ -48,12 +49,12 @@ https://education.github.com/git-cheat-sheet-education.pdf
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Team Members
-- Anthony El-Khoury (40262893) - (role)
-- Azmi Abidi (40248132) - (role)
-- Matthew Thomas Pompeo (40263242) - (role)
-- Mohamed Nemroud (40153847) - (role)
-- Nguyen-My-Linh Tang (40229505) - (role)
-- Tanzir Hoque (40210275) - (role)
+- Anthony El-Khoury (40262893) - (Scrum Master/ Full Stack Developer)
+- Azmi Abidi (40248132) - (Full Stack Developer)
+- Matthew Thomas Pompeo (40263242) - (Full Stack Developer)
+- Mohamed Nemroud (40153847) - (Full Stack Developer)
+- Nguyen-My-Linh Tang (40229505) - (Full Stack Developer)
+- Tanzir Hoque (40210275) - (Full Stack Developer)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -74,7 +75,7 @@ Here are some relevant resources that helped us build this project:
 * Anthony El-Khoury - anthony_elie@outlook.com
 * Azmi Abidi - a_abidi@live.concordia.ca
 * Matthew Thomas Pompeo - matthewpompeo22@gmail.com
-* Mohamed Nemroud - m_nemrou@mail.concordia.ca
+* Mohamed Nemroud - m_nemrou@live.concordia.ca
 * Nguyen-My-Linh Tang - ng_tang@live.concordia.ca
 * Tanzir Hoque - ta_hoque@live.concordia.ca
 
