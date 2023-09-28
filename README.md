@@ -17,7 +17,7 @@
 </details>
 
 ## Description of the project
-The goal of this project is to develop a real estate web application that facilitates property search, appointment requests, listing management, and real estate transactions for homebuyers, property renters, brokers, and administrators.
+The goal of this project is to develop a real estate web application that provides numerous functionalities for the designated user. This project aims to provide said functionalities towards home buyers, property renters, brokers, and administrators. Home buyers and property renters are able to search for a property to buy or rent using various properties as filters for the building. They are also able to search for brokers, and home buyers will be able to consult a mortgage calculator for the specific property. Brokers will be able to manage their clients, being the homebuyers and property renters. The brokers will be able to view the numerous offers of their clients and manage them. The administrators will be able to manage the brokers. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -49,12 +49,12 @@ https://education.github.com/git-cheat-sheet-education.pdf
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Team Members
-- Anthony El-Khoury (40262893) - (Scrum Master/ Full Stack Developer)
-- Azmi Abidi (40248132) - (Full Stack Developer)
-- Matthew Thomas Pompeo (40263242) - (Full Stack Developer)
-- Mohamed Nemroud (40153847) - (Full Stack Developer)
-- Nguyen-My-Linh Tang (40229505) - (Full Stack Developer)
-- Tanzir Hoque (40210275) - (Full Stack Developer)
+- Anthony El-Khoury (40262893) - (Scrum Master)
+- Azmi Abidi (40248132) - (Product Owner)
+- Matthew Thomas Pompeo (40263242) - (Quality Assurance)
+- Mohamed Nemroud (40153847) - (Design Master)
+- Nguyen-My-Linh Tang (40229505) - (Team Leader)
+- Tanzir Hoque (40210275) - (Database Manager)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
