@@ -44,19 +44,7 @@ Companies are looking for experienced developers who have can work with these po
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Usage guidelines
-
-(LOCAL)
-* Initialize git on the project
--     git init
-* Track the file by putting it in the stagging area
--     git add file_name
-* Get the status of the files
--     git status
-* commit the project
--     git commit -m message_update
-
-(REMOTE)
-
+https://education.github.com/git-cheat-sheet-education.pdf
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Team Members
