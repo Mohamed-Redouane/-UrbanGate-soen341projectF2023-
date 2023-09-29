@@ -6,7 +6,7 @@ import Header from './assets/Components/Header.tsx' // from React's documentatio
 import Footer from'./assets/Components/Footer.tsx'
 import Houses from './assets/Components/Houses.tsx'
 
-const router = createBrowserRouter([{path: "/", element: <App/>,}, // from React Router's documentation
+const router = createBrowserRouter([{path: "/", element: <App/>,}, // from React Router's documentation, it associates a URL path with a component
 {path: "/houses", element: <Houses/>}])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
