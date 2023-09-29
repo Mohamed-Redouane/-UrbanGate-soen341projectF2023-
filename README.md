@@ -72,11 +72,12 @@ We could have decided to use basic HTML/CSS/Js; however, these tools are outdate
 - [W3schools](https://www.w3schools.com/nodejs/nodejs_get_started.asp): Online learning platform for Node.js
 - [React](https://react.dev/learn): React documentation
 - [ReactRouter](https://reactrouter.com/en/main/start/tutorial): React Router documentation
-- 
+- [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/): Bootstrap documentation
+
 ### Video Tutorials
 - [freeCodeCamp.org](https://www.youtube.com/watch?v=mrHNSanmqQ4&ab_channel=freeCodeCamp.org): Video tutorial for basic MERN stack introduction
 - [freeCodeCamp.org](https://www.youtube.com/watch?v=u6gSSpfsoOQ&t=2648s): Video tutorial on React
-- 
+- [NetNinja](https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU): Nodejs Tutorials
 - [Daily Tuition](https://www.youtube.com/watch?v=vr-I2HIVmTw&t=95s): Video tutorial for setuping up vite project
 
 <p align="right">(<a href="#top">back to top</a>)</p>
