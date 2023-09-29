@@ -12,7 +12,6 @@
 - [Relevant resources](#relevant-resources)
     - [Learning Resources](#learning-resources)
     - [Video Tutorials](#video-tutorials)
-- [Contact](#contact)
 </details>
 
 ## Description of the project
@@ -56,12 +55,12 @@ We could have decided to use basic HTML/CSS/Js; however, these tools are outdate
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Team Members
-- Anthony El-Khoury (40262893) - (Scrum Master)
-- Azmi Abidi (40248132) - (Product Owner)
-- Matthew Thomas Pompeo (40263242) - (Quality Assurance)
-- Mohamed Nemroud (40153847) - (Design Master)
-- Nguyen-My-Linh Tang (40229505) - (Team Leader)
-- Tanzir Hoque (40210275) - (Database Manager)
+- Anthony El-Khoury (40262893) - (Scrum Master) anthony_elie@outlook.com
+- Azmi Abidi (40248132) - (Product Owner) a_abidi@live.concordia.ca
+- Matthew Thomas Pompeo (40263242) - (Quality Assurance) matthewpompeo22@gmail.com
+- Mohamed Nemroud (40153847) - (Design Master) m_nemrou@live.concordia.ca
+- Nguyen-My-Linh Tang (40229505) - (Team Leader) ng_tang@live.concordia.ca
+- Tanzir Hoque (40210275) - (Database Manager) ta_hoque@live.concordia.ca
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -79,15 +78,5 @@ We could have decided to use basic HTML/CSS/Js; however, these tools are outdate
 - [freeCodeCamp.org](https://www.youtube.com/watch?v=u6gSSpfsoOQ&t=2648s): Video tutorial on React
 - [NetNinja](https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU): Nodejs Tutorials
 - [Daily Tuition](https://www.youtube.com/watch?v=vr-I2HIVmTw&t=95s): Video tutorial for setuping up vite project
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Contact
-* Anthony El-Khoury - anthony_elie@outlook.com
-* Azmi Abidi - a_abidi@live.concordia.ca
-* Matthew Thomas Pompeo - matthewpompeo22@gmail.com
-* Mohamed Nemroud - m_nemrou@live.concordia.ca
-* Nguyen-My-Linh Tang - ng_tang@live.concordia.ca
-* Tanzir Hoque - ta_hoque@live.concordia.ca
 
 <p align="right">(<a href="#top">back to top</a>)</p>
