@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function Header() {
 
-
+//a href works well with React Router, check React Router Documentation
     return (
         <div style={{position: "static"}}> 
             <div className="row"> <div className="card"> <div className="card-body" style={{backgroundColor: "#01AEB5", textAlign: "center"}}> <h5 className="card-header" style={{backgroundColor: "white"}}>  UrbanGate  </h5>   </div> </div> </div>
