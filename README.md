@@ -58,8 +58,8 @@ We could have decided to use basic HTML/CSS/Js; however, these tools are outdate
 - Anthony El-Khoury (40262893) - (Scrum Master) anthony_elie@outlook.com
 - Azmi Abidi (40248132) - (Product Owner) a_abidi@live.concordia.ca
 - Matthew Thomas Pompeo (40263242) - (Quality Assurance) matthewpompeo22@gmail.com
-- Mohamed Nemroud (40153847) - (Design Master) m_nemrou@live.concordia.ca
-- Nguyen-My-Linh Tang (40229505) - (Team Leader) ng_tang@live.concordia.ca
+- Mohamed Nemroud (40153847) - (Team Leader) m_nemrou@live.concordia.ca
+- Nguyen-My-Linh Tang (40229505) - (Design Master) ng_tang@live.concordia.ca
 - Tanzir Hoque (40210275) - (Database Manager) ta_hoque@live.concordia.ca
 
 <p align="right">(<a href="#top">back to top</a>)</p>
