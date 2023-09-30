@@ -9,6 +9,7 @@ import App from './assets/Components/App.tsx'
 import Header from './assets/Components/Header.tsx' 
 import Footer from'./assets/Components/Footer.tsx'
 import Houses from './assets/Components/Houses.tsx'
+import "bootstrap/dist/css/bootstrap.min.css"
 
 const router = createBrowserRouter([{path: "/", element: <App/>,}, //[2], it associates a URL path with a component
 {path: "/houses", element: <Houses/>}])
