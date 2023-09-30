@@ -1,14 +1,18 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// REFERENCES
+// [1] Bootstrap Documentation: https://getbootstrap.com/docs/5.3/getting-started/introduction/
+// [2] React Documentation: https://react.dev/learn
+// [3] React Router Documentation: https://reactrouter.com/en/main/start/tutorial
 
-function Header() {
+import "bootstrap/dist/css/bootstrap.min.css"; //[1] don't forget this
 
-//a href works well with React Router, check React Router Documentation
+function Header() { //[2]
+
     return (
         <div style={{position: "static"}}> 
-            <div className="row"> <div className="card"> <div className="card-body" style={{backgroundColor: "#01AEB5", textAlign: "center"}}> <h5 className="card-header" style={{backgroundColor: "white"}}>  UrbanGate  </h5>   </div> </div> </div>
-        <div className="row"> 
-        <div className="col-3" style={{textAlign: "center", border: "solid", backgroundColor: "white"}}> <a href="/"> <h5 style={{color: "black"}}> About  </h5> </a> </div> <!-- Style attribute is weird for React, look at https://www.w3schools.com/react/react_css.asp-->
-        <div className="col-3" style={{textAlign: "center", border: "solid", backgroundColor: "white"}}> <a href="/houses"> <h5 style={{color: "black"}}> Houses </h5> </a> </div>
+          
+        <div className="row"> {/*[1], bootstrap rows and cols */}
+        <div className="col-3" style={{textAlign: "center", border: "solid", backgroundColor: "white"}}> <a href="/"> <h5 style={{color: "black"}}> About  </h5> </a> </div> {/*[3], paths made with href*/}
+        <div className="col-3" style={{textAlign: "center", border: "solid", backgroundColor: "white"}}> <a href="/houses"> <h5 style={{color: "black"}}> Houses </h5> </a> </div> {/* [2], style attribute is weird https://www.w3schools.com/react/react_css.asp*/}
         <div className="col-3" style={{textAlign: "center", border: "solid", backgroundColor: "white"}}> <a href="/broker">  <h5 style={{color: "black"}}>Broker </h5> </a> </div>
         <div className="col-3" style={{textAlign: "center", border: "solid", backgroundColor: "white"}}>  <a href="/account"> <h5 style={{color: "black"}}> Account </h5>  </a> </div>
 
