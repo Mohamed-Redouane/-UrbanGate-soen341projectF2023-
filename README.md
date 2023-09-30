@@ -27,8 +27,8 @@ Home-buyers and property renters are able to search for a property to buy or ren
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Built with
-This project has been developed using the MERN stack. MERN stands for MongoDB, Express.js, React, and Node.js.
-Companies are looking for experienced developers who have can work with these popular frameworks, and so it is a good idea to start learning them as soon as possible.
+This project is being developped using the MERN stack. MERN stands for MongoDB, Express.js, React, and Node.js.
+Companies are looking for experienced developers who can work with these popular frameworks, and so it is a good idea to start learning them as soon as possible.
 
 This technology stack allows us to make a modern real estate application with fully functional features. MongoDB efficiently manages our real estate data base; we will be using the mongoose library as it faciliates our job. Express.js faciliates server-side connections. React, Vite and React Router create an intuitive, fast and responsive frontend. Node.js ensures optimal performance with the ability to use javascript in the backend. Bootstrap is a library that complements our user Interface.
 
