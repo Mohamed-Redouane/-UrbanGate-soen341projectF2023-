@@ -1,19 +1,15 @@
+// REFERENCES
+// [1] React Documentation: https://react.dev/learn
+
 import { useState } from 'react'
 
-function App() { //functional component, look at documenation
+function App() { // [1]
 
   return (
-    <> <!--the function can only return one tag, so whole text below has to be envelopped by 1 tag-->
+    <> {/* [1] remember, the function only returns 1 tag, so it has to be envelopped */}
       <div>
         <p> Welcome to this real estate website  </p>
       </div>
-      
-      <div className="card-list">
-
-
-      </div>
-
-
     </>
   )
 }
