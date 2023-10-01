@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 
-const SignInForm: React.FC = () => {
+function SignInForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
   };
 
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
     console.log('Email:', email);
     console.log('Password:', password);
   };
@@ -23,22 +23,18 @@ const SignInForm: React.FC = () => {
       <h2>Sign In</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="email">Email</label>
+          <label>Email</label>
           <input
             type="email"
-            id="email"
-            name="email"
             value={email}
             onChange={handleEmailChange}
             required
           />
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label>Password</label>
           <input
             type="password"
-            id="password"
-            name="password"
             value={password}
             onChange={handlePasswordChange}
             required
@@ -48,6 +44,6 @@ const SignInForm: React.FC = () => {
       </form>
     </div>
   );
-};
+}
 
 export default SignInForm;

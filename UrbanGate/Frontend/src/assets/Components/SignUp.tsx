@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SignUpForm: React.FC = () => {
+function SignUpForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
