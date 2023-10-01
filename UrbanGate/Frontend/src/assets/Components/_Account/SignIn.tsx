@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+const server = 'http://localhost:3000';
 
-function SignInForm() {
+export default function SignInForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,10 +13,12 @@ function SignInForm() {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     console.log('Email:', email);
     console.log('Password:', password);
+    const response = await fetch(server);
+    console.log(response);
   };
 
   return (
@@ -40,10 +43,9 @@ function SignInForm() {
             required
           />
         </div>
-        <button type="submit">Sign In</button>
+        <button onClick={handleSubmit}>Sign In</button>
       </form>
     </div>
   );
 }
 
-export default SignInForm;
