@@ -11,7 +11,7 @@ function AccountsPage(){
       <button>
         <Link to="/accounts/signup">Sign Up</Link>
       </button>
-    </div>
+  </div>
     );
 }
 export default AccountsPage;

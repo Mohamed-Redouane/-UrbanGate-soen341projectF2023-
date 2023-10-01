@@ -4,32 +4,36 @@
 
 import React from 'react' // [1]
 import ReactDOM from 'react-dom/client'
-/*import {BrowserRouter, createBrowserRouter,RouterProvider,} from "react-router-dom"; // [2]*/
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import App from './assets/Components/App.tsx'
+import {createBrowserRouter,RouterProvider,} from "react-router-dom"; // [2]*/
+import AboutPage from './assets/Components/_About/AboutPage.tsx';
 import Header from './assets/Components/Header.tsx' 
 import Footer from'./assets/Components/Footer.tsx'
-import Houses from './assets/Components/Houses.tsx'
-import SignUp from './assets/Components/SignUp.tsx'
-import SignIn from './assets/Components/SignIn.tsx'
-import AccountsPage from './assets/Components/AccountsPage.tsx';
+import Houses from './assets/Components/_Houses/Houses.tsx'
+import SignUp from './assets/Components/_Account/SignUp.tsx'
+import SignIn from './assets/Components/_Account/SignIn.tsx'
+import AccountsPage from './assets/Components/_Account/AccountsPage.tsx';
 import "bootstrap/dist/css/bootstrap.min.css"
 
-/*const router = createBrowserRouter([{path: "/", element: <App/>,}, //[2], it associates a URL path with a component
-{path: "/houses", element: <Houses/>}])*/
+const router = createBrowserRouter([
+{path: "/", element: <AboutPage/>,}, //[2], it associates a URL path with a component
+
+{path: "/houses", element: <Houses/>},
+
+{path: "/accounts", element: <AccountsPage/>},
+{path: "/accounts/signup", element: <SignUp/>},
+{path: "/accounts/signin", element:<SignIn/>},
+
+
+
+])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
  
   <React.StrictMode>
-  <BrowserRouter>
+
     <Header/>
-    <Routes>
-    <Route path="/houses" element={<Houses />} />
-    <Route path="/accounts" element={<AccountsPage />} />
-    <Route path="/accounts/signup" element={<SignUp />} />
-    <Route path="/accounts/signin" element={<SignIn />} />
-    </Routes>
+   <RouterProvider router = {router}/>
     <Footer/>
-    </BrowserRouter>
+
   </React.StrictMode>
 )
