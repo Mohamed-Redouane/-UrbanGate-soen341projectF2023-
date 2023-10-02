@@ -12,9 +12,6 @@
   "type": "module",
   "dependencies": {
     "express": "^4.18.2",
-    "mongoose": "^7.5.3"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
+    "mongoose": "^7.5.1"
   }
 }
