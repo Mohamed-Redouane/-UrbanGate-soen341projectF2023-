@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 let db = null;
 
-async function connectDB(dbhost,dbName) {
+async function connectDB() {
   if (!db) {
         try {
             const connection = await mongoose.connect(`mongodb+srv://Cluster96567:SOEN341@cluster96567.wpnpdsc.mongodb.net/`);
