@@ -1,0 +1,59 @@
+/* Style for the "Request Visit" button */
+.request-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Style for the modal overlay */
+.ReactModal__Overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Style for the modal content */
+.ReactModal__Content {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  max-width: 400px;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style for the close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #007bff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the "Select a Date" heading */
+.select-date-heading {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Style for the date input field */
+.date-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+}
