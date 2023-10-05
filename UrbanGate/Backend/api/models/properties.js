@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose";//properties
 
 const PropertieSchema = new mongoose.Schema({
 
