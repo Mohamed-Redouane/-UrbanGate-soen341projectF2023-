@@ -3,11 +3,8 @@
 // [2] React Documentation: https://react.dev/learn
 // [3] React Router Documentation: https://reactrouter.com/en/main/start/tutorial
 import Accounts from "./AccountsPage";
-
-import "bootstrap/dist/css/bootstrap.min.css"; //[1] don't forget this
-
-function Header() { //[2]
-
+import "bootstrap/dist/css/bootstrap.min.css"; //[1] don't forget thison Header() { //[2]
+function Header(){
     return (
         <div style={{position: "static"}}> 
           
