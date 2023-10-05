@@ -1,0 +1,23 @@
+.title{
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center; 
+    height: 10vw;
+}
+
+.nav1 {
+color: black;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+text-align: center;
+background-color: rgb(193, 193, 193);
+border-radius: 5px;
+}
+
+.nav1:hover {
+    background-color: rgb(125, 125, 125)  ;
+}
+
+.dropd1:hover {
+border: "solid"
+
+}
