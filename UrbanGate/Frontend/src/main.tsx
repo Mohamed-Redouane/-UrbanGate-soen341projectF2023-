@@ -13,6 +13,7 @@ import SignUp from './assets/Components/_Account/SignUp.tsx'
 import SignIn from './assets/Components/_Account/SignIn.tsx'
 import AccountsPage from './assets/Components/_Account/AccountsPage.tsx';
 import "bootstrap/dist/css/bootstrap.min.css"
+import RequestVisitButton from './assets/Components/_Houses/RequestVisitButton.tsx';
 
 const router = createBrowserRouter([
 {path: "/", element: <AboutPage/>,}, //[2], it associates a URL path with a component
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
 {path: "/accounts", element: <AccountsPage/>},
 {path: "/accounts/signup", element: <SignUp/>},
 {path: "/accounts/signin", element:<SignIn/>},
+{path: "/house/propertydetail", element:<RequestVisitButton/>}
 
 
 
