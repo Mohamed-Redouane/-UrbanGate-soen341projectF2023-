@@ -9,6 +9,7 @@ import "./RequestVisit.css";
 function RequestVisitButton() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
 
   // open the modal window
   const openModal = () => {
@@ -21,8 +22,9 @@ function RequestVisitButton() {
   };
 
   // Sets the selected date and closes the modal window
-  const handleDateSelect = (date: string) => {
+  const handleDateSelect = (date: string, time: string) => {
     setSelectedDate(date);
+    setSelectedTime(time);
     closeModal();
 
     // implement a way to collect user details etc...
@@ -45,7 +47,7 @@ function RequestVisitButton() {
 
   return (
     <div>
-      <h2>Properties</h2>
+      <h2>Test implementation</h2>
       <button className="request-button" onClick={openModal}>
         Request Visit
       </button>
@@ -59,13 +61,46 @@ function RequestVisitButton() {
         <button className="close-button" onClick={closeModal}>
           ❌
         </button>
-        <h3 className="select-date-heading">Select a Date</h3>
+        <h3 className="select-date-heading">Select a date and time</h3>
         <input
           className="date-input"
           type="date"
-          onChange={(e) => handleDateSelect(e.target.value)}
+          onChange={(e) => handleDateSelect(e.target.value, selectedTime || "")}
           value={selectedDate || ""}
         />
+        <div>
+          <label htmlFor="morning">Morning</label>
+          <input
+            type="radio"
+            id="morning"
+            name="time"
+            value="morning"
+            onChange={(e) => setSelectedTime(e.target.value)}
+            checked={selectedTime === "morning"}
+          />
+        </div>
+        <div>
+          <label htmlFor="afternoon">Afternoon</label>
+          <input
+            type="radio"
+            id="afternoon"
+            name="time"
+            value="afternoon"
+            onChange={(e) => setSelectedTime(e.target.value)}
+            checked={selectedTime === "afternoon"}
+          />
+        </div>
+        <div>
+          <label htmlFor="evening">Evening</label>
+          <input
+            type="radio"
+            id="evening"
+            name="time"
+            value="evening"
+            onChange={(e) => setSelectedTime(e.target.value)}
+            checked={selectedTime === "evening"}
+          />
+        </div>
       </Modal>
     </div>
   );
