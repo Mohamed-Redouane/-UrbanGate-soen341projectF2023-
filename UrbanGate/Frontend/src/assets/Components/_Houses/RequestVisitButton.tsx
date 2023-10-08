@@ -68,39 +68,16 @@ function RequestVisitButton() {
           onChange={(e) => handleDateSelect(e.target.value, selectedTime || "")}
           value={selectedDate || ""}
         />
-        <div>
-          <label htmlFor="morning">Morning</label>
-          <input
-            type="radio"
-            id="morning"
-            name="time"
-            value="morning"
-            onChange={(e) => setSelectedTime(e.target.value)}
-            checked={selectedTime === "morning"}
-          />
-        </div>
-        <div>
-          <label htmlFor="afternoon">Afternoon</label>
-          <input
-            type="radio"
-            id="afternoon"
-            name="time"
-            value="afternoon"
-            onChange={(e) => setSelectedTime(e.target.value)}
-            checked={selectedTime === "afternoon"}
-          />
-        </div>
-        <div>
-          <label htmlFor="evening">Evening</label>
-          <input
-            type="radio"
-            id="evening"
-            name="time"
-            value="evening"
-            onChange={(e) => setSelectedTime(e.target.value)}
-            checked={selectedTime === "evening"}
-          />
-        </div>
+        <select
+          className="time-select"
+          value={selectedTime || ""}
+          onChange={(e) => setSelectedTime(e.target.value)}
+        >
+          <option value="">Select a Time</option>
+          <option value="morning">Morning</option>
+          <option value="afternoon">Afternoon</option>
+          <option value="evening">Evening</option>
+        </select>
       </Modal>
     </div>
   );
