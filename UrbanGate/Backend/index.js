@@ -21,6 +21,21 @@ app.post("/createUser", async(req,res)=> { //must put async because theres an aw
     catch (Exception) {console.log("USER ALREADY EXISTS");}
 })
 
+app.post("/signIn"), async(req,res)=>{
+    const { email, password } = req.body;
+    const user = await USER.findOne({ email}); //look for the email, if it does not exist enter if statement
+
+    if(!user){ //user is not found as email does not match in the database
+        return res.json({message:"Account does not exist"});
+    }
+
+    const passwordCheck = await compare(password, user.password); //compares the password from the request with the password of the user
+    if (!passwordCheck){
+        return res.json({message:"Password is incorrect"})
+    }
+
+    const token = jwt.sign({user_id:user._id}); //token is a string of unreadable data,
+}
 
 const PORT =  3000;
 app.listen(PORT, () => {

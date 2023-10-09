@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import "./SignIn.css"
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 
 function AccountsPage(){
     return(
@@ -28,6 +29,18 @@ function SignIn(){
   };
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
+  }
+  //const [ ,setCookies]=useCookies(["tokenFromJwt"]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = {email: email, password: password};
+    const responseFromAPI = axios.post("http://localhost:3000/signIn", data)
+    .then(()=> console.log("SUCCESS"))
+    .catch((res)=> console.log(res));
+   //setCookies("tokenFromJwt", responseFromAPI); //going to store the user_id being sent back, this proves authentication and allows user to be verifed
+   //Note going to use cookie to validate whether to re-route sign in page to managing accounts page once authentication token exists
+    //navigate("/"); //sends user to home page and the accounts page will not route to account management
   }
 
   return(
@@ -86,7 +99,7 @@ function SignUp(){
   const success = () => {
     alert("SUCCESS");
   }
-
+const navigate = useNavigate();
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
@@ -111,6 +124,7 @@ function SignUp(){
     .then(()=> console.log("SUCCESS"))
     .catch((res)=> console.log(res));
     //console.log(email +  "" + password +"" + name+""   + role);
+    navigate("/")
   }
 
 return(
