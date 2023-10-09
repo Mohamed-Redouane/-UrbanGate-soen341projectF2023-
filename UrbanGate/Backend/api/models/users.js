@@ -2,17 +2,13 @@ import mongoose from "mongoose";//user
 
 const usersSchema = new mongoose.Schema({
 
-_id: mongoose.Schema.Types.ObjectId,
+// _id: mongoose.Schema.Types.ObjectId,
 
-    FirstName:{
+    name:{
         type:String,
         required: true
     }, 
 
-    LastName:{
-    type:String,
-    required:true
-    },
 email:{
     type:String,
     required: true,
