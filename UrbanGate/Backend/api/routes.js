@@ -1,27 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
-router.post('/validate', async (req, res) => {
-    const enteredPassword = req.body.password; // this is for authentication
-    const storedPasswordHash = '...'; 
-  
-    try {
-    
-      const passwordMatch = await bcrypt.compare(enteredPassword, storedPasswordHash);
-  
-      if (passwordMatch) {
-        const authToken = '...'; 
-        res.status(200).json({ success: true, token: authToken });
-      } else {
-        
-        res.status(401).json({ success: false, message: 'Authentication failed' });
-      }
-    } catch (error) {
-      
-      console.error('Authentication error:', error);
-      res.status(500).json({ success: false, message: 'Internal server error' });
-    }
-  });
+import cors from 'cors'
+import USER from './models/users'
+router.use(cors());
+
         router.get('/homebuyer/search', (req, res) => {
         
         });
