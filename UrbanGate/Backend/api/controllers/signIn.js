@@ -9,14 +9,14 @@ export default async function signIn(req,res) {
     if(!user){ //user is not found as email does not match in the database
         return res.status(401).json({message:"Account does not exist"});
     }else{
-      console.log("Email found: ", email);
+      console.log("User found with email:", email);
     }
 
     const passwordCheck = await User.findOne({password}); //compares the password from the request with the password of the user
     if (!passwordCheck){
         return res.status(401).json({ message: "Incorrect password" });
     }else{
-      console.log("Password found: ", password);
+      console.log("Password matches for user with email:", email)
     }
 
     const accessToken = createAccessToken(user._id); // if password is correct, create the tokens
