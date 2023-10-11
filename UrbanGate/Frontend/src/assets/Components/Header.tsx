@@ -7,9 +7,15 @@ import "bootstrap/dist/css/bootstrap.min.css"; //[1] don't forget this
 import { motion } from "framer-motion";
 import "./Header.css";
 import logo from "./logo.png" //font from https://www.fontget.com/font/lequire/
+import { useCookies } from 'react-cookie'
 
 function Header() { //[2]
-
+const[cookies,setCookies] = useCookies(["access_token"]);
+const logout = () => {
+    setCookies("access_token",null);
+    window.localStorage.removeItem("UserID");
+    window.location.replace("/");
+}
     return (
         <motion.div initial={{ opacity: 0, scale: 1 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3 }}>
             <div style={{ background: "#2a0000" }} >
@@ -19,7 +25,9 @@ function Header() { //[2]
                     <div className="col-2" > <a href="/" style={{ textDecorationLine: "none" }}> <h5 className="nav1"> About<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg></h5> </a> </div> {/*[3], paths made with href*/}
                     <div className="col-2"> <a href="/houses" style={{ textDecorationLine: "none" }}> <h5 className="nav1"> Houses <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="dropd" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg> </h5> </a> </div> {/* [2], style attribute is weird https://www.w3schools.com/react/react_css.asp*/}
                     <div className="col-2"> <a href="/broker" style={{ textDecorationLine: "none" }}>  <h5 className="nav1"> Brokers<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg> </h5> </a> </div>
-                    <div className="col-2">  <a href="/accounts" style={{ textDecorationLine: "none" }}> <h5 className="nav1"> Accounts<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg> </h5>  </a> </div>
+                    <div className="col-2">  <a href="/accounts" style={{ textDecorationLine: "none" }}> 
+                     {!cookies.access_token ? (<h5 className="nav1"> Accounts<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg> </h5>): <button onClick={logout}> Logout </button>}
+                    </a> </div>
                     <div className="col-2"/>
 
                 </div>
