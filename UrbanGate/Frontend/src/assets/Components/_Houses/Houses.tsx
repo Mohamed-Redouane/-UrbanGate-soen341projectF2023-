@@ -3,7 +3,6 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import RequestVisitButton from "./RequestVisitButton";
 
 /*
 const [houses, setHouses] = useState([]); 
@@ -18,29 +17,87 @@ async function getHouses() {
 */
 
 const House = [
-    { id: 1, imageUrl: "https://www.livehome3d.com/assets/img/social/how-to-design-a-house.jpg", price: "$500,000", Location: "Downtown", Type: "Appartment", NumberOfBaths: 2, NumberofBeds: 3, Description: "This space is to describe briefly the property.", },
-    { id: 2, imageUrl: "https://www.thehousedesigners.com/images/plans/01/URD/bulk/6583/the-destination-front-rendering_m.webp", price: "$650,000", Location: "Saint-Laurent", Type: "Condo", NumberOfBaths: 1, NumberofBeds: 2, Description: "This space is to describe briefly the property.", },
-    { id: 3, imageUrl: "https://www.livehome3d.com/assets/img/social/how-to-design-a-house.jpg", price: "$850,000", Location: "Mont-Royal", Type: "House", NumberOfBaths: 1, NumberofBeds: 2, Description: "This space is to describe briefly the property.", },
-    { id: 4, imageUrl: "https://www.thehousedesigners.com/images/plans/01/URD/bulk/6583/the-destination-front-rendering_m.webp", price: "$850,000", Location: "Mont-Royal", Type: "House", NumberOfBaths: 1, NumberofBeds: 2, Description: "This space is to describe briefly the property.", },
+  {
+    id: 1,
+    imageUrl:
+      "https://www.livehome3d.com/assets/img/social/how-to-design-a-house.jpg",
+    price: "$500,000",
+    Location: "Downtown",
+    Type: "Appartment",
+    NumberOfBaths: 2,
+    NumberofBeds: 3,
+    Description: "This space is to describe briefly the property.",
+  },
+  {
+    id: 2,
+    imageUrl:
+      "https://www.thehousedesigners.com/images/plans/01/URD/bulk/6583/the-destination-front-rendering_m.webp",
+    price: "$650,000",
+    Location: "Saint-Laurent",
+    Type: "Condo",
+    NumberOfBaths: 1,
+    NumberofBeds: 2,
+    Description: "This space is to describe briefly the property.",
+  },
+  {
+    id: 3,
+    imageUrl:
+      "https://www.livehome3d.com/assets/img/social/how-to-design-a-house.jpg",
+    price: "$850,000",
+    Location: "Mont-Royal",
+    Type: "House",
+    NumberOfBaths: 1,
+    NumberofBeds: 2,
+    Description: "This space is to describe briefly the property.",
+  },
+  {
+    id: 4,
+    imageUrl:
+      "https://www.thehousedesigners.com/images/plans/01/URD/bulk/6583/the-destination-front-rendering_m.webp",
+    price: "$850,000",
+    Location: "Mont-Royal",
+    Type: "House",
+    NumberOfBaths: 1,
+    NumberofBeds: 2,
+    Description: "This space is to describe briefly the property.",
+  },
 ];
 
 const PriceRange = () => {
-  const [minValue, setMinValue] = useState("0"); 
-  const [maxValue, setMaxValue] = useState("1000000"); 
+  const [minValue, setMinValue] = useState("0");
+  const [maxValue, setMaxValue] = useState("1000000");
   return (
     <>
-    <small style={{fontWeight:"bold"}}>Price Range:<br></br></small>
-    <p style={{fontSize:"10px"}}>${minValue}-${maxValue}</p>
-    <small>min:</small>
-    <input type="range" className="form-range" min={0} max={1000000} step={10000} id="myRange" style={{width:"100px"}}
-    value={minValue}
-    onChange={event => setMinValue(event.target.value)}
-    ></input>
-    <small>max:</small>
-    <input type="range" className="form-range" min={0} max={1000000} step={10000} id="myRange" style={{width:"100px"}}
-    value={maxValue}
-    onChange={event => setMaxValue(event.target.value)}
-    ></input>
+      <small style={{ fontWeight: "bold" }}>
+        Price Range:<br></br>
+      </small>
+      <p style={{ fontSize: "10px" }}>
+        ${minValue}-${maxValue}
+      </p>
+      <small>min:</small>
+      <input
+        type="range"
+        className="form-range"
+        min={0}
+        max={1000000}
+        step={10000}
+        id="myRange"
+        style={{ width: "100px" }}
+        value={minValue}
+        onChange={(event) => setMinValue(event.target.value)}
+      ></input>
+      <small>max:</small>
+      <input
+        type="range"
+        className="form-range"
+        min={0}
+        max={1000000}
+        step={10000}
+        id="myRange"
+        style={{ width: "100px" }}
+        value={maxValue}
+        onChange={(event) => setMaxValue(event.target.value)}
+      ></input>
     </>
   );
 };
@@ -127,40 +184,108 @@ function Houses() {
           </select>
         </form>
 
-      <div className="PriceRange" style={{marginLeft:"40px",display:"inline-block", width:"150px"}}>
-      <PriceRange/>
-      </div>
+        <div
+          className="PriceRange"
+          style={{
+            marginLeft: "40px",
+            display: "inline-block",
+            width: "150px",
+          }}
+        >
+          <PriceRange />
+        </div>
 
         <button
           className="btn border border-gray border-2 bg-black text-white"
           type="button"
           id="dropdownMenuButton2"
-          style={{ width: "120px", marginLeft: "30px", display:"inline-block"}}
+          style={{
+            width: "120px",
+            marginLeft: "30px",
+            display: "inline-block",
+          }}
         >
           Search Now
         </button>
       </div>
 
-     {House.map((House) =>
-      <div className="card bg-dark text-white mx-4 mt-5" style={{width: "310px", height: "460px", display: "inline-block" }}>
-        <img src={House.imageUrl} className="card-img-top" alt="..." style={{ height: "200px" }}></img>
+      {House.map((House) => (
+        <div
+          className="card bg-dark text-white mx-4 mt-5"
+          style={{ width: "310px", height: "460px", display: "inline-block" }}
+        >
+          <img
+            src={House.imageUrl}
+            className="card-img-top"
+            alt="..."
+            style={{ height: "200px" }}
+          ></img>
           <div className="card-body">
-            <ul className="list-group list-group-horizontal" style={{ fontSize: "11px", height: "30px", width: "270px" }}>
-              <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "110px", padding: "none"}}> Location: <br></br> <p style={{textAlign: "center" }}> {House.Location}</p></li>
-              <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "110px", padding: "none" }}>Type:<br></br> <p style={{textAlign: "center" }}> {House.Type} </p> </li>
-              <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "100px", padding: "none" }}> Beds: {House.NumberofBeds} <br></br>Baths: {House.NumberOfBaths}</li>
-            </ul><br></br>
-              <h5 className="card-title mt-1"> {House.price} </h5>
-              <p className="card-text" style={{ fontSize: "15px" }}> {House.Description}</p>
-              <div>
-             <button className="btn btn-secondary text-white">
-              <Link to="/houses/propertypagedetail" style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>See More Detail</Link></button>
-                </div>
+            <ul
+              className="list-group list-group-horizontal"
+              style={{ fontSize: "11px", height: "30px", width: "270px" }}
+            >
+              <li
+                className="list-group-item bg-dark text-white rounded-0 pt-0"
+                style={{
+                  borderTop: "none",
+                  borderBottom: "none",
+                  width: "110px",
+                  padding: "none",
+                }}
+              >
+                {" "}
+                Location: <br></br>{" "}
+                <p style={{ textAlign: "center" }}> {House.Location}</p>
+              </li>
+              <li
+                className="list-group-item bg-dark text-white rounded-0 pt-0"
+                style={{
+                  borderTop: "none",
+                  borderBottom: "none",
+                  width: "110px",
+                  padding: "none",
+                }}
+              >
+                Type:<br></br>{" "}
+                <p style={{ textAlign: "center" }}> {House.Type} </p>{" "}
+              </li>
+              <li
+                className="list-group-item bg-dark text-white rounded-0 pt-0"
+                style={{
+                  borderTop: "none",
+                  borderBottom: "none",
+                  width: "100px",
+                  padding: "none",
+                }}
+              >
+                {" "}
+                Beds: {House.NumberofBeds} <br></br>Baths: {House.NumberOfBaths}
+              </li>
+            </ul>
+            <br></br>
+            <h5 className="card-title mt-1"> {House.price} </h5>
+            <p className="card-text" style={{ fontSize: "15px" }}>
+              {" "}
+              {House.Description}
+            </p>
+            <div>
+              <button className="btn btn-secondary text-white">
+                <Link
+                  to="/houses/propertypagedetail"
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                    fontSize: "14px",
+                  }}
+                >
+                  See More Detail
+                </Link>
+              </button>
+            </div>
           </div>
-      </div>
-            )
-            }
-      <RequestVisitButton />
+        </div>
+      ))}
     </>
   );
 }

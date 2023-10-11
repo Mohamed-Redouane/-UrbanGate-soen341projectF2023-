@@ -27,7 +27,7 @@ function RequestVisitButton() {
     setSelectedTime(time);
     closeModal();
 
-    // implement a way to collect user details etc...
+    // ******* implement a way to collect user details etc...
   };
 
   // style the modal window
@@ -58,9 +58,6 @@ function RequestVisitButton() {
         style={customStyles}
         contentLabel="Select Date Modal"
       >
-        <button className="close-button" onClick={closeModal}>
-          ❌
-        </button>
         <h3 className="select-date-heading">Select a date and time</h3>
         <input
           className="date-input"
