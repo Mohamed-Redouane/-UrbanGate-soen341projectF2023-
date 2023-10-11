@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Select from "react-select";
 
 /*
 const [houses, setHouses] = useState([]); 
@@ -102,33 +103,61 @@ const PriceRange = () => {
   );
 };
 
+const propertyTypeOptions = [
+  { label: "Appartment", value: "Appartment" },
+  { label: "Condo", value: "Condo" },
+  { label: "House", value: "House" },
+];
+
+const bathsOptions = [
+  { label: "0", value: 0 },
+  { label: "1", value: 1 },
+  { label: "2", value: 2 },
+  { label: "3+", value: 3 },
+];
+
+const bedsOptions = [
+  { label: "0", value: 0 },
+  { label: "1", value: 1 },
+  { label: "2", value: 2 },
+  { label: "3+", value: 3 },
+];
+
 function Houses() {
-  //[1], functional component
+  const [selectedPropertyTypes, setSelectedPropertyTypes] = useState<string[]>(
+    []
+  );
+  const [selectedBaths, setSelectedBaths] = useState<number[]>([]);
+  const [selectedBeds, setSelectedBeds] = useState<number[]>([]);
+
+  const handlePropertyTypeChange = (selectedOptions: any) => {
+    setSelectedPropertyTypes(
+      selectedOptions.map((option: any) => option.value)
+    );
+  };
+
+  const handleBathsChange = (selectedOptions: any) => {
+    setSelectedBaths(selectedOptions.map((option: any) => option.value));
+  };
+
+  const handleBedsChange = (selectedOptions: any) => {
+    setSelectedBeds(selectedOptions.map((option: any) => option.value));
+  };
+
   return (
-    //[1] returns tsx (typescript xml)
     <>
-      <div
-        className="dropdown mt-5 rounded border border-light border-3"
-        style={{
-          backgroundColor: "white",
-          height: "230px",
-          paddingLeft: "40px",
-          paddingTop: "20px",
-          width: "1200px",
-          marginLeft: "100px",
-        }}
-      >
-        <p style={{ fontWeight: "bold" }}> Search for available properties</p>
+      <div className="dropdown mt-5 rounded border border-light border-3">
+        <p style={{ fontWeight: "bold" }}>Search for available properties</p>
         <form style={{ width: "150px", display: "inline-block" }}>
-          <select className="form-control">
-            <option selected disabled>
-              {" "}
-              Choose Location
-            </option>
-            <option value="Downtown"> Downtown</option>
-            <option value="NDG"> NDG</option>
-            <option value="Villeray-Extension"> Villeray-Extension</option>
-          </select>
+          <label style={{ fontWeight: "bold" }}>Property Type</label>
+          <Select
+            isMulti
+            options={propertyTypeOptions}
+            onChange={handlePropertyTypeChange}
+            value={propertyTypeOptions.filter((option) =>
+              selectedPropertyTypes.includes(option.value)
+            )}
+          />
         </form>
         <form
           style={{
@@ -137,17 +166,16 @@ function Houses() {
             marginLeft: "30px",
           }}
         >
-          <select className="form-control">
-            <option selected disabled>
-              {" "}
-              Property Type
-            </option>
-            <option value="Appartment"> Appartment</option>
-            <option value="Condo"> Condo </option>
-            <option value="House"> House</option>
-          </select>
+          <label style={{ fontWeight: "bold" }}>Number of Baths</label>
+          <Select
+            isMulti
+            options={bathsOptions}
+            onChange={handleBathsChange}
+            value={bathsOptions.filter((option) =>
+              selectedBaths.includes(option.value)
+            )}
+          />
         </form>
-
         <form
           style={{
             width: "150px",
@@ -155,33 +183,15 @@ function Houses() {
             marginLeft: "30px",
           }}
         >
-          <select className="form-control">
-            <option selected disabled>
-              {" "}
-              Number of Beds
-            </option>
-            <option value="1Bed">1 bed</option>
-            <option value="2Beds">2 beds</option>
-            <option value="3Beds">3 beds</option>
-          </select>
-        </form>
-
-        <form
-          style={{
-            width: "150px",
-            display: "inline-block",
-            marginLeft: "30px",
-          }}
-        >
-          <select className="form-control">
-            <option selected disabled>
-              {" "}
-              Number of Baths
-            </option>
-            <option value="1Bath">1 bath</option>
-            <option value="2Baths">2 baths</option>
-            <option value="3Baths">3 baths</option>
-          </select>
+          <label style={{ fontWeight: "bold" }}>Number of Beds</label>
+          <Select
+            isMulti
+            options={bedsOptions}
+            onChange={handleBedsChange}
+            value={bedsOptions.filter((option) =>
+              selectedBeds.includes(option.value)
+            )}
+          />
         </form>
 
         <div
@@ -198,7 +208,6 @@ function Houses() {
         <button
           className="btn border border-gray border-2 bg-black text-white"
           type="button"
-          id="dropdownMenuButton2"
           style={{
             width: "120px",
             marginLeft: "30px",
