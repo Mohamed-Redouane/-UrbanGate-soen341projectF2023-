@@ -19,7 +19,7 @@
   bottom: auto;
   transform: translate(-50%, -50%);
   width: 60%;
-  max-width: 400px;
+  max-width: 600px;
   background-color: #fff;
   border: none;
   border-radius: 10px;
@@ -44,11 +44,11 @@
 h2 {
   font-size: 24px;
   margin-bottom: 20px;
+  font-family:Arial, Helvetica, sans-serif
 }
 
 /* Style for input labels and input fields */
-label {
-  display: block;
+label {  
   font-size: 18px;
   margin-top: 10px;
 }
@@ -59,6 +59,7 @@ input[type="number"] {
   border-radius: 5px;
   width: 100%;
   font-size: 16px;
+  height: 50%
 }
 
 /* Style for the select dropdown */
@@ -73,7 +74,7 @@ select {
 
 /* Style for the calculate button */
 button {
-  background-color: #007bff;
+  background-color:#1c0b53;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -84,7 +85,24 @@ button {
 }
 
 /* Style for the monthly payment result */
-p {
-  font-size: 20px;
+.sentence-display{
+  font-size: 18px;
+  font-family:'Times New Roman', Times, serif;
   margin-top: 20px;
 }
+
+.modal-title{
+  font-weight: bolder;
+  font-size: 24px;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.modal-form{
+  font-size: 18px;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.prompt{
+  font-family:'Times New Roman', Times, serif;
+}
+
