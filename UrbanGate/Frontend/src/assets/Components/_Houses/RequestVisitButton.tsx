@@ -5,6 +5,8 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import "./RequestVisit.css";
+import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 
 function RequestVisitButton() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -27,8 +29,19 @@ function RequestVisitButton() {
     setSelectedTime(time);
     closeModal();
 
-    // implement a way to collect user details etc...
+    // ******* implement a way to collect user details etc...
   };
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const data = {selectedDate:selectedDate, slectedTime: selectedTime};
+    axios.post("http://localhost:3000/createUser", data)//Need backend route to implement to correct route
+    .then(()=> alert("SUCCESS"))
+    .catch((res)=> alert("Error code: " + res));
+    navigate("/houses")
+  }
 
   // style the modal window
   const customStyles = {
@@ -58,9 +71,6 @@ function RequestVisitButton() {
         style={customStyles}
         contentLabel="Select Date Modal"
       >
-        <button className="close-button" onClick={closeModal}>
-          ❌
-        </button>
         <h3 className="select-date-heading">Select a date and time</h3>
         <input
           className="date-input"
@@ -78,6 +88,9 @@ function RequestVisitButton() {
           <option value="afternoon">Afternoon</option>
           <option value="evening">Evening</option>
         </select>
+        <button className="submit-button" onClick={handleSubmit}>
+        Submit
+      </button>
       </Modal>
     </div>
   );
