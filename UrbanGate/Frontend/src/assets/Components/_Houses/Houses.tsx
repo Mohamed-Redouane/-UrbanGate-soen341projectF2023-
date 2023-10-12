@@ -173,16 +173,6 @@ function Houses() {
       <div className="filter-box">
         <p className="filter-box-title">Search for available properties</p>
         <div className="box">
-        <div className="search-now">
-        <button style={{
-          width: "120px",
-          marginLeft:"1300px",
-          marginTop:"190px", 
-          height:"50px", 
-          fontSize:"14px", 
-          position: "fixed"
-        }}> Search Now </button>
-        </div>
        <div className="filter">
         <form className="filter-form">
           <label className="label">Location</label>
@@ -256,8 +246,16 @@ function Houses() {
         <div className="filter">
           <PriceRange />
         </div>
-      
       </div>
+      <button
+        style={{
+          width: "150px",
+          marginTop:"10px",
+          marginLeft:"43%",  
+          height:"50px", 
+          fontSize:"14px",  
+        }}> Search Now 
+      </button>
       </div>
  
 
