@@ -250,7 +250,7 @@ function Houses() {
 
           </div>
         </div>
-      ))}
+      )}
     </>
   );
 }
