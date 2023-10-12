@@ -4,12 +4,14 @@ function Broker () {
 
     return (
         <div>
-            <button> <button>
-        <Link to="/broker/ManagingProperties"> Go to Other Page </Link>
-      </button></button>
+            <button> <Link to="/broker/CreateProperty"> Create Property </Link></button>
+            <button> <Link to="/broker/ManageProperties"> Manage Properties </Link></button>
+      
         </div>
 
     )
+
+    
 
 
 
