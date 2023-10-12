@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Select from "react-select";
+import "./Houses.css"; 
 
 /*
 const [houses, setHouses] = useState([]); 
@@ -69,9 +70,9 @@ const PriceRange = () => {
   const [maxValue, setMaxValue] = useState("1000000");
   return (
     <>
-      <small style={{ fontWeight: "bold" }}>
-        Price Range:<br></br>
-      </small>
+    <div className="priceRange" style={{width:"200px", marginLeft:"40px"}}>
+      <p style={{fontSize: "15px", fontWeight: "bold", marginBottom: "none"}}>
+        Price Range:</p>
       <p style={{ fontSize: "10px" }}>
         ${minValue}-${maxValue}
       </p>
@@ -86,7 +87,7 @@ const PriceRange = () => {
         style={{ width: "100px" }}
         value={minValue}
         onChange={(event) => setMinValue(event.target.value)}
-      ></input>
+      ></input><br></br>
       <small>max:</small>
       <input
         type="range"
@@ -99,9 +100,20 @@ const PriceRange = () => {
         value={maxValue}
         onChange={(event) => setMaxValue(event.target.value)}
       ></input>
+      </div>
     </>
   );
 };
+
+const locationOptions = [
+  { label: "Downtown", value: "Downtown" },
+  { label: "Griffintown", value: "Griffintown"},
+  { label: "Mont-Royal", value: "Mont-Royal" },
+  { label: "Saint-Laurent", value: "Saint-Laurent" },
+  { label: "NDG", value: "NDG" },
+  { label: "Angrignon", value: "Angrignon" },
+  { label: "Mile-End", value: "Mile-End" },
+];
 
 const propertyTypeOptions = [
   { label: "Appartment", value: "Appartment" },
@@ -110,30 +122,38 @@ const propertyTypeOptions = [
 ];
 
 const bathsOptions = [
-  { label: "0", value: 0 },
   { label: "1", value: 1 },
   { label: "2", value: 2 },
   { label: "3+", value: 3 },
 ];
 
 const bedsOptions = [
-  { label: "0", value: 0 },
   { label: "1", value: 1 },
   { label: "2", value: 2 },
   { label: "3+", value: 3 },
 ];
 
+const dimensionsOptions = [
+  { label: "500-1000 sqft", value: "500-1000 sqft" },
+  { label: "1000-1500 sqft", value: "1000-1500 sqft" },
+  { label: "1500-1800 sqft", value: "1500-1800 sqft" },
+  { label: "1800+ sqft", value: "1800+ sqft" },
+];
+
+
 function Houses() {
-  const [selectedPropertyTypes, setSelectedPropertyTypes] = useState<string[]>(
-    []
-  );
+  const [selectedPropertyTypes, setSelectedPropertyTypes] = useState<string[]>([]);
+  const [selectedLocation, setSelectedLocation] = useState<string[]>([]); 
   const [selectedBaths, setSelectedBaths] = useState<number[]>([]);
   const [selectedBeds, setSelectedBeds] = useState<number[]>([]);
+  const [selectedDimensions, setSelectedDimensions] = useState<string[]>([]);
 
-  const handlePropertyTypeChange = (selectedOptions: any) => {
-    setSelectedPropertyTypes(
-      selectedOptions.map((option: any) => option.value)
-    );
+  const handleLocationChange = (selectedOptions: any) => {
+    setSelectedLocation(selectedOptions.map((option: any) => option.value));
+  };
+
+  const handlePropertyTypeChange = (selectedOptions: any) => { 
+    setSelectedPropertyTypes(selectedOptions.map((option: any) => option.value));
   };
 
   const handleBathsChange = (selectedOptions: any) => {
@@ -144,12 +164,42 @@ function Houses() {
     setSelectedBeds(selectedOptions.map((option: any) => option.value));
   };
 
+  const handleDimensionChange = (selectedOptions: any) => {
+    setSelectedDimensions(selectedOptions.map((option: any) => option.value));
+  };
+
   return (
     <>
-      <div className="dropdown mt-5 rounded border border-light border-3">
-        <p style={{ fontWeight: "bold" }}>Search for available properties</p>
-        <form style={{ width: "150px", display: "inline-block" }}>
-          <label style={{ fontWeight: "bold" }}>Property Type</label>
+      <div className="filter-box">
+        <p className="filter-box-title">Search for available properties</p>
+        <div className="box">
+        <div className="search-now">
+        <button style={{
+          width: "120px",
+          marginLeft:"1300px",
+          marginTop:"190px", 
+          height:"50px", 
+          fontSize:"14px", 
+          position: "fixed"
+        }}> Search Now </button>
+        </div>
+       <div className="filter">
+        <form className="filter-form">
+          <label className="label">Location</label>
+          <Select
+            isMulti
+            options={locationOptions}
+            onChange={handleLocationChange}
+            value={locationOptions.filter((option) =>
+              selectedLocation.includes(option.value)
+            )}
+          />
+        </form>
+        </div>
+       
+        <div className="filter">
+        <form className="filter-form">
+          <label className="label">Property Type</label>
           <Select
             isMulti
             options={propertyTypeOptions}
@@ -159,14 +209,11 @@ function Houses() {
             )}
           />
         </form>
-        <form
-          style={{
-            width: "150px",
-            display: "inline-block",
-            marginLeft: "30px",
-          }}
-        >
-          <label style={{ fontWeight: "bold" }}>Number of Baths</label>
+        </div>
+
+        <div className="filter" style={{display:"inline-block"}}>
+        <form className="filter-form">
+          <label className="label">Number of Baths</label>
           <Select
             isMulti
             options={bathsOptions}
@@ -176,14 +223,11 @@ function Houses() {
             )}
           />
         </form>
-        <form
-          style={{
-            width: "150px",
-            display: "inline-block",
-            marginLeft: "30px",
-          }}
-        >
-          <label style={{ fontWeight: "bold" }}>Number of Beds</label>
+        </div>
+
+        <div className="filter" style={{display:"inline-block"}}>
+        <form className="filter-form">
+          <label className="label">Number of Beds</label>
           <Select
             isMulti
             options={bedsOptions}
@@ -193,35 +237,34 @@ function Houses() {
             )}
           />
         </form>
-
-        <div
-          className="PriceRange"
-          style={{
-            marginLeft: "40px",
-            display: "inline-block",
-            width: "150px",
-          }}
-        >
-          <PriceRange />
         </div>
 
-        <button
-          className="btn border border-gray border-2 bg-black text-white"
-          type="button"
-          style={{
-            width: "120px",
-            marginLeft: "30px",
-            display: "inline-block",
-          }}
-        >
-          Search Now
-        </button>
+        <div className="filter">
+        <form className="filter-form">
+          <label className="label">Dimensions</label>
+          <Select
+            isMulti
+            options={dimensionsOptions}
+            onChange={handleDimensionChange}
+            value={dimensionsOptions.filter((option) =>
+              selectedDimensions.includes(option.value)
+            )}
+          />
+        </form>
+        </div>
+
+        <div className="filter">
+          <PriceRange />
+        </div>
+      
       </div>
+      </div>
+ 
 
       {House.map((House) => (
         <div
           className="card bg-dark text-white mx-4 mt-5"
-          style={{ width: "310px", height: "460px", display: "inline-block" }}
+          style={{ width: "310px", height: "460px", display: "inline-block", position: "relative" }}
         >
           <img
             src={House.imageUrl}
