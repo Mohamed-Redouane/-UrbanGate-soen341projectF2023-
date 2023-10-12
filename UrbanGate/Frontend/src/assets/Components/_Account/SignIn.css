@@ -1,40 +1,41 @@
-.sign{
-font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.sign {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-.accountsDiv{
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
+.accountsDiv {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
 }
-.container{
+.container {
   padding: 25px;
   justify-content: space-between;
   max-width: 400px;
-  margin:auto;
-  border:1px, solid;
+  margin: auto;
+  border: 1px, solid;
   border-color: black;
 }
 
-form{
-    margin-left: 20px;
-    width:300px;
+form {
+  margin-left: 20px;
+  width: 300px;
 }
 
-form label{
-    display:flex;
-    margin:auto;
-    padding:4px;
-
+form label {
+  display: flex;
+  margin: auto;
+  padding: 4px;
 }
-form input{
-    width:100%;
-    padding: 7px;
+form input {
+  width: 100%;
+  padding: 7px;
 }
-form button{
-    margin-top: 10px;
+form button {
+  margin-top: 10px;
 }
 
 form button:hover {
-    background-color: #b0b0b0; 
-    filter: saturate(80%);
-  }
+  background-color: #b0b0b0;
+  filter: saturate(80%);
+}
