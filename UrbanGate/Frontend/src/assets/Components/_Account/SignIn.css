@@ -15,11 +15,23 @@
   margin: auto;
   border: 1px, solid;
   border-color: black;
+  background-color: white;
+  border-radius: 5px;
 }
 
 form {
-  margin-left: 20px;
   width: 300px;
+  border: 1px solid #2a0403;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+  margin: 10px;
+  transition: background 0.3s;
+}
+
+form:hover {
+  background: #2a0403;
+  color: white;
 }
 
 form label {
