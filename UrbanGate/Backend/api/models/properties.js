@@ -1,49 +1,51 @@
 import mongoose from "mongoose";//properties
 
-const PropertieSchema = new mongoose.Schema({
+const PropertySchema = new mongoose.Schema({
 
-    _id:mongoose.Schema.Types.ObjectId,
-    title:{
-        type:String,
-        required: true
-    }, 
-
-    description:{
-type:String,
-required:true
+    title: {
+        type: String,
+        required: true,
+        unique: true,
     },
-type:{
-    type:String,
-    enum:["house", "apartment", "condo"],
-    required: true,
-    
 
-},
-location:{
-    type: String,
-    required:true
-},
-price:{
-    type:Number,
-    required:true
-},
-area:{
-    type:Number,
-    required:true
-},
-badrooms:{
-    type:Number,
-    required:true
-},
-bathrooms:{
-    type:Number,
-    required:true
-},
-Status:{
-    type:String,
-    enum: ["for_sale","for_rent"],
-    required:true
-},
+    description: {
+        type: String,
+        required: true
+    },
+    type: {
+        type: String,
+        enum: ["house", "apartment", "condo"],
+        required: true,
+    },
+    location: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    area: {
+        type: Number,
+        required: true
+    },
+    bedroom: {
+        type: Number,
+        required: true
+    },
+    bathroom: {
+        type: Number,
+        required: true
+    },
+    status: {
+        type: String,
+        enum: ["for_sale", "for_rent"],
+        required: true
+    },
+    image: {
+        type: String,
+        required: true,
+    },
     createdAt: {
         type: Date,
         default: Date.now
@@ -55,7 +57,8 @@ Status:{
     broker: {   //  relationship between properties and brokers
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
+        required:true,
     },
 });
 
-export default mongoose.model("Properties",PropertieSchema);
+export default mongoose.model("properties", PropertySchema);
