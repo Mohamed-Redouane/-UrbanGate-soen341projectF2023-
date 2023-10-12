@@ -6,7 +6,10 @@ export default async function createProperty(req, res) {
     console.log(req.body);
 
     const user = await User.findById(req.body.userID);
-    if (!user) {console.log("NOT EVEN SIGNED IN"); return res.json("Error");}
+    if (!user) {console.log("NOT EVEN SIGNED IN"); return res.status(500).json({
+        type: "error",
+        message: "NOT SIGNED IN",
+      });}
     if (user.role == "broker") {
 
         
@@ -30,10 +33,19 @@ export default async function createProperty(req, res) {
         await user.save();
     } 
     catch (Exception) {
-        console.log("ERROR");} 
+        return res.status(500).json({
+        type: "error",
+        message: "Error signing in!",
+        error,
+      });
+    } 
         res.json()}
 
     else {
+        return res.status(450).json({
+            type: "error",
+            message: "NOT A BROKER",
+          });
         console.log("NOT A BROKER");
     }
 
