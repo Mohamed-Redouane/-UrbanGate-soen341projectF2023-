@@ -13,6 +13,9 @@ import PropertyPageDetail from './assets/Components/_Houses/PropertyPageDetail.t
 import AccountsPage from './assets/Components/_Account/AccountsPage.tsx';
 import "bootstrap/dist/css/bootstrap.min.css"
 import RequestVisitButton from './assets/Components/_Houses/RequestVisitButton.tsx';
+import Broker from './assets/Components/_Broker/Broker.tsx'
+import CreateProperty from './assets/Components/_Broker/CreateProperty.tsx'
+import ManageProperties from './assets/Components/_Broker/ManageProperties.tsx'
 
 const router = createBrowserRouter([
 {path: "/", element: <AboutPage/>,}, //[2], it associates a URL path with a component
@@ -20,10 +23,10 @@ const router = createBrowserRouter([
 {path: "/houses", element: <Houses/>},
 {path: "/houses/propertypagedetail", element: <PropertyPageDetail/>}, 
 {path: "/accounts", element: <AccountsPage/>},
-{path: "/house/propertydetail", element:<RequestVisitButton/>}
-
-
-
+{path: "/house/propertydetail", element:<RequestVisitButton/>},
+{path: "/broker", element:<Broker/>},
+{path: "/broker/CreateProperty", element:<CreateProperty/>},
+{path: "/broker/ManageProperties", element:<ManageProperties/>},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

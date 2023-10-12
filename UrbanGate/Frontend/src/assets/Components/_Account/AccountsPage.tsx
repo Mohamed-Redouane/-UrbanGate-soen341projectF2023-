@@ -3,6 +3,7 @@ import { useState } from 'react';
 import "./SignIn.css"
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
+import { useCookies } from 'react-cookie';
 
 function AccountsPage(){
     return(
@@ -14,11 +15,12 @@ function AccountsPage(){
 }
 
 function SignIn(){
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name,setName]=useState('');
-
+  const [_,setCookies]=useCookies(["access_token"])
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -36,8 +38,14 @@ function SignIn(){
     e.preventDefault();
     const data = {email: email, password: password};
     const responseFromAPI = axios.post("http://localhost:3000/signIn", data)
-    .then(()=> console.log("SUCCESS"))
-    .catch((res)=> console.log(res));
+    .then((res)=>{
+      alert("success");
+      setCookies("access_token",res.data.token);
+      window.localStorage.setItem("UserID", res.data.userID);
+      navigate("/");
+    })
+    .catch((res)=> alert("failure: " + res));
+
    //setCookies("tokenFromJwt", responseFromAPI); //going to store the user_id being sent back, this proves authentication and allows user to be verifed
    //Note going to use cookie to validate whether to re-route sign in page to managing accounts page once authentication token exists
     //navigate("/"); //sends user to home page and the accounts page will not route to account management
@@ -121,10 +129,10 @@ const navigate = useNavigate();
     e.preventDefault();
     const data = {email: email, name: name, password: password, role: role};
     axios.post("http://localhost:3000/createUser", data)
-    .then(()=> console.log("SUCCESS"))
-    .catch((res)=> console.log(res));
+    .then(()=> alert("SUCCESS"))
+    .catch((res)=> alert("Error code: " + res));
     //console.log(email +  "" + password +"" + name+""   + role);
-    navigate("/")
+    
   }
 
 return(
