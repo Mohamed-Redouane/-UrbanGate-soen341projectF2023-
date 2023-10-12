@@ -5,10 +5,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import "./Houses.css"; 
-import RequestVisitButton from "./RequestVisitButton";
 import axios from 'axios';
-
-
 
 
 const House = [
@@ -115,15 +112,17 @@ const propertyTypeOptions = [
 ];
 
 const bathsOptions = [
-  { label: "1", value: 1 },
-  { label: "2", value: 2 },
-  { label: "3+", value: 3 },
+  { label: "1", value: "1" },
+  { label: "2", value: "2" },
+  { label: "3", value: "3" },
+  { label: "3+", value: "3+" },
 ];
 
 const bedsOptions = [
-  { label: "1", value: 1 },
-  { label: "2", value: 2 },
-  { label: "3+", value: 3 },
+  { label: "1", value: "1" },
+  { label: "2", value: "2" },
+  { label: "3", value: "3" },
+  { label: "3+", value: "3+" },
 ];
 
 const dimensionsOptions = [
@@ -138,8 +137,8 @@ function Houses() {
 
   const [selectedPropertyTypes, setSelectedPropertyTypes] = useState<string[]>([]);
   const [selectedLocation, setSelectedLocation] = useState<string[]>([]); 
-  const [selectedBaths, setSelectedBaths] = useState<number[]>([]);
-  const [selectedBeds, setSelectedBeds] = useState<number[]>([]);
+  const [selectedBaths, setSelectedBaths] = useState<string[]>([]);
+  const [selectedBeds, setSelectedBeds] = useState<string[]>([]);
   const [selectedDimensions, setSelectedDimensions] = useState<string[]>([]);
 
   const handleLocationChange = (selectedOptions: any) => {

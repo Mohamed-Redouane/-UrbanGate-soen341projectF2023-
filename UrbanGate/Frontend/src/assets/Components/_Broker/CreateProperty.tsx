@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
+import Select from "react-select";
 
 function ManagingProperties() {
 
@@ -15,18 +16,11 @@ const [bathroom,setBathroom]=useState('');
 const [status,setStatus]=useState('');
 const [image,setImage]=useState('');
 
-
 const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
   };
   const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDescription(e.target.value);
-  };
-  const handleTypesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTypes(e.target.value);
-  };
-  const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLocation(e.target.value);
   };
   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPrice(e.target.value);
@@ -34,19 +28,54 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const handleAreaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setArea(e.target.value);
   };
-  const handleBedroomChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setBedroom(e.target.value);
-  };
   const handleStatusChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setStatus(e.target.value);
   };
-  const handleBathroomChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setBathroom(e.target.value);
-  };
-
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setImage(e.target.value);
   };
+  const handleTypesChange = (selectedOption : any) => { 
+    setTypes(selectedOption.value);
+  };
+  const handleLocationChange = (selectedOption : any) => { 
+    setLocation(selectedOption.value);
+  };
+  const handleBedroomChange = (selectedOption : any) => { 
+    setBedroom(selectedOption.value);
+  };
+  const handleBathroomChange = (selectedOption : any) => { 
+    setBathroom(selectedOption.value);
+  };
+
+  const bedOptions = [
+    {value: "1 bed", label:"1 bed"},
+    {value: "2 beds", label:"2 beds"},
+    {value: "3 beds", label:"3 beds"},
+    {value: "3+ beds", label:"3+ beds"},
+  ]; 
+
+  const bathOptions = [
+    {value: "1 bathroom", label:"1 bathroom"},
+    {value: "2 bathrooms", label:"2 bathrooms"},
+    {value: "3 bathrooms", label:"3 bathrooms"},
+    {value: "3+ bathrooms", label:"3+ bathrooms"},
+  ]; 
+
+  const typeOptions = [
+    { label: "Appartment", value: "Appartment" },
+    { label: "Condo", value: "Condo" },
+    { label: "House", value: "House" },
+  ];
+
+  const locationOptions = [
+    { label: "Downtown", value: "Downtown" },
+    { label: "Griffintown", value: "Griffintown"},
+    { label: "Mont-Royal", value: "Mont-Royal" },
+    { label: "Saint-Laurent", value: "Saint-Laurent" },
+    { label: "NDG", value: "NDG" },
+    { label: "Angrignon", value: "Angrignon" },
+    { label: "Mile-End", value: "Mile-End" },
+  ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -57,7 +86,6 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
        
       }).catch((res)=> alert(res) );
       
-  
   }
 
     return (
@@ -76,43 +104,23 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                         placeholder="Enter Title"
                     />
                 </div>
-                <div className="fields-container">
-                    <label> Description </label>
-                    <input
-                        type="description"
-                        id="description"
-                        name="description"
-                        value={description}
-                        onChange={handleDescriptionChange}
-                        required
-                        placeholder="Enter Description"
-                    />
-                </div>
-
+            
                 <div className="fields-container">
                     <label> Types</label>
-                    <input
-                        type="types"
-                        id="types"
-                        name="types"
-                        value={types}
-                        onChange={handleTypesChange}
-                        required
-                        placeholder="Enter Type"
-                    />
+                      <Select 
+                      options={typeOptions} 
+                      onChange={handleTypesChange}
+                      required
+                      />
                 </div>
 
                 <div className="fields-container">
                     <label> Location </label>
-                    <input
-                        type="location"
-                        id="location"
-                        name="location"
-                        value={location}
-                        onChange={handleLocationChange}
+                        <Select 
+                        options={locationOptions} 
+                        onChange={handleLocationChange} 
                         required
-                        placeholder="Enter Location"
-                    />
+                        />
                 </div>
 
                 <div className="fields-container">
@@ -120,6 +128,7 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                     <input type="number"
                      id="quantity"
                      name="price"
+                     min="0"
                     value={price}
                     onChange={handlePriceChange}
                     required
@@ -139,24 +148,18 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
                 <div className="fields-container">
                     <label htmlFor="quantity">Bedrooms</label>
-                    <input type="number"
-                     id="quantity"
-                     name="bedroom"
-                    value={bedroom}
+                    <Select 
+                    options={bedOptions} 
                     onChange={handleBedroomChange}
-                    required
-                    placeholder="Enter # bedrooms"/>
+                    required/>
                 </div>
 
                 <div className="fields-container">
                     <label htmlFor="quantity">Bathrooms</label>
-                    <input type="number"
-                     id="quantity"
-                     name="bathroom"
-                    value={bathroom}
+                    <Select 
+                    options={bathOptions} 
                     onChange={handleBathroomChange}
-                    required
-                    placeholder="Enter # bathrooms"/>
+                    required/>
                 </div>
 
                 <div className="fields-container">
@@ -171,6 +174,19 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                 </div>
 
                 <div className="fields-container">
+                    <label> Description </label>
+                    <input
+                        type="description"
+                        id="description"
+                        name="description"
+                        value={description}
+                        onChange={handleDescriptionChange}
+                        required
+                        placeholder="Enter Description"
+                    />
+                </div>
+
+                <div className="fields-container">
                     <label> Image:</label>
                     <input 
                     name="image"
@@ -179,7 +195,6 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                     required
                     placeholder="Enter Status"/>
                 </div>
-
 
                 <button type="submit">Create Property</button>
             </form>
