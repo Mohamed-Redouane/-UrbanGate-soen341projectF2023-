@@ -51,13 +51,13 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = {title: title, description: description,image: image, type : types, location: location, price: price, area: area, bedroom: bedroom, bathroom: bathroom, status: status, userID: window.localStorage.getItem("UserID")};
-    try {
-      await axios.post("http://localhost:3000/createProperty", data)
-      alert("Registration complete");
-    }
-    catch (Exception) {
-      alert("Error");
-    }
+    
+      await axios.post("http://localhost:3000/createProperty", data).then((res)=>{
+        alert("success")
+       
+      }).catch((res)=> alert(res) );
+      
+  
   }
 
     return (
