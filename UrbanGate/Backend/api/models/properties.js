@@ -19,22 +19,26 @@ const PropertySchema = new mongoose.Schema({
     },
     location: {
         type: String,
+        enum: ["Downtown", "Griffintown", "Mont-Royal","Saint-Laurent","NDG","Angrignon","Mile-End"],
         required: true
     },
     price: {
-        type: Number,
+        type: String,
         required: true
     },
     area: {
-        type: Number,
+        type: String,
+        enum: ["500-1000 sqft", "1000-1500 sqft", "1500-1800 sqft","1800+ sqft"],
         required: true
     },
     bedroom: {
-        type: Number,
+        type: String,
+        enum: ["1 bedroom", "2 bedrooms", "3+ bedrooms"],
         required: true
     },
     bathroom: {
-        type: Number,
+        type: String,
+        enum: ["1 bathroom", "2 bathrooms", "3+ bathrooms"],
         required: true
     },
     status: {
