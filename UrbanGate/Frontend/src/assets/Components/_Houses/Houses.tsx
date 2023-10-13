@@ -256,7 +256,7 @@ function Houses() {
             <p className="card-text" style={{ fontSize: "15px" }}> {property.description}</p>
             <div>
               <button className="btn btn-secondary text-white">
-                <Link to="/houses/propertypagedetail" style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>See More Detail</Link></button>
+                <Link to={`/houses/propertypagedetail/${property._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>See More Detail</Link></button>
             </div>
 
           </div>

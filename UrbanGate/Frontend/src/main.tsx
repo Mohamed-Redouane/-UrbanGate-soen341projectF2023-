@@ -21,7 +21,7 @@ const router = createBrowserRouter([
 {path: "/", element: <AboutPage/>,}, //[2], it associates a URL path with a component
 
 {path: "/houses", element: <Houses/>},
-{path: "/houses/propertypagedetail", element: <PropertyPageDetail/>}, 
+{path: "/houses/propertypagedetail/:_id", element: <PropertyPageDetail/>}, 
 {path: "/accounts", element: <AccountsPage/>},
 {path: "/house/propertydetail", element:<RequestVisitButton/>},
 {path: "/broker", element:<Broker/>},
