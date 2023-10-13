@@ -4,6 +4,7 @@ import signIn from './controllers/signIn.js';
 import createProperty from './controllers/createProperty.js';
 import readProperty from './controllers/readProperty.js';
 import manageProperties from './controllers/manageProperties.js';
+import checkUser from './controllers/checkUser.js';
 
 const router = express.Router();
 
@@ -12,5 +13,6 @@ router.post('/signIn', signIn);
 router.post('/createProperty', createProperty);
 router.get('/readProperty', readProperty);
 router.post('/manageProperties', manageProperties);
+router.post('/checkUser', checkUser);
 
 export default router;
