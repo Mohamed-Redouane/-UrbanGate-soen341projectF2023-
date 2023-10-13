@@ -16,6 +16,9 @@ import RequestVisitButton from './assets/Components/_Houses/RequestVisitButton.t
 import Broker from './assets/Components/_Broker/Broker.tsx'
 import CreateProperty from './assets/Components/_Broker/CreateProperty.tsx'
 import ManageProperties from './assets/Components/_Broker/ManageProperties.tsx'
+import CreateBroker from './assets/Components/_Broker/CreateBroker.tsx'
+import ManageBrokers from './assets/Components/_Broker/ManageBrokers.tsx'
+import BrokerDetail from './assets/Components/_Broker/BrokerDetail.tsx'
 
 const router = createBrowserRouter([
 {path: "/", element: <AboutPage/>,}, //[2], it associates a URL path with a component
@@ -27,6 +30,9 @@ const router = createBrowserRouter([
 {path: "/broker", element:<Broker/>},
 {path: "/broker/CreateProperty", element:<CreateProperty/>},
 {path: "/broker/ManageProperties", element:<ManageProperties/>},
+{path: "/broker/CreateBroker", element:<CreateBroker/>},
+{path: "/broker/ManageBrokers", element:<ManageBrokers/>},
+{path: "/broker/BrokerDetail/:_id", element:<BrokerDetail/>},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
