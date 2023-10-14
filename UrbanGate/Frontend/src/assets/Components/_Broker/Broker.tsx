@@ -37,11 +37,15 @@ function Broker () {
     return (
   <>
   {isLoading && <h1>Loading!</h1>}
-  {(!isLoading && (user == "yes")) && <div>
+  {(!isLoading && (user == "broker")) && <div>
          <button><Link to="/broker/CreateProperty">Create Property</Link></button>
          <button><Link to="/broker/ManageProperties">Manage Properties</Link></button>
      </div>}
- {(!isLoading && (user != "yes")) && <div>
+     {(!isLoading && (user == "admin")) && <div>
+         <button><Link to="/broker/CreateBroker">Create Broker</Link></button>
+         <button><Link to="/broker/ManageBrokers">Manage Brokers</Link></button>
+     </div>}
+ {(!isLoading && (user != "broker") && (user != "admin")) && <div>
             <h1>You are not a broker</h1>
             <img src="https://media.tenor.com/9XrarieeeaAAAAAd/rain-chair.gif" alt="not a broker"></img>
         </div>}

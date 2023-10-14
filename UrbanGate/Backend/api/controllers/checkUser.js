@@ -7,8 +7,13 @@ export default async function checkUser(req, res){
     try{
         if(user.role == "broker"){
             console.log("yes");
-            return res.status(200).json("yes");
-        }else{
+            return res.status(200).json("broker");
+        }else if(user.role == "admin"){
+            return res.status(200).json("admin");
+        }
+        
+        
+        else{
             console.log("no but signed in");
             return res.status(500).json("no");
         }
