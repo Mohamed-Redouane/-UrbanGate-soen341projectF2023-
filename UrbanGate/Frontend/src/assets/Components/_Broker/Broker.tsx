@@ -1,3 +1,7 @@
+// REFERENCES
+// [1] React Documentation: https://www.w3schools.com/REACT/DEFAULT.ASP
+// [2] React Documentation: https://react.dev/learn
+
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
