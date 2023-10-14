@@ -52,7 +52,7 @@ function ManageProperties() {
             <p className="card-text" style={{ fontSize: "15px" }}> {House.description}</p>
             <div>
               <button className="btn btn-secondary text-white">
-                <Link to="/houses/propertypagedetail" style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>See More Detail</Link></button>
+                <Link to={`/broker/ManageProperties/DeleteProperties/${House._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>DeleteProperty</Link></button>
             </div>
           </div>
         </div>
