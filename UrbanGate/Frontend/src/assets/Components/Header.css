@@ -44,7 +44,7 @@
     width: 200px; 
 }
 
-.nav-box1:hover,.nav-box2:hover, .nav-box3:hover, .nav-box4 {
+.nav-box1:hover,.nav-box2:hover, .nav-box3:hover, .nav-box4:hover {
     background-color: #441414;
     color: white; 
 }
@@ -66,16 +66,23 @@ border: "solid"
 
 .logoutbutton{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    height: 35px; 
+    height: 30px; 
     font-size: 14px;
     background-color: #878b73; 
     margin-left: 350px;
     width: 100px;
+    border-style: none;
+    color:white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 20px;
 }
 
 .logoutbutton:hover{
-    text-decoration: underline;
+text-decoration: underline;
 }
+
 
 .user-type{
     margin-top: -50px;
