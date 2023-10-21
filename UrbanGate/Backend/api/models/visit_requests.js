@@ -17,10 +17,11 @@ const visit_requestSchema = new mongoose.Schema({
 
 
     Status:{
-    type: String,
-    enum: ["pending","approved","rejected"],
-    required: true
-    },
+        type: String,
+        default: "pending",
+        enum: ["pending","approved","rejected"],
+        required: true,
+        },
    
     requestedDate: {
         type: Date,

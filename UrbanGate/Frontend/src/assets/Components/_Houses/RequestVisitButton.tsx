@@ -2,16 +2,35 @@
 // [1] React Documentation: https://react.dev/learn
 
 // import necessary dependencies
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import "./RequestVisit.css";
 import axios from 'axios';
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 function RequestVisitButton() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [property, setProperty] = useState({title: "string", description: "string", type: "string", price: "string", location: "string", area: "string", bedroom: "string", bathroom: "string", status:"string", imageUrl: "string"});
+  
+  const {_id } = useParams();
+  const getProperty = () => {
+    axios.get(`http://localhost:3000/readPropertyID/${_id}`).then((response) => {
+  
+    setProperty(response.data);
+    console.log(response.data);
+    console.log(response.data.title);
+    console.log(property.title);
+   }).catch((error) => {
+     console.log(error);
+   });
+  }
+  useEffect(() => {
+
+    getProperty();
+    
+  }, [_id]);
 
   // open the modal window
   const openModal = () => {
@@ -36,12 +55,21 @@ function RequestVisitButton() {
 
   const handleSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
-    const data = {selectedDate:selectedDate, slectedTime: selectedTime};
-    axios.post("http://localhost:3000/createUser", data)//Need backend route to implement to correct route
-    .then(()=> alert("SUCCESS"))
-    .catch((res)=> alert("Error code: " + res));
-    navigate("/houses")
+    const userID = localStorage.getItem("UserID");
+    console.log(userID);
+
+    if (userID) {
+      const data = { userID, _id ,selectedDate, selectedTime };
+      console.log(data);
+      axios.post("http://localhost:3000/visitRequest", data)
+        .then(() => alert("SUCCESS"))
+        .catch((res) => alert("Error code: " + res));
+      navigate("/houses");
+    } else {
+      alert("User not logged in.");
+    }
   }
+
 
   // style the modal window
   const customStyles = {

@@ -11,8 +11,12 @@ import updateBroker from './controllers/updateBroker.js';
 import deleteBroker from './controllers/deleteBroker.js';
 import readPropertyID from './controllers/readPropertyID.js';
 import deletePropertyID from './controllers/deletePropertyID.js';
-
-
+import { createVisitRequest } from './controllers/visitRequest.js';
+// import readUserID from './controllers/readUserId.js';
+// import { manageVisitRequests } from './controllers/manageVisitRequests.js';
+// import { visitRequestsForBrokerAndProperty } from './controllers/visitRequestsForBrokerAndProperty.js';
+// import readPropertiesForUser from './controllers/readPropertiesForUser.js';
+// import { getVisitRequestById } from './controllers/getVisitRequestById.js';
 const router = express.Router();
 
 router.post('/createUser', createUser);
@@ -27,6 +31,11 @@ router.post('/updateBroker', updateBroker);
 router.get('/deleteBroker/:_id', deleteBroker);
 router.get('/readPropertyID/:_id', readPropertyID);
 router.delete('/deletePropertyID/:_id', deletePropertyID);
-
+router.post('/visitRequest', createVisitRequest);
+// router.get('/readUserId/:userID', readUserID);
+// router.get('/manageVisitRequests/:brokerId', manageVisitRequests);
+// router.get('/visitRequestsForBrokerAndProperty/:brokerId/:propertyId',visitRequestsForBrokerAndProperty)
+// router.get('/readPropertiesForUser',readPropertiesForUser);
+// router.get('/visitRequests/:visitRequestId', getVisitRequestById);
 
 export default router;
