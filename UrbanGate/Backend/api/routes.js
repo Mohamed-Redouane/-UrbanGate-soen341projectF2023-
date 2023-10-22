@@ -11,6 +11,7 @@ import updateBroker from './controllers/updateBroker.js';
 import deleteBroker from './controllers/deleteBroker.js';
 import readPropertyID from './controllers/readPropertyID.js';
 import deletePropertyID from './controllers/deletePropertyID.js';
+import updateProperty from './controllers/updateProperty.js';
 
 
 const router = express.Router();
@@ -27,6 +28,6 @@ router.post('/updateBroker', updateBroker);
 router.get('/deleteBroker/:_id', deleteBroker);
 router.get('/readPropertyID/:_id', readPropertyID);
 router.delete('/deletePropertyID/:_id', deletePropertyID);
-
+router.post('/updateProperty', updateProperty);
 
 export default router;

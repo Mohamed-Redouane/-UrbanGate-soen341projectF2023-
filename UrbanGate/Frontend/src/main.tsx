@@ -21,7 +21,7 @@ import ManageBrokers from './assets/Components/_Broker/ManageBrokers.tsx'
 import BrokerDetail from './assets/Components/_Broker/BrokerDetail.tsx'
 
 import DeleteProperties from './assets/Components/_Broker/DeleteProperties.tsx'
-
+import EditProperties from './assets/Components/_Broker/EditProperties.tsx'
 
 const router = createBrowserRouter([
 {path: "/", element: <AboutPage/>,}, //[2], it associates a URL path with a component
@@ -37,6 +37,7 @@ const router = createBrowserRouter([
 {path: "/broker/ManageBrokers", element:<ManageBrokers/>},
 {path: "/broker/BrokerDetail/:_id", element:<BrokerDetail/>},
 {path: "/broker/ManageProperties/DeleteProperties/:_id", element:<DeleteProperties/>},
+{path: "/broker/ManageProperties/EditProperties/:_id", element:<EditProperties/>},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

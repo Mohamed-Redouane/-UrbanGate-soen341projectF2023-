@@ -51,8 +51,10 @@ function ManageProperties() {
             <h5 className="card-title mt-1"> {House.price} </h5>
             <p className="card-text" style={{ fontSize: "15px" }}> {House.description}</p>
             <div>
+            <button className="btn btn-secondary text-white">
+                <Link to={`/broker/ManageProperties/EditProperties/${House._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>Edit Property</Link></button>
               <button className="btn btn-secondary text-white">
-                <Link to={`/broker/ManageProperties/DeleteProperties/${House._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>DeleteProperty</Link></button>
+                <Link to={`/broker/ManageProperties/DeleteProperties/${House._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>Delete Property</Link></button>
             </div>
           </div>
         </div>
