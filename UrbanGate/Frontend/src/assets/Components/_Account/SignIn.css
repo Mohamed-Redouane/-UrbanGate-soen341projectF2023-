@@ -1,8 +1,11 @@
+/*
+// [1] CSS Documentation: https://www.w3schools.com/css/default.asp
+*/
 .sign {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 .accountsDiv {
-  background-color: white;
+  background-color: rgb(212, 204, 176);
   padding: 20px;
   border-radius: 5px;
   display: flex;
@@ -15,7 +18,7 @@
   margin: auto;
   border: 1px, solid;
   border-color: black;
-  background-color: white;
+  background-color: rgb(212, 204, 176);
   border-radius: 5px;
 }
 
@@ -44,6 +47,6 @@ form button {
 }
 
 form button:hover {
-  background-color: #b0b0b0;
-  filter: saturate(80%);
+  background-color: rgb(212, 204, 176);
+  color: black;
 }
