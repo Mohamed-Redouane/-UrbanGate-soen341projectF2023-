@@ -43,6 +43,7 @@ function SignIn(){
       setCookies("access_token",res.data.token);
       window.localStorage.setItem("UserID", res.data.userID);
       navigate("/");
+      window.location.reload();
     })
     .catch((res)=> alert("failure: " + res));
 

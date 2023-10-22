@@ -13,10 +13,8 @@ const PriceRange = () => {
   const [maxValue, setMaxValue] = useState("1000000");
   return (
     <>
-      <div className="priceRange" style={{ width: "200px", marginLeft: "40px" }}>
-        <p style={{ fontSize: "15px", fontWeight: "bold", marginBottom: "none" }}>
-          Price Range:</p>
-        <p style={{ fontSize: "10px" }}>
+      <div className="priceRange" style={{ width: "200px"}}>
+        <p style={{ fontSize: "10px", margin:0}}>
           ${minValue}-${maxValue}
         </p>
         <small>min:</small>
@@ -96,6 +94,7 @@ function Houses() {
   const [selectedBath, setSelectedBaths] = useState('');
   const [selectedBed, setSelectedBeds] = useState('');
   const [selectedDimension, setSelectedDimensions] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState(''); 
 
   const handleLocationChange = (selectedOptions: any) => {
     setSelectedLocation(selectedOptions.value);
@@ -116,6 +115,10 @@ function Houses() {
   const handleDimensionChange = (selectedOptions: any) => {
     setSelectedDimensions(selectedOptions.value);
   };
+
+  const handleStatusChange =(e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedStatus(e.target.value);
+  }
 
   //[1], functional component
   const [properties, setProperties] = useState<any[]>([]);
@@ -164,73 +167,68 @@ function Houses() {
 
   useEffect(() => { getHouses() }, []); //the [] is necessary in order to only load once
 
-
+/* https://getbootstrap.com/docs/5.0/components/card/ */
   return (
     <>
       <div className="filter-box">
-        <p className="filter-box-title">Search for available properties</p>
-        <div className="box">
-          <div className="filter">
-            <form className="filter-form">
-              <label className="label">Location</label>
-              <Select
+      <div className="image">
+          <img src="https://www.decorilla.com/online-decorating/wp-content/uploads/2022/01/Airy-biophilic-interior-design-Wanda-P.jpg" style={{height: "400px", borderTopRightRadius: "20px", borderBottomRightRadius:"20px"}}></img>
+        </div>
+        <p className="filter-box-title">Search for available properties &nbsp;&nbsp;&nbsp;</p>
+        <div className="status">
+        <input type="checkbox" value="ForSale" onChange={handleStatusChange}></input>
+        <label>&nbsp;&nbsp;For Sale &nbsp;&nbsp;</label>
+        <input type="checkbox" value="ForSale" onChange={handleStatusChange}></input>
+        <label>&nbsp;&nbsp;For Rent</label><br></br>
+        <br></br>
+        </div>
+        <div className="filters">
+        <table className="filter-table">
+        <tr className="preferences">
+          <td>Location</td>
+          <td>Type</td>
+          <td>Bedrooms</td>
+          <td>Bathrooms</td>
+          <td>Dimensions</td>
+          <td>Price Range<br></br></td>
+        </tr>
+        <tr>
+          <td>
+          <Select
                 options={locationOptions}
                 onChange={handleLocationChange}
               />
-            </form>
-          </div>
-
-          <div className="filter">
-            <form className="filter-form">
-              <label className="label">Property Type</label>
-              <Select
+          </td>
+          <td>
+          <Select
                 options={propertyTypeOptions}
                 onChange={handlePropertyTypeChange}
               />
-            </form>
-          </div>
-
-          <div className="filter" style={{ display: "inline-block" }}>
-            <form className="filter-form">
-              <label className="label">Number of Baths</label>
-              <Select
-
-                options={bathsOptions}
-                onChange={handleBathsChange}
-
-              />
-            </form>
-          </div>
-
-          <div className="filter" style={{ display: "inline-block" }}>
-            <form className="filter-form">
-              <label className="label">Number of Beds</label>
-              <Select
-
+          </td>
+          <td>
+          <Select
                 options={bedsOptions}
                 onChange={handleBedsChange}
-
               />
-            </form>
-          </div>
-
-          <div className="filter">
-            <form className="filter-form">
-              <label className="label">Dimensions</label>
-              <Select
-
+          </td>
+          <td>
+          <Select
+                options={bathsOptions}
+                onChange={handleBathsChange}
+              />
+          </td>
+          <td>
+          <Select
                 options={dimensionsOptions}
                 onChange={handleDimensionChange}
-
               />
-            </form>
-          </div>
-
-          <div className="filter">
-            <PriceRange />
-          </div>
-        </div>
-        <button onClick={filterProperties}
+          </td>
+          <td>
+          <PriceRange/>
+          </td>
+        </tr>
+        </table>
+        <button onClick={filterProperties} className="searchnow-button"
           style={{
             width: "150px",
             marginTop: "10px",
@@ -240,20 +238,19 @@ function Houses() {
           }}> Search Now
         </button>
       </div>
-
-
+      </div>
 
       {filteredProperties.map((property) =>
         <div className="card bg-dark text-white mx-4 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
           <img src={property.image} className="card-img-top" alt="..." style={{ height: "200px" }}></img>
           <div className="card-body">
-            <ul className="list-group list-group-horizontal" style={{ fontSize: "11px", height: "30px", width: "270px" }}>
-              <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "110px", padding: "none" }}> Location:  <br></br> <p style={{ textAlign: "center" }}> {property.location}</p></li>
-              <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "110px", padding: "none" }}>Type:<br></br> <p style={{ textAlign: "center" }}> {property.type} </p> </li>
-              <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "100px", padding: "none" }}> Beds: {property.bedroom} <br></br>Baths: {property.bathroom}</li>
+            <ul className="list-group list-group-horizontal" style={{fontSize: "11px", height: "30px", width: "280px", padding: 0}}>
+              <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "100px", padding:"8px" }}> Location:  <br></br> <p style={{ textAlign: "center" }}> {property.location}</p></li>
+              <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "90px", padding:"8px" }}>Type:<br></br> <p style={{ textAlign: "center" }}> {property.type} </p> </li>
+              <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "100px", padding:"8px" }}> {property.bedroom} <br></br>{property.bathroom}</li>
             </ul><br></br>
-            <h5 className="card-title mt-1"> {property.price} </h5>
-            <p className="card-text" style={{ fontSize: "15px" }}> {property.description}</p>
+            <h5 className="card-title mt-1"> ${property.price} </h5>
+            <p className="card-text" style={{ fontSize: "12px" }}> {property.description}</p>
             <div>
               <button className="btn btn-secondary text-white">
                 <Link to={`/houses/propertypagedetail/${property._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>See More Detail</Link></button>
