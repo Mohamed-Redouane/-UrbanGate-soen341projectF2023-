@@ -16,6 +16,11 @@ function PropertyPageDetail() {
 
 const {_id} = useParams();
 const userID = localStorage.getItem("UserID");
+const [userRole, setUserRole] = useState("");
+const [isSignedIn, setIsSignedIn] = useState(false);
+
+
+
 console.log(userID);
 const getProperty = () => {
   axios.get(`http://localhost:3000/readPropertyID/${_id}`).then((response) => {
@@ -30,9 +35,22 @@ const getProperty = () => {
     });
   }
 
+  const getUserRole = () => {
+
+    axios.post("http://localhost:3000/checkUser", {userID: userID}).then((res) => {
+      setUserRole(res.data);
+      setIsSignedIn(true);
+
+
+    })
+
+
+  }
+
   useEffect(() => {
 
     getProperty();
+    getUserRole();
 
   }, []);
 
@@ -70,8 +88,9 @@ const getProperty = () => {
           </div>
           <table className="button-display">
            <tr className="button-display-row">
-            <td className="button-display-column"> <RequestVisitButton/> </td>
-            <td className="button-display-column"> <MortgageCalculator/> </td>
+            
+            {(userRole == "homebuyer" || userRole == "renter") ? <td className="button-display-column"> <RequestVisitButton/> </td> : <></>}
+            {userRole == "homebuyer" ? <td className="button-display-column"> <MortgageCalculator/> </td> : <></>}
             </tr>
           </table>
           

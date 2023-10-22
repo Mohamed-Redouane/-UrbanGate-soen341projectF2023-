@@ -17,9 +17,7 @@ const[userRole, setUserRole] = useState("");
 const[isSignedIn, setIsSignedIn] = useState(false);
 
 const logout = () => {
-    setCookies("access_token",null);
-    window.localStorage.removeItem("UserID");
-    window.location.replace("/");
+    window.localStorage.removeItem("UserID"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:19:52
 }
 
 const f = () => {
@@ -45,7 +43,11 @@ useEffect(() => {
                     <div className="col-2"> <a href="/houses" style={{ textDecorationLine: "none" }}> <h5 className="nav-box2"> Houses <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="dropd" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg> </h5> </a> </div> {/* [2], style attribute is weird https://www.w3schools.com/react/react_css.asp*/}
                     <div className="col-2"> <a href="/broker" style={{ textDecorationLine: "none" }}>  <h5 className="nav-box3"> Brokers<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg> </h5> </a> </div>
                     <div className="col-2">  <a href="/accounts" style={{ textDecorationLine: "none" }}> 
-                     {!cookies.access_token ? (<h5 className="nav-box4"> Accounts<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg> </h5>): <button type="button" onClick={logout} className="logoutbutton"> Log Out </button>}
+                    {/*https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:19:15*/}
+                     {!window.localStorage.getItem("UserID") ?
+                        (<h5 className="nav-box4"> Accounts<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg> </h5>): 
+                        <button onClick={logout} className="nav-box4"> Logout </button> 
+                     }
                      {isSignedIn && (<p className="user-type">You are signed in as a {userRole}</p>)} {!isSignedIn && (<></>)}
                     </a> </div>
                     <div className="col-2"/>

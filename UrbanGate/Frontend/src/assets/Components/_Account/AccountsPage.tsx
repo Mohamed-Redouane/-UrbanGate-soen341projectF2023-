@@ -37,25 +37,28 @@ function SignIn() {
   };
   //const [ ,setCookies]=useCookies(["tokenFromJwt"]);
 
+  /*
+  * Handles Sign-in request from user
+  * Will locally store ID if it was successful
+  * .then and .catch used here because there's nothing else to be executed after 
+  */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const data = {email: email, password: password};
-    const responseFromAPI = axios.post("http://localhost:3000/signIn", data)
-    .then((res)=>{
-      alert("success");
-      setCookies("access_token",res.data.token);
-      window.localStorage.setItem("UserID", res.data.userID);
-      navigate("/");
-      window.location.reload();
-    })
-    .catch((res)=> alert("failure: " + res));
-
-   //setCookies("tokenFromJwt", responseFromAPI); //going to store the user_id being sent back, this proves authentication and allows user to be verifed
-   //Note going to use cookie to validate whether to re-route sign in page to managing accounts page once authentication token exists
-
-    //navigate("/"); //sends user to home page and the accounts page will not route to account management
-  };
+    e.preventDefault(); //Stop the page from reloading onSubmit
+    const data = {
+      email: email, 
+      password: password,
+    }
+    axios.post("http://localhost:3000/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/ + https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s
+      .then((res)=>{
+        alert(res.data.popup);
+        if (res.data.popup === "User signed in successfully!") {
+          window.localStorage.setItem("UserID", res.data.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:15:57
+          navigate("/"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:16:51
+          window.location.reload(); //Refresh and display the new header, I think this forces a rerender of the page
+        }
+      })
+      .catch((res)=> alert("failure: " + res)); //the catch here catches if the promise doesn't get resolve, i.e if there's a problem connecting to the backend
+  }
 
   return (
     <div className="container">
@@ -132,13 +135,16 @@ function SignUp() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = { email: email, name: name, password: password, role: role };
-    axios
-      .post("http://localhost:3000/createUser", data)
-      .then(() => alert("SUCCESS"))
-      .catch((res) => alert("Error code: " + res));
-    //console.log(email +  "" + password +"" + name+""   + role);
-  };
+    const data = {
+      email: email, 
+      name: name, 
+      password: password, 
+      role: role
+    };
+    axios.post("http://localhost:3000/createUser", data)
+      .then((res)=> alert(res.data.popup))
+      .catch((res)=> alert("Error code: " + res)); //in case something goes wrong
+  }
 
   return (
     <div className="container">
@@ -199,6 +205,15 @@ function SignUp() {
               value="broker"
               checked={role === "broker"}
               onChange={() => handleRoleChange("broker")}
+            />
+            <label htmlFor="broker">Renter</label>
+            <input
+              type="radio"
+              id="renter"
+              name="role"
+              value="renter"
+              checked={role === "renter"}
+              onChange={() => handleRoleChange("renter")}
             />
           </div>
           <div>

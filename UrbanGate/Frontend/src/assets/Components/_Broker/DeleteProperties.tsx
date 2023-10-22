@@ -19,6 +19,7 @@ function DeleteProperties() {
         alert("Error deleting property");
          console.log(error);
        });
+       navigate("/broker/ManageProperties");
       }
       /*
       useEffect(() => {

@@ -22,7 +22,7 @@ password:{
 },
 role:{
     type:String,
-    enum: ["homebuyer","property_renter","broker", "admin"],
+    enum: ["homebuyer","renter","broker", "admin"],
     required:true
 },
 
