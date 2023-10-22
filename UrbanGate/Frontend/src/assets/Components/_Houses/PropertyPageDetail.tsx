@@ -11,7 +11,7 @@ import "./PropertyPageDetail.css";
 function PropertyPageDetail() {
 
   //const {index} = useParams();
-  const [property, setProperty] = useState({ title: "string", description: "string", type: "string", price: "string", location: "string", area: "string", bedroom: "string", bathroom: "string", status: "string", imageUrl: "string" });
+  const [property, setProperty] = useState({ title: "string", description: "string", type: "string", price: "string", location: "string", area: "string", bedroom: "string", bathroom: "string", status: "string", image: "string" });
 
   const { _id } = useParams();
 
@@ -49,11 +49,13 @@ function PropertyPageDetail() {
     });
   }, [_id]);
   */
-
+  
  /* https://www.w3schools.com/howto/howto_css_two_columns.asp*/
+
+
+ 
   return (
     <>
-
       <div className="row"> 
         <div className="column1">
         <div className="property-title">
@@ -61,7 +63,7 @@ function PropertyPageDetail() {
             <p className="status-display">{property.status}</p>
           </div>
           <div className="property-image">
-            <img src={property.imageUrl}></img>
+            <img src={property.image} height={"400px"} width={"600px"}></img>
           </div>
           <table className="button-display">
            <tr className="button-display-row">
@@ -102,10 +104,10 @@ function PropertyPageDetail() {
         
 
 
-
       
     </>
   );
 }
+
 
 export default PropertyPageDetail;
