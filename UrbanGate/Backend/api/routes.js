@@ -17,6 +17,10 @@ import { createVisitRequest } from './controllers/visitRequest.js';
 // import { visitRequestsForBrokerAndProperty } from './controllers/visitRequestsForBrokerAndProperty.js';
 // import readPropertiesForUser from './controllers/readPropertiesForUser.js';
 // import { getVisitRequestById } from './controllers/getVisitRequestById.js';
+import updateProperty from './controllers/updateProperty.js';
+
+
+
 const router = express.Router();
 
 router.post('/createUser', createUser);
@@ -37,5 +41,7 @@ router.post('/visitRequest', createVisitRequest);
 // router.get('/visitRequestsForBrokerAndProperty/:brokerId/:propertyId',visitRequestsForBrokerAndProperty)
 // router.get('/readPropertiesForUser',readPropertiesForUser);
 // router.get('/visitRequests/:visitRequestId', getVisitRequestById);
+router.post('/updateProperty', updateProperty);
+
 
 export default router;

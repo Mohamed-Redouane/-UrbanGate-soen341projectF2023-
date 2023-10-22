@@ -65,14 +65,13 @@ const MortgageCalculator: React.FC = () => {
       boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
       borderRadius: "10px",
       height: "500px",
-      backgroundColor: "#e9ecef",
+      backgroundColor: "#e9e7e7",
       width: "900px",
     },
   };
 
   return (
     <div style={{ width: "900px" }}>
-      <h2>Mortgage Calculator</h2>
       <button className="open-button" onClick={openModal}>
         Open Calculator
       </button>
@@ -122,8 +121,7 @@ const MortgageCalculator: React.FC = () => {
               <option value={52}>Weekly</option>
             </select>
           </label>
-          <br></br>
-          <button type="button" onClick={calculateMortgage}>
+          <button type="button" onClick={calculateMortgage} className="calculate-button">
             Calculate
           </button>
         </form>
