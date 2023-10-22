@@ -39,19 +39,21 @@ function SignIn() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = { email: email, password: password };
-    const responseFromAPI = axios
-      .post("http://localhost:3000/signIn", data)
-      .then((res) => {
-        alert("success");
-        setCookies("access_token", res.data.token);
-        window.localStorage.setItem("UserID", res.data.userID);
-        navigate("/");
-      })
-      .catch((res) => alert("failure: " + res));
 
-    //setCookies("tokenFromJwt", responseFromAPI); //going to store the user_id being sent back, this proves authentication and allows user to be verifed
-    //Note going to use cookie to validate whether to re-route sign in page to managing accounts page once authentication token exists
+    const data = {email: email, password: password};
+    const responseFromAPI = axios.post("http://localhost:3000/signIn", data)
+    .then((res)=>{
+      alert("success");
+      setCookies("access_token",res.data.token);
+      window.localStorage.setItem("UserID", res.data.userID);
+      navigate("/");
+      window.location.reload();
+    })
+    .catch((res)=> alert("failure: " + res));
+
+   //setCookies("tokenFromJwt", responseFromAPI); //going to store the user_id being sent back, this proves authentication and allows user to be verifed
+   //Note going to use cookie to validate whether to re-route sign in page to managing accounts page once authentication token exists
+
     //navigate("/"); //sends user to home page and the accounts page will not route to account management
   };
 

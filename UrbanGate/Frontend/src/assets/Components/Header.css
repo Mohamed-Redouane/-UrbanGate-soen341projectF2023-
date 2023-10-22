@@ -1,23 +1,96 @@
+/* https://www.w3schools.com/css/css_positioning.asp */
 .title{
-    color: white;
+    border-style: none;
+    border-color: #878b73; 
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center; 
     height: 10vw;
 }
 
-.nav1 {
-color: black;
-font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-text-align: center;
-background-color: rgb(193, 193, 193);
-border-radius: 5px;
+.header-box{
+    background-color: #878b73;  
+    height: 210px; 
 }
 
-.nav1:hover {
-    background-color: rgb(125, 125, 125)  ;
+.nav-box1{
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: rgb(212, 204, 176); 
+    border-radius: 5px;
+    height: 30px; 
+    margin-left: -100px; 
+    width: 200px; 
+}
+
+.nav-box2{
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: rgb(212, 204, 176); 
+    border-radius: 5px;
+    height: 30px; 
+    margin-left: -50px; 
+    width: 200px; 
+}
+
+.nav-box3{
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: rgb(212, 204, 176); 
+    border-radius: 5px;
+    height: 30px;  
+    width: 200px; 
+}
+
+.nav-box1:hover,.nav-box2:hover, .nav-box3:hover, .nav-box4:hover {
+    background-color: #441414;
+    color: white; 
 }
 
 .dropd1:hover {
 border: "solid"
+}
 
+.nav-box4{
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: rgb(212, 204, 176); 
+    border-radius: 5px;
+    height: 30px;  
+    width: 200px; 
+    margin-left: 50px; 
+}
+
+.logoutbutton{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 30px; 
+    font-size: 14px;
+    background-color: #878b73; 
+    margin-left: 350px;
+    width: 100px;
+    border-style: none;
+    color:white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.logoutbutton:hover{
+text-decoration: underline;
+}
+
+
+.user-type{
+    margin-top: -50px;
+    text-align: right;
+    margin-left: 200px;
+    width: 230px; 
+    font-size: 14px;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    z-index: 0;
 }

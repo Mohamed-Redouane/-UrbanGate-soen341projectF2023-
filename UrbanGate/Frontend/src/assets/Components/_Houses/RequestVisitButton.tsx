@@ -60,7 +60,6 @@ function RequestVisitButton() {
 
   return (
     <div>
-      <h2>Test implementation</h2>
       <button className="request-button" onClick={openModal}>
         Request Visit
       </button>

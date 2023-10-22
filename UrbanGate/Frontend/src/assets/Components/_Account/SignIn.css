@@ -32,10 +32,6 @@ form {
   transition: background 0.3s;
 }
 
-form:hover {
-  background: #2a0403;
-  color: white;
-}
 
 form label {
   display: flex;
