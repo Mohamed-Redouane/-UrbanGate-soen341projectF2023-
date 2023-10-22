@@ -13,10 +13,13 @@ function PropertyPageDetail() {
   //const {index} = useParams();
   const [property, setProperty] = useState({ title: "string", description: "string", type: "string", price: "string", location: "string", area: "string", bedroom: "string", bathroom: "string", status: "string", image: "string" });
 
-  const { _id } = useParams();
 
-  const getProperty = () => {
-    axios.get(`http://localhost:3000/readPropertyID/${_id}`).then((response) => {
+const {_id} = useParams();
+const userID = localStorage.getItem("UserID");
+console.log(userID);
+const getProperty = () => {
+  axios.get(`http://localhost:3000/readPropertyID/${_id}`).then((response) => {
+
 
       setProperty(response.data);
       console.log(response.data);

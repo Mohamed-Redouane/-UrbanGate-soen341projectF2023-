@@ -19,15 +19,20 @@ import ManageProperties from './assets/Components/_Broker/ManageProperties.tsx'
 import CreateBroker from './assets/Components/_Broker/CreateBroker.tsx'
 import ManageBrokers from './assets/Components/_Broker/ManageBrokers.tsx'
 import BrokerDetail from './assets/Components/_Broker/BrokerDetail.tsx'
-
 import DeleteProperties from './assets/Components/_Broker/DeleteProperties.tsx'
+import ManageVisitRequests from './assets/Components/_Broker/ManageVisitRequests.tsx';
+
+
+
 import EditProperties from './assets/Components/_Broker/EditProperties.tsx'
+
 
 const router = createBrowserRouter([
 {path: "/", element: <AboutPage/>,}, //[2], it associates a URL path with a component
-
 {path: "/houses", element: <Houses/>},
 {path: "/houses/propertypagedetail/:_id", element: <PropertyPageDetail/>}, 
+{path: "/houses/propertypagedetail/:userID", element: <PropertyPageDetail/>}, 
+
 {path: "/accounts", element: <AccountsPage/>},
 {path: "/house/propertydetail", element:<RequestVisitButton/>},
 {path: "/broker", element:<Broker/>},
@@ -37,7 +42,12 @@ const router = createBrowserRouter([
 {path: "/broker/ManageBrokers", element:<ManageBrokers/>},
 {path: "/broker/BrokerDetail/:_id", element:<BrokerDetail/>},
 {path: "/broker/ManageProperties/DeleteProperties/:_id", element:<DeleteProperties/>},
+
+{path: "/broker/manageVisitRequests/:brokerId", element:<ManageVisitRequests/>},
+
+
 {path: "/broker/ManageProperties/EditProperties/:_id", element:<EditProperties/>},
+
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
