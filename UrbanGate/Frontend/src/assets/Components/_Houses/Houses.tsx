@@ -126,28 +126,23 @@ function Houses() {
 
   
   const getHouses = () => {
-    axios.get('http://localhost:3000/readProperty').then((response) => {
+    axios.get('http://localhost:3000/readProperty')
+    .then((response) => {
       setProperties(response.data);
       setFilteredProperties(response.data);
-      //console.log(response.data);
-
-      Object.values(properties).map((x) => { console.log(x) });
-      console.log(Array.isArray(response.data));
-
-    }).catch((error) => {
+    })
+    .catch((error) => {
       console.log(error);
     });
-
-
   }
 
 
-  /** 
+  /*
    * This function filters the properties
    * The ".filter()" goes through all the elements (properties) in the array:
    * If the property in question satisfies the below conditions in the callback, then it is placed in a new array
    * This new array will then be returned and assigned to the array variable that is displayed in the frontend
-  **/
+  */
   const filterProperties = () => {
     setFilteredProperties(properties.filter((property) => {
       let typeFilter, locationFilter, bathFilter, bedFilter, dimensionsFilter;
@@ -165,7 +160,7 @@ function Houses() {
     }));
   }
 
-  useEffect(() => { getHouses() }, []); //the [] is necessary in order to only load once
+  useEffect(() => { getHouses() }, []);// Will only be called once on reload https://stackoverflow.com/questions/72824151/react-useeffect-keeps-fetching + https://www.tutorialspoint.com/how-to-call-the-loading-function-with-react-useeffect
 
 /* https://getbootstrap.com/docs/5.0/components/card/ */
   return (
@@ -254,7 +249,7 @@ function Houses() {
             <div>
               <button className="btn btn-secondary text-white">
                 <Link to={`/houses/propertypagedetail/${property._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>See More Detail</Link></button>
-            </div>
+            </div> {/*https://www.youtube.com/watch?v=enOsPhp2Z6Q at 36:39*/}
 
           </div>
         </div>

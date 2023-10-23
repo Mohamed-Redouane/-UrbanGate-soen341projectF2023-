@@ -7,32 +7,37 @@ import "bootstrap/dist/css/bootstrap.min.css"; //[1] don't forget this
 import { motion } from "framer-motion";
 import "./Header.css";
 import logo from "./logo.png" //font from https://www.fontget.com/font/lequire/
-import { useCookies } from 'react-cookie'; 
 import {useState, useEffect} from 'react'; 
 import axios from "axios";
 
 function Header() { //[2]
-const[cookies,setCookies] = useCookies(["access_token"]);
 const[userRole, setUserRole] = useState("");
 const[isSignedIn, setIsSignedIn] = useState(false);
 
 const logout = () => {
-    window.localStorage.removeItem("UserID"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:19:52
+    window.localStorage.removeItem("UserID"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s  at 1:19:52
 }
 
 const f = () => {
-    axios.post("http://localhost:3000/checkUser", {userID: window.localStorage.getItem("UserID")}).then((res)=>{
-    setUserRole(res.data);
-    setIsSignedIn(true);
-    }).catch((res)=>{
-    setUserRole("Not Signed In");
-    setIsSignedIn(false);
+    axios.post("http://localhost:3000/checkUser", {userID: window.localStorage.getItem("UserID")})
+    .then((res)=>{
+        if (res.data == "NONE") {
+            setUserRole("Not Signed In");
+            setIsSignedIn(false);
+            console.log("NOT SIGNED IN")
+        }
+        else {
+            setUserRole(res.data);
+            setIsSignedIn(true);
+            console.log("SIGNED IN")
+        }
+    })
+    .catch((res)=>{
+        console.log('failure' + res)
     });
 };
 
-useEffect(() => {
-    f();
-}, []);
+useEffect(() => {f();}, []); // Will only be called once on reload https://stackoverflow.com/questions/72824151/react-useeffect-keeps-fetching + https://www.tutorialspoint.com/how-to-call-the-loading-function-with-react-useeffect
     return (
         <motion.div initial={{ opacity: 0, scale: 1 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3 }}>
             <div className="header-box">
@@ -43,7 +48,7 @@ useEffect(() => {
                     <div className="col-2"> <a href="/houses" style={{ textDecorationLine: "none" }}> <h5 className="nav-box2"> Houses <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="dropd" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg> </h5> </a> </div> {/* [2], style attribute is weird https://www.w3schools.com/react/react_css.asp*/}
                     <div className="col-2"> <a href="/broker" style={{ textDecorationLine: "none" }}>  <h5 className="nav-box3"> Brokers<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg> </h5> </a> </div>
                     <div className="col-2">  <a href="/accounts" style={{ textDecorationLine: "none" }}> 
-                    {/*https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:19:15*/}
+                    {/*https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:19:15*/}
                      {!window.localStorage.getItem("UserID") ?
                         (<h5 className="nav-box4"> Accounts<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg> </h5>): 
                         <button onClick={logout} className="nav-box4"> Logout </button> 

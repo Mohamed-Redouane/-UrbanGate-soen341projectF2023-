@@ -9,24 +9,18 @@ function ManageBrokers(){
  //[1], functional component
  const [brokers, setBrokers] = useState<any[]>([]);
 
- const handleDelete = (e: React.ChangeEvent<HTMLInputElement>, userID : "") => {
-
-}
-
  const getBrokers = () => {
 
-
-   axios.post('http://localhost:3000/manageBrokers', { userID: window.localStorage.getItem("UserID") }).then((response) => {
-     setBrokers(response.data);
-     //console.log(response.data);
-
-   }).catch((error) => {
-     console.log(error);
+   axios.post('http://localhost:3000/manageBrokers', {userID: window.localStorage.getItem("UserID")})
+   .then((res) => {
+    if (res.data.popup === "Good"){
+     setBrokers(res.data.response);
+    }
+   })
+   .catch((err) => {
+     console.log('failure' + err);
    });
-
-
  }
-
 
  useEffect(() => {
    getBrokers();
@@ -35,14 +29,6 @@ function ManageBrokers(){
 
 
  return (
-   //[1] returns tsx (typescript xml)
-
-
-
-
-
-
-
    <div>
      {brokers.map((broker) =>
        <div className="card bg-dark text-white mx-4 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
@@ -67,9 +53,6 @@ function ManageBrokers(){
                     console.log(error);
                   });
                  }
-                 
-
-
                }}>Delete</button>
            </div>
          </div>
@@ -77,9 +60,6 @@ function ManageBrokers(){
      )
      }
    </div>
-
-
-
  );
 }
 

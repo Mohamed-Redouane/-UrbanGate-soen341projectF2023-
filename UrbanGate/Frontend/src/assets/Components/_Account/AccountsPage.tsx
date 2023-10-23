@@ -6,7 +6,6 @@ import { useState } from "react";
 import "./SignIn.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
 
 function AccountsPage() {
   return (
@@ -23,7 +22,6 @@ function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [_, setCookies] = useCookies(["access_token"]);
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -35,12 +33,13 @@ function SignIn() {
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
-  //const [ ,setCookies]=useCookies(["tokenFromJwt"]);
 
   /*
   * Handles Sign-in request from user
   * Will locally store ID if it was successful
   * .then and .catch used here because there's nothing else to be executed after 
+  * I followed this guide:
+  * https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
   */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); //Stop the page from reloading onSubmit
@@ -48,12 +47,12 @@ function SignIn() {
       email: email, 
       password: password,
     }
-    axios.post("http://localhost:3000/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/ + https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s
+    axios.post("http://localhost:3000/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/
       .then((res)=>{
         alert(res.data.popup);
         if (res.data.popup === "User signed in successfully!") {
-          window.localStorage.setItem("UserID", res.data.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:15:57
-          navigate("/"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:16:51
+          window.localStorage.setItem("UserID", res.data.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:15:57
+          navigate("/"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:16:51
           window.location.reload(); //Refresh and display the new header, I think this forces a rerender of the page
         }
       })
@@ -113,10 +112,6 @@ function SignUp() {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
 
-  const success = () => {
-    alert("SUCCESS");
-  };
-  const navigate = useNavigate();
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
@@ -133,6 +128,11 @@ function SignUp() {
     setRole((prevRole) => (prevRole === selectedRole ? "" : selectedRole));
   };
 
+  /*
+  * Handles request when user signs up 
+  * I followed this guide: 
+  * https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+  */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = {
@@ -143,7 +143,7 @@ function SignUp() {
     };
     axios.post("http://localhost:3000/createUser", data)
       .then((res)=> alert(res.data.popup))
-      .catch((res)=> alert("Error code: " + res)); //in case something goes wrong
+      .catch((res)=> alert("failure: " + res)); //in case something goes wrong
   }
 
   return (
