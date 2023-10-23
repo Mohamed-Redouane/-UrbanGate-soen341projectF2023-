@@ -12,7 +12,7 @@ export default async function deleteBroker(req, res) {
     
         return res.status(200).json({
             type: "success",
-            message: "User deleted successfully!",
+            popup: "User deleted successfully!",
             //accessToken,
           });
     
