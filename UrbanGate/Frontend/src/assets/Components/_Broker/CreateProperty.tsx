@@ -44,11 +44,9 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const handleBathroomChange = (selectedOption : any) => { 
     setBathroom(selectedOption.value);
   };
-
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setImage(e.target.value);
   };
-
 
   const bedOptions = [
     {value: "1 bedroom", label:"1 bed"},
@@ -70,13 +68,11 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     { label: "Angrignon", value: "Angrignon" },
     { label: "Mile-End", value: "Mile-End" },
   ];
-
   const typeOptions = [
     { label: "Appartment", value: "apartment" },
     { label: "Condo", value: "condo" },
     { label: "House", value: "house" },
   ];
-
   const bathOptions = [
     {value: "1 bathroom", label:"1 bathroom"},
     {value: "2 bathrooms", label:"2 bathrooms"},
@@ -94,12 +90,8 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     
       await axios.post("http://localhost:3000/createProperty", data).then((res)=>{
         alert("success")
-       
       }).catch((res)=> alert(res) );
-      
-  
   }
-
     return (
         <div className="container">
             <form onSubmit={handleSubmit}>
@@ -150,13 +142,15 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
                 <div className="fields-container">
                     <label htmlFor="quantity">Price:</label>
+                    <p style={{fontSize:"11px", padding:0, margin:0}}> If this property is for rent, enter the price/month</p>
                     <input type="number"
                      id="quantity"
                      name="price"
+                     min="0"
                     value={price}
                     onChange={handlePriceChange}
                     required
-                    placeholder="Enter Price"/>
+                    placeholder="Price for Sale or Price/month"/>
                 </div>
 
                 <div className="fields-container">
