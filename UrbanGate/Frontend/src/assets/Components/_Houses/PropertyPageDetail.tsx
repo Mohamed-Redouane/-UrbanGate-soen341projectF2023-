@@ -121,12 +121,7 @@ const getProperty = () => {
           </div>
         </div>
         </div>
-        
         </div>
-        
-
-
-      
     </>
   );
 }

@@ -10,7 +10,7 @@ import User from '../models/users.js'
 export default async function createProperty(req, res) {
   try { //An error can be caught; https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:32:01
     const user = await User.findById(req.body.userID);
-    if (!user) {return res.json({popup: "Not Signed in!",});}
+    if (!user) {return res.status(500).json({popup: "Not Signed in!",});}
     if (user.role != "broker") {return res.status(500).json({popup: "Not a broker"});}
     const title = req.body.title;
     const propertyAlreadyThere = await Property.findOne({title});

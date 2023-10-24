@@ -85,19 +85,6 @@ function SignIn() {
             placeholder="Enter password"
           />
         </div>
-
-        <div className="fields-container">
-          <label htmlFor="password">Name</label>
-          <input
-            type="name"
-            id="name"
-            name="name"
-            value={name}
-            onChange={handleNameChange}
-            required
-            placeholder="Enter Name"
-          />
-        </div>
         <button type="submit">Sign In</button>
       </form>
     </div>

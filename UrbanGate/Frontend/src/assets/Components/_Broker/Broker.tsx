@@ -13,10 +13,7 @@ function Broker() {
 
   const f = async () => {
     await setLoading(true);
-    await axios
-      .post("http://localhost:3000/checkUser", {
-        userID: window.localStorage.getItem("UserID"),
-      })
+    await axios.post("http://localhost:3000/checkUser", {userID: window.localStorage.getItem("UserID"),})
       .then((res) => {
         console.log("valid");
         checkUser(res.data);
@@ -63,8 +60,8 @@ function Broker() {
       )}
       {!isLoading && user == "admin" && (
         <div>
-          <h1>Welcome, Admin</h1>
-          <p>Here you can access all your Admin functions and informations.</p>
+          <h1 style={{color: 'white'}}>Welcome, Admin</h1>
+          <p style={{color: 'white'}}>Here you can access all your Admin functions and informations.</p>
           <div className="broker-buttons">
             <Link to="/broker/CreateBroker" className="broker-button">
               Create Broker
@@ -81,7 +78,7 @@ function Broker() {
       )}
       {!isLoading && user != "broker" && user != "admin" && (
         <div>
-          <p>
+          <p style={{color: 'white'}}>
             This page is reserved to Brokers and Admins. Please log in or create
             a Broker/Admin account
           </p>

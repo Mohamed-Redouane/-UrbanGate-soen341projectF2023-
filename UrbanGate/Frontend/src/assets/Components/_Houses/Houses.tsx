@@ -236,7 +236,7 @@ function Houses() {
       </div>
 
       {filteredProperties.map((property) =>
-        <div className="card bg-dark text-white mx-4 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
+        <div className="card bg-dark text-white mx-2 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
           <img src={property.image} className="card-img-top" alt="..." style={{ height: "200px" }}></img>
           <div className="card-body">
             <ul className="list-group list-group-horizontal" style={{fontSize: "11px", height: "30px", width: "280px", padding: 0}}>
