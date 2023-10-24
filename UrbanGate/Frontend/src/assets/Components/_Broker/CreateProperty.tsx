@@ -96,11 +96,8 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       .then((res)=>{
         alert(res.data.popup);
       })
-      .catch((res)=> alert(res + "o"));
-      
-  
+      .catch((err)=> alert(err.response.data.popup)); //you have to write err.response because the data is treated differently than in the .then
   }
-
     return (
         <div className="container">
             <form onSubmit={handleSubmit}>
@@ -210,9 +207,6 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         </div>
 
     )
-
-
-
 }
 
 export default ManagingProperties;

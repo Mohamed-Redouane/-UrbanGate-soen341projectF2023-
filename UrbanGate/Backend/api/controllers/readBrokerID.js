@@ -8,5 +8,5 @@ export default async function readBrokerID (req, res) {
         console.log("yes");
         return res.status(200).json(response);
     }
-    catch (err) {return res.json(err);};
+    catch (err) {return res.status(500).json(err);};
 }

@@ -21,19 +21,14 @@ const logout = () => {
 const f = () => {
     axios.post("http://localhost:3000/checkUser", {userID: window.localStorage.getItem("UserID")})
     .then((res)=>{
-        if (res.data == "NONE") {
-            setUserRole("Not Signed In");
-            setIsSignedIn(false);
-            console.log("NOT SIGNED IN")
-        }
-        else {
-            setUserRole(res.data);
-            setIsSignedIn(true);
-            console.log("SIGNED IN")
-        }
+        setUserRole(res.data);
+        setIsSignedIn(true);
+        console.log("SIGNED IN")
     })
-    .catch((res)=>{
-        console.log('failure' + res)
+    .catch((err)=>{
+        setUserRole("Not Signed In");
+        setIsSignedIn(false);
+        console.log(err.response.data)
     });
 };
 
@@ -62,6 +57,4 @@ useEffect(() => {f();}, []); // Will only be called once on reload https://stack
         </motion.div>
     )
 }
-
-
 export default Header

@@ -50,13 +50,11 @@ function SignIn() {
     axios.post("http://localhost:3000/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/
       .then((res)=>{
         alert(res.data.popup);
-        if (res.data.popup === "User signed in successfully!") {
-          window.localStorage.setItem("UserID", res.data.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:15:57
-          navigate("/"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:16:51
-          window.location.reload(); //Refresh and display the new header, I think this forces a rerender of the page
-        }
+        window.localStorage.setItem("UserID", res.data.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:15:57
+        navigate("/"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:16:51
+        window.location.reload(); //Refresh and display the new header, I think this forces a rerender of the page
       })
-      .catch((res)=> alert("failure: " + res)); //the catch here catches if the promise doesn't get resolve, i.e if there's a problem connecting to the backend
+      .catch((err)=>alert(err.response.data.popup)); //in case something goes wrong
   }
 
   return (
@@ -143,7 +141,7 @@ function SignUp() {
     };
     axios.post("http://localhost:3000/createUser", data)
       .then((res)=> alert(res.data.popup))
-      .catch((res)=> alert("failure: " + res)); //in case something goes wrong
+      .catch((err)=>  alert(err.response.data.popup)); //in case something goes wrong
   }
 
   return (

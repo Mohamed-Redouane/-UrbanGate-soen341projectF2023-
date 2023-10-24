@@ -40,15 +40,10 @@ function BrokerDetail() {
     console.log(data.userID);
     axios.post("http://localhost:3000/updateBroker", data)
       .then((res) => {
-        if (res.data.popup!=='Update Success') {
-          alert (res.data.popup);
-        }
-        else {
         alert(res.data.popup);
         window.location.reload();
-        }
       })
-      .catch((res) => alert("failure" + res));
+      .catch((err) => alert(err.response.data.popup));
   }
 
   const getBroker = () => {

@@ -13,12 +13,10 @@ function ManageBrokers(){
 
    axios.post('http://localhost:3000/manageBrokers', {userID: window.localStorage.getItem("UserID")})
    .then((res) => {
-    if (res.data.popup === "Good"){
      setBrokers(res.data.response);
-    }
    })
    .catch((err) => {
-     console.log('failure' + err);
+     console.log(err.response.data.popup);
    });
  }
 

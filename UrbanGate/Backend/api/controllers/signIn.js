@@ -14,17 +14,17 @@ export default async function signIn(req, res) {
     const user = await User.findOne({ email }); //look for the email, if it does not exist enter if statement
     if (!user) { //user is not found as email does not match in the database
       console.log("User not found with email:", email);
-      return res.json({ popup: "Account does not exist" });
+      return res.status(500).json({ popup: "Account does not exist" });
     }
     if (password !== user.password) {
-      return res.json({popup: "Incorrect password"});
+      return res.status(500).json({popup: "Incorrect password"});
     }
-    return res.json({
+    return res.status(200).json({
       popup: "User signed in successfully!",
       userID: user._id, //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:15:25
     });
   }
   catch (err) { //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:32:01
-    res.json(err); 
+    res.status(500).json(err); 
   }
 }

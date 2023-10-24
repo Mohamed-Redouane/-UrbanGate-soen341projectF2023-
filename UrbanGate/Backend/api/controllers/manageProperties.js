@@ -27,7 +27,6 @@ export default async function manageProperties(req, res) {
         return res.status(500).json({
         type: "error",
         message: "Error signing in!",
-        error,
       });
     } 
         res.json()}
