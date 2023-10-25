@@ -88,9 +88,13 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const data = {title: title, description: description,image: image, type : types, location: location, price: price, area: area, bedroom: bedroom, bathroom: bathroom, status: status, userID: window.localStorage.getItem("UserID")};
     
-      await axios.post("http://localhost:3000/createProperty", data).then((res)=>{
-        alert("success")
-      }).catch((res)=> alert(res) );
+
+      await axios.post("http://localhost:3000/createProperty", data)
+      .then((res)=>{
+        alert(res.data.popup);
+      })
+      .catch((err)=> alert(err.response.data.popup)); //you have to write err.response because the data is treated differently than in the .then
+
   }
     return (
         <div className="container">
@@ -203,9 +207,6 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         </div>
 
     )
-
-
-
 }
 
 export default ManagingProperties;

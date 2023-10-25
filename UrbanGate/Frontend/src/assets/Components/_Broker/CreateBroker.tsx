@@ -36,8 +36,8 @@ function CreateBroker(){
       e.preventDefault();
       const data = {email: email, name: name, password: password, role: role};
       axios.post("http://localhost:3000/createUser", data)
-      .then(()=> alert("SUCCESS"))
-      .catch((res)=> alert("Error code: " + res));
+      .then((res)=> alert(res.data.popup))
+      .catch((err)=> alert(err.response.data.popup));
       //console.log(email +  "" + password +"" + name+""   + role);
     }
 

@@ -115,26 +115,25 @@ function Houses() {
 
   
   const getHouses = () => {
-    axios.get('http://localhost:3000/readProperty').then((response) => {
+    axios.get('http://localhost:3000/readProperty')
+    .then((response) => {
       setProperties(response.data);
       setFilteredProperties(response.data);
-      //console.log(response.data);
-
-      Object.values(properties).map((x) => { console.log(x) });
-      console.log(Array.isArray(response.data));
-
-    }).catch((error) => {
+    })
+    .catch((error) => {
       console.log(error);
     });
 
   }
 
+
   /** 
+
    * This function filters the properties
    * The ".filter()" goes through all the elements (properties) in the array:
    * If the property in question satisfies the below conditions in the callback, then it is placed in a new array
    * This new array will then be returned and assigned to the array variable that is displayed in the frontend
-  **/
+  */
   const filterProperties = () => {
     setFilteredProperties(properties.filter((property) => {
       let typeFilter, locationFilter, bathFilter, bedFilter, dimensionsFilter, buyerRangeFilter, statusFilter;
@@ -179,7 +178,7 @@ function Houses() {
     }));
   }
 
-  useEffect(() => { getHouses() }, []); //the [] is necessary in order to only load once
+  useEffect(() => { getHouses() }, []);// Will only be called once on reload https://stackoverflow.com/questions/72824151/react-useeffect-keeps-fetching + https://www.tutorialspoint.com/how-to-call-the-loading-function-with-react-useeffect
 
 /* https://getbootstrap.com/docs/5.0/components/card/ */
   return (
@@ -260,8 +259,10 @@ function Houses() {
       </div>
 
       {filteredProperties.map((property) =>
-        <div className="card bg-dark text-white mx-4 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
-          <div className="card-image"><img src={property.image} className="card-img-top" alt="..." style={{ height: "200px" }}></img></div>
+
+        <div className="card bg-dark text-white mx-2 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
+          <img src={property.image} className="card-img-top" alt="..." style={{ height: "200px" }}></img>
+
           <div className="card-body">
             <ul className="list-group list-group-horizontal" style={{fontSize: "11px", height: "30px", width: "280px", padding: 0}}>
               <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "100px", padding:"8px" }}> Location:  <br></br> <p style={{ textAlign: "center" }}> {property.location}</p></li>
@@ -273,7 +274,7 @@ function Houses() {
             <div>
               <button className="btn btn-secondary text-white">
                 <Link to={`/houses/propertypagedetail/${property._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>See More Detail</Link></button>
-            </div>
+            </div> {/*https://www.youtube.com/watch?v=enOsPhp2Z6Q at 36:39*/}
 
           </div>
         </div>

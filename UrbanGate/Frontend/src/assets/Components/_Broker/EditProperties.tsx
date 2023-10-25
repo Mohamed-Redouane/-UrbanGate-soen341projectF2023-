@@ -23,10 +23,6 @@ function EditProperties(){
     const {_id} = useParams();
     const navigate = useNavigate();
 
-    const success = () => {
-        alert("SUCCESS");
-      }
-
       const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
       };
@@ -112,9 +108,11 @@ function EditProperties(){
 
     const getProperty = () => {
         axios.get(`http://localhost:3000/readPropertyID/${_id}`).then((response) => {
-            setProperty(response.data);
-            console.log(response.data);
-
+            //setProperty(response.data);
+            //setTitle(response.data.title);
+            //setDescription(response.data.description);
+            setLocation(response.data.location);
+            console.log(location)
         }).catch((error) => {
             console.log(error);
         });
@@ -122,7 +120,6 @@ function EditProperties(){
 
     useEffect(() => {
         getProperty();
-       console.log(property);
     }, []);
 
     const handleNo = () => {
@@ -171,8 +168,10 @@ function EditProperties(){
 
               <div className="fields-container">
                   <label> Location </label>
+                  {/*https://simplefrontend.com/default-value-for-select-elements-in-react/ */}
                   <Select 
-                      options={locationOptions} 
+                      options={locationOptions}   
+                      defaultValue={{ label: location, value: location }} 
                       onChange={handleLocationChange} 
                       required
                       />
@@ -191,7 +190,7 @@ function EditProperties(){
 
               <div className="fields-container">
                   <label htmlFor="quantity">Area</label>
-                  <Select 
+                  <Select
                       options={areaOptions} 
                       onChange={handleDimensionChange} 
                       required

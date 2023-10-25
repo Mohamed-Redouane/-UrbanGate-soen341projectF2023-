@@ -6,7 +6,6 @@ import { useState } from "react";
 import "./SignIn.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
 
 function AccountsPage() {
   return (
@@ -23,7 +22,6 @@ function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [_, setCookies] = useCookies(["access_token"]);
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -35,27 +33,29 @@ function SignIn() {
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
-  //const [ ,setCookies]=useCookies(["tokenFromJwt"]);
 
+  /*
+  * Handles Sign-in request from user
+  * Will locally store ID if it was successful
+  * .then and .catch used here because there's nothing else to be executed after 
+  * I followed this guide:
+  * https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+  */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const data = {email: email, password: password};
-    const responseFromAPI = axios.post("http://localhost:3000/signIn", data)
-    .then((res)=>{
-      alert("success");
-      setCookies("access_token",res.data.token);
-      window.localStorage.setItem("UserID", res.data.userID);
-      navigate("/");
-      window.location.reload();
-    })
-    .catch((res)=> alert("failure: " + res));
-
-   //setCookies("tokenFromJwt", responseFromAPI); //going to store the user_id being sent back, this proves authentication and allows user to be verifed
-   //Note going to use cookie to validate whether to re-route sign in page to managing accounts page once authentication token exists
-
-    //navigate("/"); //sends user to home page and the accounts page will not route to account management
-  };
+    e.preventDefault(); //Stop the page from reloading onSubmit
+    const data = {
+      email: email, 
+      password: password,
+    }
+    axios.post("http://localhost:3000/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/
+      .then((res)=>{
+        alert(res.data.popup);
+        window.localStorage.setItem("UserID", res.data.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:15:57
+        navigate("/"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:16:51
+        window.location.reload(); //Refresh and display the new header, I think this forces a rerender of the page
+      })
+      .catch((err)=>alert(err.response.data.popup)); //in case something goes wrong
+  }
 
   return (
     <div className="container">
@@ -85,19 +85,6 @@ function SignIn() {
             placeholder="Enter password"
           />
         </div>
-
-        <div className="fields-container">
-          <label htmlFor="password">Name</label>
-          <input
-            type="name"
-            id="name"
-            name="name"
-            value={name}
-            onChange={handleNameChange}
-            required
-            placeholder="Enter Name"
-          />
-        </div>
         <button type="submit">Sign In</button>
       </form>
     </div>
@@ -110,10 +97,6 @@ function SignUp() {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
 
-  const success = () => {
-    alert("SUCCESS");
-  };
-  const navigate = useNavigate();
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
@@ -130,15 +113,23 @@ function SignUp() {
     setRole((prevRole) => (prevRole === selectedRole ? "" : selectedRole));
   };
 
+  /*
+  * Handles request when user signs up 
+  * I followed this guide: 
+  * https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+  */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = { email: email, name: name, password: password, role: role };
-    axios
-      .post("http://localhost:3000/createUser", data)
-      .then(() => alert("SUCCESS"))
-      .catch((res) => alert("Error code: " + res));
-    //console.log(email +  "" + password +"" + name+""   + role);
-  };
+    const data = {
+      email: email, 
+      name: name, 
+      password: password, 
+      role: role
+    };
+    axios.post("http://localhost:3000/createUser", data)
+      .then((res)=> alert(res.data.popup))
+      .catch((err)=>  alert(err.response.data.popup)); //in case something goes wrong
+  }
 
   return (
     <div className="container">
@@ -199,6 +190,15 @@ function SignUp() {
               value="broker"
               checked={role === "broker"}
               onChange={() => handleRoleChange("broker")}
+            />
+            <label htmlFor="broker">Renter</label>
+            <input
+              type="radio"
+              id="renter"
+              name="role"
+              value="renter"
+              checked={role === "renter"}
+              onChange={() => handleRoleChange("renter")}
             />
           </div>
           <div>
