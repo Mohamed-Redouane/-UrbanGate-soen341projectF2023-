@@ -1,1 +1,3 @@
 https://docs.github.com/en/actions/using-workflows/about-workflows
+https://dev.to/shofol/run-your-github-actions-jobs-from-a-specific-directory-1i9e
+https://stackoverflow.com/questions/73958968/cannot-use-import-statement-outside-a-module-with-axios
