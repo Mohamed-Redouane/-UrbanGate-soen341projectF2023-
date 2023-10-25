@@ -1,7 +1,7 @@
 const axios = require('axios'); //https://stackoverflow.com/questions/73958968/cannot-use-import-statement-outside-a-module-with-axios
 jest.mock('axios');
 
-/* I followed this guide:
+/* I followed these guides:
 * https://jestjs.io/docs/mock-functions
 * https://jestjs.io/docs/configuration
 */
