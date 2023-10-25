@@ -10,6 +10,7 @@ import "./BrokerPage.css";
 function Broker() {
   const [user, checkUser] = useState("");
   const [isLoading, setLoading] = useState(true);
+  const brokerId = localStorage.getItem("UserID");
 
   const f = async () => {
     await setLoading(true);
@@ -46,6 +47,11 @@ function Broker() {
             <Link to="/broker/ManageProperties" className="broker-button">
               Manage Properties
             </Link>
+            <Link to="/broker/ManageVisitRequests/${brokerId}"className="broker-button">
+              Visit Requests
+            </Link>
+        
+            
           </div>
           <div className="broker-background"></div>
           <div className="broker-text">
