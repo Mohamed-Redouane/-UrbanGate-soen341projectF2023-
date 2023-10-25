@@ -3,12 +3,10 @@ on: [push]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
-    defaults:
-    run:
-    working-directory: ./UrbanGate/Backend
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-      - run: npm install -g bats
+      - run: npm install
+        working-directory: "./UrbanGate/Backend"
       - run: npm test
-      - run: bats -v
+        working-directory: "./UrbanGate/Backend"
+
