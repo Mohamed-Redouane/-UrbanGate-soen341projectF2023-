@@ -1,0 +1,31 @@
+.card-price{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
+
+.card-status{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    text-align: right;
+    margin-top: -16%;
+}
+
+.card-text{
+    height: 55px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;;
+}
+
+.image{
+    float: right; 
+    height: 20px; 
+}
+
+.card-image{
+    height: 200px;
+}
+
+.price-range-options:hover{
+    
+}
