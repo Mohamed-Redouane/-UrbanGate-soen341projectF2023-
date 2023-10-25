@@ -19,7 +19,7 @@ function EditProperties(){
   const [bathroom,setBathroom]=useState('');
   const [status,setStatus]=useState('');
   const [image,setImage]=useState('');
-    const [property, setProperty] = useState({title: "string", description: "string", type: "string", price: "string", location: "string", area: "string", bedroom: "string", bathroom: "string", status:"string", imageUrl: "string"});
+    //const [property, setProperty] = useState({title: "string", description: "string", type: "string", price: "string", location: "string", area: "string", bedroom: "string", bathroom: "string", status:"string", imageUrl: "string"});
     const {_id} = useParams();
     const navigate = useNavigate();
 
@@ -100,7 +100,6 @@ function EditProperties(){
         axios.post("http://localhost:3000/updateProperty", data)
         .then(()=> {alert("SUCCESS")
         window.location.reload();
-        //navigate("/broker/ManageProperties");
     })
         .catch((res)=> alert("Error code: " + res));
         //console.log(email +  "" + password +"" + name+""   + role);
@@ -108,11 +107,9 @@ function EditProperties(){
 
     const getProperty = () => {
         axios.get(`http://localhost:3000/readPropertyID/${_id}`).then((response) => {
-            //setProperty(response.data);
-            //setTitle(response.data.title);
-            //setDescription(response.data.description);
-            setLocation(response.data.location);
-            console.log(location)
+            setTitle(response.data.title);
+            setDescription(response.data.description);
+            setImage(response.data.image);
         }).catch((error) => {
             console.log(error);
         });
@@ -171,7 +168,7 @@ function EditProperties(){
                   {/*https://simplefrontend.com/default-value-for-select-elements-in-react/ */}
                   <Select 
                       options={locationOptions}   
-                      defaultValue={{ label: location, value: location }} 
+                      //defaultValue={{ label: location, value: location }} 
                       onChange={handleLocationChange} 
                       required
                       />
