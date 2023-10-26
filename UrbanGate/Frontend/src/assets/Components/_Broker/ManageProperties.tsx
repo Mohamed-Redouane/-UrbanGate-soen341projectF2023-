@@ -7,7 +7,7 @@ function ManageProperties() {
   const [properties, setProperties] = useState<any[]>([]);
 
   const getHouses = () => {
-    axios.post('http://localhost:3000/manageProperties', {userID: window.localStorage.getItem("UserID")})
+    axios.post('http://localhost:3000/manageProperties', {userID: window.localStorage.getItem("UserID")}) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
     .then((response) => {
       setProperties(response.data);
     })
@@ -22,6 +22,7 @@ function ManageProperties() {
 
   return (
     <div>
+      {/*https://www.w3schools.com/jsref/jsref_map.asp */}
       {properties.map((House) =>
         <div className="card bg-dark text-white mx-4 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
         <div className="card-image"> <img src={House.image} className="card-img-top" alt="..." style={{ height: "200px" }}></img></div>

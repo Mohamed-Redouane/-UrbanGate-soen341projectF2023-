@@ -86,12 +86,10 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     {value: "for_rent", label:"For Rent"},
   ];
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit =  (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = {title: title, description: description,image: image, type : types, location: location, price: price, area: area, bedroom: bedroom, bathroom: bathroom, status: status, userID: window.localStorage.getItem("UserID")};
-    
-
-      await axios.post("http://localhost:3000/createProperty", data)
+      axios.post("http://localhost:3000/createProperty", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
       .then((res)=>{
         toast.success(res.data.popup);
       })

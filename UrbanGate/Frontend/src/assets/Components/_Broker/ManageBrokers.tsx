@@ -11,7 +11,7 @@ function ManageBrokers(){
 
  const getBrokers = () => {
 
-   axios.post('http://localhost:3000/manageBrokers', {userID: window.localStorage.getItem("UserID")})
+   axios.post('http://localhost:3000/manageBrokers', {userID: window.localStorage.getItem("UserID")}) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
    .then((res) => {
      setBrokers(res.data.response);
    })
@@ -28,6 +28,7 @@ function ManageBrokers(){
 
  return (
    <div>
+    {/*https://www.w3schools.com/jsref/jsref_map.asp */}
      {brokers.map((broker) =>
        <div className="card bg-dark text-white mx-2 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
          <img src={"https://icon-library.com/images/person-icon-outline/person-icon-outline-2.jpg"} className="card-img-top" alt="..." style={{ height: "200px" }}></img>

@@ -30,7 +30,7 @@ function BrokerDetail() {
     e.preventDefault();
     const data = { userID: _id, email: email, name: name, password: password };
     console.log(data.userID);
-    axios.post("http://localhost:3000/updateBroker", data)
+    axios.post("http://localhost:3000/updateBroker", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
       .then((res) => {
         alert(res.data.popup);
         window.location.reload();
@@ -42,7 +42,7 @@ function BrokerDetail() {
     axios.get(`http://localhost:3000/readBrokerID/${_id}`).then((response) => {
       setBroker(response.data);
       console.log(response.data);
-      setEmail(response.data.email);
+      setEmail(response.data.email); //to have the initial values be the one already there; https://www.youtube.com/watch?v=enOsPhp2Z6Q at 44:55
       setName(response.data.name);
       setPassword(response.data.password);
     }).catch((error) => {
@@ -52,7 +52,7 @@ function BrokerDetail() {
 
   useEffect(() => {
     getBroker();
-  }, []);
+  }, []); // Will only be called once on reload https://stackoverflow.com/questions/72824151/react-useeffect-keeps-fetching + https://www.tutorialspoint.com/how-to-call-the-loading-function-with-react-useeffect
 
 
   return (

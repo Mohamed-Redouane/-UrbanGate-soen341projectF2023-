@@ -21,9 +21,12 @@ import ManageBrokers from './assets/Components/_Broker/ManageBrokers.tsx'
 import BrokerDetail from './assets/Components/_Broker/BrokerDetail.tsx'
 import DeleteProperties from './assets/Components/_Broker/DeleteProperties.tsx'
 import ManageVisitRequests from './assets/Components/_Broker/ManageVisitRequests.tsx';
+import EditProperties from './assets/Components/_Broker/EditProperties.tsx'
+//https://reactrouter.com/en/main/start/tutorial
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
-import EditProperties from './assets/Components/_Broker/EditProperties.tsx'
+
+
 
 const router = createBrowserRouter([
 {path: "/", element: <AboutPage/>,}, //[2], it associates a URL path with a component

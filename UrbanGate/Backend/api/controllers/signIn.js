@@ -7,12 +7,12 @@ import User from '../models/users.js';
 * https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 50:12
 */
 export default async function signIn(req, res) {
-  try { //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:32:01
+  try { //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:32:01
     const email = req.body.email;
     const password = req.body.password;
     console.log("Received sign-in request with email:", email);
-    const user = await User.findOne({ email }); //look for the email, if it does not exist enter if statement
-    if (!user) { //user is not found as email does not match in the database
+    const user = await User.findOne({ email }); //look for the email, if it does not exist enter if statement; https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 39:46
+    if (!user) { //user is not found as email does not match in the database https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 39:46
       console.log("User not found with email:", email);
       return res.status(500).json({ popup: "Account does not exist" });
     }
@@ -24,7 +24,7 @@ export default async function signIn(req, res) {
       userID: user._id, //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:15:25
     });
   }
-  catch (err) { //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:32:01
+  catch (err) { //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:32:01
     res.status(500).json(err); 
   }
 }

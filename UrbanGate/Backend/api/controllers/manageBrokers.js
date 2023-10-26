@@ -1,11 +1,11 @@
 import User from '../models/users.js' 
 
 export default async function manageBrokers(req, res) {
-    const user = await User.findById(req.body.userID);
+    const user = await User.findById(req.body.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:38:07
     if (!user) {return res.status(500).json({popup: "NOT SIGNED IN",});}
     try {
       if (user.role == "admin") {
-      const response = await User.find({role: "broker"});
+      const response = await User.find({role: "broker"}); //https://mongoosejs.com/docs/api/model.html#Model.find()
       return res.status(200).json({
         response: response,
         popup: "Good"});

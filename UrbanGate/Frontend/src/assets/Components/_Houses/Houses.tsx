@@ -115,7 +115,7 @@ function Houses() {
 
   
   const getHouses = () => {
-    axios.get('http://localhost:3000/readProperty')
+    axios.get('http://localhost:3000/readProperty') //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
     .then((response) => {
       setProperties(response.data);
       setFilteredProperties(response.data);
@@ -132,6 +132,7 @@ function Houses() {
    * The ".filter()" goes through all the elements (properties) in the array:
    * If the property in question satisfies the below conditions in the callback, then it is placed in a new array
    * This new array will then be returned and assigned to the array variable that is displayed in the frontend
+   * https://stackoverflow.com/questions/32040396/how-to-use-es6-fat-arrow-to-filter-an-array-of-objects
   */
   const filterProperties = () => {
     setFilteredProperties(properties.filter((property) => {
@@ -257,7 +258,9 @@ function Houses() {
       </div>
       </div>
 
-        {/*https://getbootstrap.com/docs/5.0/components/card/*/}
+
+      {/*https://www.w3schools.com/jsref/jsref_map.asp */}
+      {/*https://getbootstrap.com/docs/5.0/components/card/*/}
       {filteredProperties.map((property) =>
           <div className="card bg-dark text-white mx-4 mt-5" style={{ width: "310px", height: "460px", display: "inline-block"}}>
           <div className="card-image"><img src={property.image} className="card-img-top" alt="..." style={{ height: "200px" }}></img></div>

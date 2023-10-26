@@ -14,21 +14,21 @@ function Broker() {
 
   const f = async () => {
     await setLoading(true);
-    await axios.post("http://localhost:3000/checkUser", {userID: window.localStorage.getItem("UserID"),})
+    await axios.post("http://localhost:3000/checkUser", {userID: window.localStorage.getItem("UserID"),}) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
       .then((res) => {
         console.log("valid");
         checkUser(res.data);
       })
-      .catch((res) => {
+      .catch((err) => {
         console.log("not valid");
-        checkUser(res.data);
+        checkUser(err.response.data);
       });
     await setLoading(false);
   };
 
   useEffect(() => {
     f();
-  }, []);
+  }, []); // Will only be called once on reload https://stackoverflow.com/questions/72824151/react-useeffect-keeps-fetching + https://www.tutorialspoint.com/how-to-call-the-loading-function-with-react-useeffect
 
   return (
     <div className="broker-container">
@@ -47,8 +47,6 @@ function Broker() {
             <Link to="/broker/ManageVisitRequests/${brokerId}"className="broker-button">
               Visit Requests
             </Link>
-        
-            
           </div>
           <div className="broker-background"></div>
           <div className="broker-text">

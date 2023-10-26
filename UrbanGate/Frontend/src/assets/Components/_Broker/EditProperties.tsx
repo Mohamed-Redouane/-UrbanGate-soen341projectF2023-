@@ -99,7 +99,7 @@ function EditProperties(){
         e.preventDefault();
         const data = {title: title, description: description,image: image, type : types, location: location, price: price, area: area, bedroom: bedroom, bathroom: bathroom, status: status, propertyID: _id};
         console.log(data.propertyID);
-        axios.post("http://localhost:3000/updateProperty", data)
+        axios.post("http://localhost:3000/updateProperty", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
         .then(()=> {toast.success("Property updated successfully");
         window.location.reload();
     })
@@ -108,10 +108,14 @@ function EditProperties(){
       }
 
     const getProperty = () => {
-        axios.get(`http://localhost:3000/readPropertyID/${_id}`).then((response) => {
-            setTitle(response.data.title);
-            setDescription(response.data.description);
-            setImage(response.data.image);
+
+        axios.get(`http://localhost:3000/readPropertyID/${_id}`) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+        .then((response) => {
+            //setProperty(response.data);
+            //setTitle(response.data.title);
+            //setDescription(response.data.description);
+            setLocation(response.data.location);
+            console.log(location)
         }).catch((error) => {
             console.log(error);
         });

@@ -11,7 +11,7 @@ export async function createVisitRequest(req, res) {
 
 
         const propertyExists = await Property.findById(_id);
-        const requesterExists = await User.findById(userID); 
+        const requesterExists = await User.findById(userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:38:07
 
         if (!propertyExists || !requesterExists) {
             return res.status(404).json({ message: 'Property or requester not found' });

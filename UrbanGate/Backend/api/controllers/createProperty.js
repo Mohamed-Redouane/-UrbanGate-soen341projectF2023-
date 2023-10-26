@@ -9,13 +9,13 @@ import User from '../models/users.js'
 
 export default async function createProperty(req, res) {
   try { //An error can be caught; https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:32:01
-    const user = await User.findById(req.body.userID);
+    const user = await User.findById(req.body.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:38:07
     if (!user) {return res.status(500).json({popup: "Not Signed in!",});}
     if (user.role != "broker") {return res.status(500).json({popup: "Not a broker"});}
-    const title = req.body.title;
-    const propertyAlreadyThere = await Property.findOne({title});
+    const title = req.body.title; //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 49:02
+    const propertyAlreadyThere = await Property.findOne({title}); //https://mongoosejs.com/docs/api/model.html#Model.findOne() + https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 39:46
     if (propertyAlreadyThere) {return res.status(500).json({popup: "Property already exists"});} //avoid having 2 titles, because a title is unique
-    const property = new Property({
+    const property = new Property({ //https://mongoosejs.com/docs/models.html + https://www.youtube.com/watch?v=wgGkF4k9c7A at 17:32
       title: req.body.title,
       description: req.body.description,
       type: req.body.type,

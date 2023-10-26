@@ -1,0 +1,12 @@
+name: Unit-Tests
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install
+        working-directory: "./UrbanGate/Backend"
+      - run: npm test
+        working-directory: "./UrbanGate/Backend"
+
