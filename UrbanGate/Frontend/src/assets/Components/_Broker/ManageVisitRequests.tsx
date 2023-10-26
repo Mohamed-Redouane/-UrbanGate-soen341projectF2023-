@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
+import "./ManageVisitRequests.css";
 
 function ManageVisitRequests() {
   const { propertyId } = useParams();
@@ -62,22 +63,22 @@ const uniqueKeysSet = new Set();
   }, []);
 
   return (
-    <div>
-      <h1>Visit Requests</h1>
+    <div className="visit-requests-container">
+      <h1 className="visit-requests-heading">Visit Requests</h1>
       {visitRequests.length === 0 ? (
-        <p>There are no visit requests.</p>
+        <p className="no-requests-message">There are no visit requests.</p>
       ) : (
-        <ul>
+        <ul className="visit-request-list">
           {visitRequests.map((request) => (
             <li key={`${request._id}-${request.property}-${request.requester}`}>
-              <div className="card bg-dark text-white mx-4 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
-                <div className="card-body">
+             <div className="visit-card">
+                <div className="visit-card-body">
                   <p>property: {request.property}</p>
                   <p>requester: {request.requester}</p>
                   <p>Status: {request.Status}</p>
                   <p>Requested Date: {request.requestedDate}</p>
-                  <div>
-                    <button className="btn btn-secondary text-white">
+                  <div className="visit-details-button">
+                     <button className="btn btn-secondary text-white">
                       <Link to={`/broker/manageVisitRequests/${request.property}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>
                         Visit Details
                       </Link>
