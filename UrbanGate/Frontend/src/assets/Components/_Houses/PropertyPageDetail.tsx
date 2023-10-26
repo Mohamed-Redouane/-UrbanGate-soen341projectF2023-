@@ -24,8 +24,6 @@ const [isSignedIn, setIsSignedIn] = useState(false);
 console.log(userID);
 const getProperty = () => {
   axios.get(`http://localhost:3000/readPropertyID/${_id}`).then((response) => {
-
-
       setProperty(response.data);
       console.log(response.data);
       console.log(response.data.title);

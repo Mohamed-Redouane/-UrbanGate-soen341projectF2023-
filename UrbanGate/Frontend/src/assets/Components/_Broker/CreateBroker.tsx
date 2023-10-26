@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
-import { useCookies } from 'react-cookie';
 
 function CreateBroker(){
 
@@ -11,10 +10,6 @@ function CreateBroker(){
     const [name, setName] = useState('');
     const [role, setRole] = useState('broker');
   
-    const success = () => {
-      alert("SUCCESS");
-    }
-  const navigate = useNavigate();
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setEmail(e.target.value);
     };
@@ -35,7 +30,7 @@ function CreateBroker(){
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const data = {email: email, name: name, password: password, role: role};
-      axios.post("http://localhost:3000/createUser", data)
+      axios.post("http://localhost:3000/createUser", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
       .then((res)=> alert(res.data.popup))
       .catch((err)=> alert(err.response.data.popup));
       //console.log(email +  "" + password +"" + name+""   + role);

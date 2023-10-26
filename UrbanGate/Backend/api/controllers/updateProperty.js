@@ -1,12 +1,8 @@
 import Property from '../models/properties.js'
 
 export default async function updateProperty(req, res) {
-   
-  
-    
-    try {
-        
-        const property = await Property.findById(req.body.propertyID);
+    try { 
+        const property = await Property.findById(req.body.propertyID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:38:07
         property.title = req.body.title;
         property.email = req.body.email;
         property.password = req.body.password;
@@ -28,14 +24,9 @@ export default async function updateProperty(req, res) {
             type: "success",
             message: "property updated successfully!",
           });
-    
-    } //await because its a .save is a promise
-
-       
-            
+    }
 
     catch (Exception) {
         return res.status(401).json({message:"property error"});
-    
     }
 }
