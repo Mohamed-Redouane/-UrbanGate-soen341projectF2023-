@@ -12,7 +12,7 @@ function ManageProperties() {
       setProperties(response.data);
     })
     .catch((error) => {
-      console.log(error + "AAA");
+      console.log(error + "Houses not found");
     });
   }
 
