@@ -6,6 +6,8 @@ import { useState } from "react";
 import "./SignIn.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AccountsPage() {
   return (
@@ -49,12 +51,12 @@ function SignIn() {
     }
     axios.post("http://localhost:3000/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/
       .then((res)=>{
-        alert(res.data.popup);
+        toast.success(res.data.popup);
         window.localStorage.setItem("UserID", res.data.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:15:57
         navigate("/"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:16:51
         window.location.reload(); //Refresh and display the new header, I think this forces a rerender of the page
       })
-      .catch((err)=>alert(err.response.data.popup)); //in case something goes wrong
+      .catch((err)=>toast.error(err.response.data.popup)); //in case something goes wrong
   }
 
   return (
@@ -127,8 +129,8 @@ function SignUp() {
       role: role
     };
     axios.post("http://localhost:3000/createUser", data)
-      .then((res)=> alert(res.data.popup))
-      .catch((err)=>  alert(err.response.data.popup)); //in case something goes wrong
+      .then((res)=> toast.success(res.data.popup))
+      .catch((err)=>  toast.error(err.response.data.popup)); //in case something goes wrong
   }
 
   return (

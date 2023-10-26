@@ -4,6 +4,8 @@ import {useState, useEffect} from "react";
 import React from 'react';
 import {useNavigate} from "react-router-dom"; 
 import  Select from 'react-select'
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -98,11 +100,11 @@ function EditProperties(){
         const data = {title: title, description: description,image: image, type : types, location: location, price: price, area: area, bedroom: bedroom, bathroom: bathroom, status: status, propertyID: _id};
         console.log(data.propertyID);
         axios.post("http://localhost:3000/updateProperty", data)
-        .then(()=> {alert("SUCCESS")
+        .then(()=> {toast.success("Property updated successfully");
         window.location.reload();
         //navigate("/broker/ManageProperties");
     })
-        .catch((res)=> alert("Error code: " + res));
+        .catch((res)=> toast.error("Error updating property: " + res));
         //console.log(email +  "" + password +"" + name+""   + role);
       }
 
