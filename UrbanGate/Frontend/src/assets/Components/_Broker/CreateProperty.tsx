@@ -2,6 +2,8 @@ import {useState} from 'react'
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import  Select from 'react-select'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ManagingProperties() {
 
@@ -91,9 +93,9 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
       await axios.post("http://localhost:3000/createProperty", data)
       .then((res)=>{
-        alert(res.data.popup);
+        toast.success(res.data.popup);
       })
-      .catch((err)=> alert(err.response.data.popup)); //you have to write err.response because the data is treated differently than in the .then
+      .catch((err)=> toast.error(err.response.data.popup)); //you have to write err.response because the data is treated differently than in the .then
 
   }
     return (

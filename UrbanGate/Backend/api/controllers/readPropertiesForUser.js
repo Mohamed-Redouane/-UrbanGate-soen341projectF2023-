@@ -1,5 +1,4 @@
 import Property from '../models/properties.js';
-import User from '../models/users.js';
 
 export default async function readPropertiesForUser(req, res) {
     try {

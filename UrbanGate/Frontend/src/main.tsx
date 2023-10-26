@@ -21,6 +21,8 @@ import ManageBrokers from './assets/Components/_Broker/ManageBrokers.tsx'
 import BrokerDetail from './assets/Components/_Broker/BrokerDetail.tsx'
 import DeleteProperties from './assets/Components/_Broker/DeleteProperties.tsx'
 import ManageVisitRequests from './assets/Components/_Broker/ManageVisitRequests.tsx';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 import EditProperties from './assets/Components/_Broker/EditProperties.tsx'
 
 const router = createBrowserRouter([
@@ -44,6 +46,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
  
   <React.StrictMode>
+<ToastContainer /> 
 
     <Header/>
    <RouterProvider router = {router}/>
