@@ -7,6 +7,7 @@ import Modal from "react-modal";
 import "./RequestVisit.css";
 import axios from 'axios';
 import {useNavigate, useParams} from "react-router-dom";
+import { toast } from "react-toastify";
 
 function RequestVisitButton() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -62,11 +63,11 @@ function RequestVisitButton() {
       const data = { userID, _id ,selectedDate, selectedTime };
       console.log(data);
       axios.post("http://localhost:3000/visitRequest", data)
-        .then(() => alert("SUCCESS"))
-        .catch((res) => alert("Error code: " + res));
+        .then(() =>  toast.success("Visit request submitted successfully"))
+        .catch((res) => toast.error("Error submitting visit request: " + res));
       navigate("/houses");
     } else {
-      alert("User not logged in.");
+      toast.error("User not logged in.");
     }
   }
 

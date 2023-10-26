@@ -42,7 +42,8 @@ function ManageBrokers(){
            <p className="card-text" style={{ fontSize: "15px" }}> {broker.description}</p>
            <div>
              <button className="btn btn-secondary text-white">
-               <Link to={`/broker/BrokerDetail/${broker._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>Edit</Link></button>
+               <Link to={`/broker/BrokerDetail/${broker._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>Edit</Link></button>              
+               {/*https://stackoverflow.com/questions/70855260/how-to-pass-data-between-pages-in-react-with-react-router-dom-v6*/}
                <button className="deleteBroker" onClick = {async () => {
                  if(confirm("Are you sure?")){
                   axios.get(`http://localhost:3000/deleteBroker/${broker._id}`).then((response) => {

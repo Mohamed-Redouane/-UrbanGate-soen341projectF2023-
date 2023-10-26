@@ -45,8 +45,21 @@ We could have decided to use basic HTML/CSS/Js; however, these tools are outdate
 1) Click on "Code" and download the Zip file
 2) Save the contents of that file in a new folder
 3) Open the project folder through an IDE (preferably VScode)
-4) Open the Terminal from that folder (or through VScode) and run the command "npm i" to download all the dependencies (node modules)
-5) Again through the terminal, run the command "npm run dev" and click on the localhost link
+### Frontend:
+4) Open the Terminal from the folder named "Frontend"
+>[!IMPORTANT]
+> Type the following lines of code: <br>
+>```npm install``` <br>
+> ```npm run dev``` <br>
+
+### Backend:
+5) Open a new Terminal from the folder named "Backend"
+>[!IMPORTANT]
+> Type the following lines of code: <br>
+>```npm install``` <br>
+> ```npm start``` <br>
+
+Click on the localhost link that appears in the Frontend terminal
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

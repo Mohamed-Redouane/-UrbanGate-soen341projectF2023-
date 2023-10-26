@@ -14,12 +14,10 @@ function PropertyPageDetail() {
   const [property, setProperty] = useState({ title: "string", description: "string", type: "string", price: "string", location: "string", area: "string", bedroom: "string", bathroom: "string", status: "string", image: "string" });
 
 
-const {_id} = useParams();
+const {_id} = useParams(); //https://reactrouter.com/en/main/hooks/use-params
 const userID = localStorage.getItem("UserID");
 const [userRole, setUserRole] = useState("");
-const [isSignedIn, setIsSignedIn] = useState(false);
-
-
+//const [isSignedIn, setIsSignedIn] = useState(false);
 
 console.log(userID);
 const getProperty = () => {
@@ -37,41 +35,14 @@ const getProperty = () => {
 
     axios.post("http://localhost:3000/checkUser", {userID: userID}).then((res) => {
       setUserRole(res.data);
-      setIsSignedIn(true);
-
-
+      //setIsSignedIn(true);
     })
-
-
   }
 
   useEffect(() => {
-
     getProperty();
     getUserRole();
-
   }, []);
-
-
-
-  /*
-  useEffect(() =>  {
-    
-    axios.get(`http://localhost:3000/readPropertyID/${_id}`).then((response) => {
-  
-     setProperty(response.data);
-     console.log(response.data);
-     console.log(response.data.title);
-     console.log(property);
-    }).catch((error) => {
-      console.log(error);
-    });
-  }, [_id]);
-  */
-  
- /* https://www.w3schools.com/howto/howto_css_two_columns.asp*/
-
-
  
   return (
     <>

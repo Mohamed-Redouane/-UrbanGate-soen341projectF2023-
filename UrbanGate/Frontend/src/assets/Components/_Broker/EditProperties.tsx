@@ -4,6 +4,8 @@ import {useState, useEffect} from "react";
 import React from 'react';
 import {useNavigate} from "react-router-dom"; 
 import  Select from 'react-select'
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -19,7 +21,7 @@ function EditProperties(){
   const [bathroom,setBathroom]=useState('');
   const [status,setStatus]=useState('');
   const [image,setImage]=useState('');
-    const [property, setProperty] = useState({title: "string", description: "string", type: "string", price: "string", location: "string", area: "string", bedroom: "string", bathroom: "string", status:"string", imageUrl: "string"});
+    //const [property, setProperty] = useState({title: "string", description: "string", type: "string", price: "string", location: "string", area: "string", bedroom: "string", bathroom: "string", status:"string", imageUrl: "string"});
     const {_id} = useParams();
     const navigate = useNavigate();
 
@@ -98,15 +100,15 @@ function EditProperties(){
         const data = {title: title, description: description,image: image, type : types, location: location, price: price, area: area, bedroom: bedroom, bathroom: bathroom, status: status, propertyID: _id};
         console.log(data.propertyID);
         axios.post("http://localhost:3000/updateProperty", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
-        .then(()=> {alert("SUCCESS")
+        .then(()=> {toast.success("Property updated successfully");
         window.location.reload();
-        //navigate("/broker/ManageProperties");
     })
-        .catch((res)=> alert("Error code: " + res));
+        .catch((res)=> toast.error("Error updating property: " + res));
         //console.log(email +  "" + password +"" + name+""   + role);
       }
 
     const getProperty = () => {
+
         axios.get(`http://localhost:3000/readPropertyID/${_id}`) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
         .then((response) => {
             //setProperty(response.data);
@@ -172,7 +174,7 @@ function EditProperties(){
                   {/*https://simplefrontend.com/default-value-for-select-elements-in-react/ */}
                   <Select 
                       options={locationOptions}   
-                      defaultValue={{ label: location, value: location }} 
+                      //defaultValue={{ label: location, value: location }} 
                       onChange={handleLocationChange} 
                       required
                       />

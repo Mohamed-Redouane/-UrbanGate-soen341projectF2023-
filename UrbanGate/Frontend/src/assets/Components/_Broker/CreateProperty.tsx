@@ -2,6 +2,8 @@ import {useState} from 'react'
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import  Select from 'react-select'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ManagingProperties() {
 
@@ -89,9 +91,9 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const data = {title: title, description: description,image: image, type : types, location: location, price: price, area: area, bedroom: bedroom, bathroom: bathroom, status: status, userID: window.localStorage.getItem("UserID")};
       axios.post("http://localhost:3000/createProperty", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
       .then((res)=>{
-        alert(res.data.popup);
+        toast.success(res.data.popup);
       })
-      .catch((err)=> alert(err.response.data.popup)); //you have to write err.response because the data is treated differently than in the .then
+      .catch((err)=> toast.error(err.response.data.popup)); //you have to write err.response because the data is treated differently than in the .then
 
   }
     return (
