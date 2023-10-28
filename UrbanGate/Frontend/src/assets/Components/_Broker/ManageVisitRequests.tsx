@@ -1,3 +1,5 @@
+//references: How to use HashSet : https://www.npmjs.com/package/hashset
+// How to use promise "https://dmitripavlutin.com/promise-all/"
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
