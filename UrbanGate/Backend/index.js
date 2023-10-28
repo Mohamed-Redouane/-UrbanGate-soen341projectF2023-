@@ -1,3 +1,4 @@
+// references : https://www.honeybadger.io/blog/javascript-authentication-guide/
 import express from 'express';
 import connectDB from './utils/mdbconfig.js';
 import cors from 'cors'

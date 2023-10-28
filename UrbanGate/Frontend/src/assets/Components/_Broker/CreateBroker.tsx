@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
+import { toast } from 'react-toastify';
 
 function CreateBroker(){
 
@@ -31,8 +32,8 @@ function CreateBroker(){
       e.preventDefault();
       const data = {email: email, name: name, password: password, role: role};
       axios.post("http://localhost:3000/createUser", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
-      .then((res)=> alert(res.data.popup))
-      .catch((err)=> alert(err.response.data.popup));
+      .then((res)=> toast.success(res.data.popup))
+      .catch((err)=> toast.error(err.response.data.popup));
       //console.log(email +  "" + password +"" + name+""   + role);
     }
 
