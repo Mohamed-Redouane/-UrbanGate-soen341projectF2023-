@@ -1,7 +1,6 @@
 import React from 'react'; 
 import { useState } from 'react';
 import axios from 'axios';
-import {useNavigate} from "react-router-dom";
 
 function CreateBroker(){
 
@@ -20,10 +19,6 @@ function CreateBroker(){
   
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setName(e.target.value);
-    }
-  
-    const handleRoleChange =(e: React.ChangeEvent<HTMLInputElement>) => {
-      setRole(e.target.value);
     }
   
   

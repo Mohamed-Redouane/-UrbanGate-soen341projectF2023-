@@ -1,6 +1,7 @@
 import mongoose from "mongoose";//properties
 
 const PropertySchema = new mongoose.Schema({
+//
 
     title: {
         type: String,

@@ -45,9 +45,9 @@ export async function approveVisitRequest(req, res) {
     try {
         const { visitRequestId } = req.params;
 
-        const visitRequest = await VisitRequest.findByIdAndUpdate(visitRequestId, {
+        const visitRequest = await VisitRequest.findByIdAndUpdate(visitRequestId, { //
             Status: 'approved', 
-            approvedDate: new Date(),
+            approvedDate: new Date(), //
         });
 
         res.status(200).json(visitRequest);

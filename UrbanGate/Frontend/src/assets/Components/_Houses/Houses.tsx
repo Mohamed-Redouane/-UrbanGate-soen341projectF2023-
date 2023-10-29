@@ -259,7 +259,7 @@ function Houses() {
       </div>
 
 
-      {/*https://www.w3schools.com/jsref/jsref_map.asp */}
+      {/*https://www.w3schools.com/jsref/jsref_map.asp + https://intellipaat.com/blog/map-in-react/ */}
       {/*https://getbootstrap.com/docs/5.0/components/card/*/}
       {filteredProperties.map((property) =>
           <div className="card bg-dark text-white mx-4 mt-5" style={{ width: "310px", height: "460px", display: "inline-block"}}>

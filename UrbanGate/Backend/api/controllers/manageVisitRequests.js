@@ -8,12 +8,12 @@ export async function manageVisitRequests(req, res) {
     const visitRequests = [];
 
     //find all properties associated with the broker
-    const properties = await Property.find({ broker: brokerId }).exec();
+    const properties = await Property.find({ broker: brokerId }).exec(); //
 
     for (const property of properties) {
       //find visit requests related to each property
       const propertyVisitRequests = await VisitRequest.find({ property: property._id }).exec();
-      visitRequests.push(...propertyVisitRequests);
+      visitRequests.push(...propertyVisitRequests); //
     }
 
     if (visitRequests.length === 0) {

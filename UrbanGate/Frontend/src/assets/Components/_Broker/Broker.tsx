@@ -13,7 +13,7 @@ function Broker() {
   const brokerId = localStorage.getItem("UserID");
 
   const f = async () => {
-    await setLoading(true);
+    await setLoading(true); //
     await axios.post("http://localhost:3000/checkUser", {userID: window.localStorage.getItem("UserID"),}) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
       .then((res) => {
         console.log("valid");
@@ -23,7 +23,7 @@ function Broker() {
         console.log("not valid");
         checkUser(err.response.data);
       });
-    await setLoading(false);
+    await setLoading(false); //
   };
 
   useEffect(() => {
@@ -31,8 +31,8 @@ function Broker() {
   }, []); // Will only be called once on reload https://stackoverflow.com/questions/72824151/react-useeffect-keeps-fetching + https://www.tutorialspoint.com/how-to-call-the-loading-function-with-react-useeffect
 
   return (
-    <div className="broker-container">
-      {isLoading && <h1>Loading!</h1>}
+    <div className="broker-container"> 
+      {isLoading && <h1>Loading!</h1>} {/* */}
       {!isLoading && user == "broker" && (
         <div className="broker-ContainerInside">
           <h1>Welcome, Broker</h1>
@@ -61,7 +61,7 @@ function Broker() {
             </p>
           </div>
         </div>
-      )}
+      )} {/* */}
       {!isLoading && user == "admin" && (
         <div>
           <h1 style={{color: 'white'}}>Welcome, Admin</h1>

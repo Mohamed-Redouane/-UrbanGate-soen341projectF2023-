@@ -95,7 +95,7 @@ function RequestVisitButton() {
 
       <Modal
         isOpen={modalIsOpen}
-        onRequestClose={closeModal}
+        onRequestClose={closeModal} //
         style={customStyles}
         contentLabel="Select Date Modal"
       >
