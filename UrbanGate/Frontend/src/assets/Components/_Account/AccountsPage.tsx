@@ -1,14 +1,14 @@
 // REFERENCES
 // [1] React Documentation: https://react.dev/learn
 // [2] React Documentation: https://www.w3schools.com/REACT/DEFAULT.ASP
-//     React Toastify: https://www.npmjs.com/package/react-toastify
+// [3] React Toastify: https://www.npmjs.com/package/react-toastify
 import React from "react";
 import { useState } from "react";
 import "./SignIn.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AccountsPage() {
   return (
@@ -38,27 +38,28 @@ function SignIn() {
   };
 
   /*
-  * Handles Sign-in request from user
-  * Will locally store ID if it was successful
-  * .then and .catch used here because there's nothing else to be executed after 
-  * I followed this guide:
-  * https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
-  */
+   * Handles Sign-in request from user
+   * Will locally store ID if it was successful
+   * .then and .catch used here because there's nothing else to be executed after
+   * I followed this guide:
+   * https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+   */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); //Stop the page from reloading onSubmit
     const data = {
-      email: email, 
+      email: email,
       password: password,
-    }
-    axios.post("http://localhost:3000/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/
-      .then((res)=>{
+    };
+    axios
+      .post("http://localhost:3000/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/
+      .then((res) => {
         toast.success(res.data.popup);
         window.localStorage.setItem("UserID", res.data.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:15:57
         navigate("/"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:16:51
         window.location.reload(); //Refresh and display the new header, I think this forces a rerender of the page
       })
-      .catch((err)=>toast.error(err.response.data.popup)); //in case something goes wrong
-  }
+      .catch((err) => toast.error(err.response.data.popup)); //in case something goes wrong
+  };
 
   return (
     <div className="container">
@@ -117,22 +118,23 @@ function SignUp() {
   };
 
   /*
-  * Handles request when user signs up 
-  * I followed this guide: 
-  * https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
-  */
+   * Handles request when user signs up
+   * I followed this guide:
+   * https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+   */
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = {
-      email: email, 
-      name: name, 
-      password: password, 
-      role: role
+      email: email,
+      name: name,
+      password: password,
+      role: role,
     };
-    axios.post("http://localhost:3000/createUser", data)
-      .then((res)=> toast.success(res.data.popup))
-      .catch((err)=>  toast.error(err.response.data.popup)); //in case something goes wrong
-  }
+    axios
+      .post("http://localhost:3000/createUser", data)
+      .then((res) => toast.success(res.data.popup))
+      .catch((err) => toast.error(err.response.data.popup)); //in case something goes wrong
+  };
 
   return (
     <div className="container">
