@@ -1,6 +1,7 @@
 // REFERENCES
 // [1] React Documentation: https://react.dev/learn
 // [2] React Documentation: https://www.w3schools.com/REACT/DEFAULT.ASP
+//     React Toastify: https://www.npmjs.com/package/react-toastify
 import React from "react";
 import { useState } from "react";
 import "./SignIn.css";
