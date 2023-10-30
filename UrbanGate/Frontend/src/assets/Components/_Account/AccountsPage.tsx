@@ -88,7 +88,7 @@ function SignIn() {
             placeholder="Enter password"
           />
         </div>
-        <button type="submit">Sign In</button>
+        <button type="submit" className="button">Sign In</button>
       </form>
     </div>
   );
@@ -205,12 +205,12 @@ function SignUp() {
             />
           </div>
           <div>
-            <button type="button" onClick={() => handleRoleChange("")}>
+            <button type="button" className="button " onClick={() => handleRoleChange("")}>
               Clear Selection
             </button>
           </div>
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="button">Sign Up</button>
       </form>
     </div>
   );

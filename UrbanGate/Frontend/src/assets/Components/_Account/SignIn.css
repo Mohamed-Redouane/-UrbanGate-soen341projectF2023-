@@ -43,10 +43,18 @@ form input {
   padding: 7px;
 }
 form button {
-  margin-top: 10px;
+  background-color: #2a9d8f  ; /* Modern blue */
+  color: #fff;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 12px;
+  transition: background-color 0.3s ease;
 }
 
 form button:hover {
-  background-color: rgb(212, 204, 176);
-  color: black;
+  background-color: #d62828;
+  color: whitesmoke;
 }
