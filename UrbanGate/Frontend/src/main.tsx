@@ -21,10 +21,12 @@ import ManageBrokers from './assets/Components/_Broker/ManageBrokers.tsx'
 import BrokerDetail from './assets/Components/_Broker/BrokerDetail.tsx'
 import DeleteProperties from './assets/Components/_Broker/DeleteProperties.tsx'
 import ManageVisitRequests from './assets/Components/_Broker/ManageVisitRequests.tsx';
-import EditProperties from './assets/Components/_Broker/EditProperties.tsx'
+import EditProperties from './assets/Components/_Broker/EditProperties.tsx';
+
 //https://reactrouter.com/en/main/start/tutorial
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
+import ManageOffersRequests from './assets/Components/_Offers/ManageOffersRequests.tsx';
 
 
 
@@ -44,6 +46,7 @@ const router = createBrowserRouter([
 {path: "/broker/ManageProperties/DeleteProperties/:_id", element:<DeleteProperties/>}, //https://blog.stackademic.com/practical-steps-on-how-to-apply-the-useparams-hook-of-react-router-5cd43a2106b2
 {path: "/broker/manageVisitRequests/:brokerId", element:<ManageVisitRequests/>},
 {path: "/broker/ManageProperties/EditProperties/:_id", element:<EditProperties/>},
+{path: "/offers", element:<ManageOffersRequests/>},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
