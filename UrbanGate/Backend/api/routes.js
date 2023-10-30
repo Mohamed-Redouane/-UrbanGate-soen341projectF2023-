@@ -1,4 +1,6 @@
-//
+// Separating routes from index.js
+//https://www.w3schools.com/js/js_es6.asp
+//https://www.youtube.com/watch?v=kBhkPufW8Cw&t=573s
 
 import express from 'express';
 import createUser from './controllers/createUser.js';

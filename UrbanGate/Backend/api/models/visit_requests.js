@@ -1,6 +1,8 @@
-import mongoose from "mongoose";// visit request
+  // reference for schema : https://www.tutorialspoint.com/mongodb/mongodb_data_modeling.htm
+  // https://mongoosejs.com/docs/guide.html
+import mongoose from "mongoose";
 const visit_requestSchema = new mongoose.Schema({
-//
+
 
     _id:mongoose.Schema.Types.ObjectId,
     

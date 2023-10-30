@@ -19,7 +19,7 @@ function ManageVisitRequests() {
     //get user id (broker id) from localStorage
     const brokerId = localStorage.getItem("UserID");
 // Create a Set to store unique keys
-const uniqueKeysSet = new Set(); //
+const uniqueKeysSet = new Set(); // https://www.npmjs.com/package/hashset
     //get Properties related to broker id
     axios.get(`http://localhost:3000/readPropertiesForUser/${brokerId}`)
       .then(async (response) => {
@@ -27,7 +27,7 @@ const uniqueKeysSet = new Set(); //
         if (response.data) {
           const properties = response.data;
           //get visit requests for each property
-          const promises = properties.map((property: { propertyId: any }) => //
+          const promises = properties.map((property: { propertyId: any }) => // https://dmitripavlutin.com/promise-all/
             axios.get(`http://localhost:3000/manageVisitRequests/${brokerId}`)
               .then((visitRequestsResponse) => visitRequestsResponse.data)
               .catch((error) => {

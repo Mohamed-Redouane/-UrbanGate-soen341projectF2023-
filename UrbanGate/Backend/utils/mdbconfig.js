@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+ //Reference : https://blog.appsignal.com/2023/08/09/how-to-use-mongodb-and-mongoose-for-nodejs.html
+ import mongoose from "mongoose";
 
 
 let db = null;

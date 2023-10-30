@@ -1,7 +1,8 @@
-import mongoose from "mongoose";//user
+  // reference for schema : https://www.tutorialspoint.com/mongodb/mongodb_data_modeling.htm
+import mongoose from "mongoose";
 
 const usersSchema = new mongoose.Schema({
-//
+
 
 // _id: mongoose.Schema.Types.ObjectId,
 

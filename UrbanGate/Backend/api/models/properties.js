@@ -1,7 +1,8 @@
-import mongoose from "mongoose";//properties
+  // reference for schema : https://www.tutorialspoint.com/mongodb/mongodb_data_modeling.htm
+import mongoose from "mongoose";
 
 const PropertySchema = new mongoose.Schema({
-//
+
 
     title: {
         type: String,
