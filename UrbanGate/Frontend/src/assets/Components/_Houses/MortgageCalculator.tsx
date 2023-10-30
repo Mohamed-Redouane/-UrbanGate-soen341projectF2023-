@@ -11,11 +11,11 @@ const MortgageCalculator: React.FC = () => {
   const [sentence, setSentence] = useState<string | null>(null);
   let monthlyPayment = 0;
 
-  const openModal = () => {
+  const openModal = () => { //
     setModalIsOpen(true);
   };
 
-  const closeModal = () => {
+  const closeModal = () => { //
     setModalIsOpen(false);
     setSentence(" ");
     resetValues();
@@ -72,7 +72,7 @@ const MortgageCalculator: React.FC = () => {
 
   return (
     <div style={{ width: "900px" }}>
-      <button className="open-button" onClick={openModal}>
+      <button className="open-button" onClick={openModal}> //
         Open Calculator
       </button>
 
@@ -131,5 +131,5 @@ const MortgageCalculator: React.FC = () => {
   );
 };
 
-Modal.setAppElement("#root");
+Modal.setAppElement("#root"); //
 export default MortgageCalculator;

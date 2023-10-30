@@ -23,10 +23,6 @@ function CreateBroker(){
       setName(e.target.value);
     }
   
-    const handleRoleChange =(e: React.ChangeEvent<HTMLInputElement>) => {
-      setRole(e.target.value);
-    }
-  
   
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();

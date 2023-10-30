@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 
 function ManageBrokers(){
- //[1], functional component
- const [brokers, setBrokers] = useState<any[]>([]);
+ const [brokers, setBrokers] = useState<any[]>([]); //
 
  const getBrokers = () => {
 
@@ -28,8 +27,8 @@ function ManageBrokers(){
 
  return (
    <div>
-    {/*https://www.w3schools.com/jsref/jsref_map.asp */}
-     {brokers.map((broker) =>
+    {/*https://www.w3schools.com/jsref/jsref_map.asp + https://intellipaat.com/blog/map-in-react/ */}
+      {brokers.map((broker) =>
        <div className="card bg-dark text-white mx-2 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
          <img src={"https://icon-library.com/images/person-icon-outline/person-icon-outline-2.jpg"} className="card-img-top" alt="..." style={{ height: "200px" }}></img>
          <div className="card-body">
@@ -46,7 +45,7 @@ function ManageBrokers(){
                {/*https://stackoverflow.com/questions/70855260/how-to-pass-data-between-pages-in-react-with-react-router-dom-v6*/}
                <button className="deleteBroker" onClick = {async () => {
                  if(confirm("Are you sure?")){
-                  axios.get(`http://localhost:3000/deleteBroker/${broker._id}`).then((response) => {
+                  axios.get(`http://localhost:3000/deleteBroker/${broker._id}`).then(() => {
                     alert("BROKER SUCCESSFULLY DELETED");
                     window.location.reload();
                   }).catch((error) => {

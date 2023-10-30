@@ -19,7 +19,7 @@ function ManageVisitRequests() {
     //get user id (broker id) from localStorage
     const brokerId = localStorage.getItem("UserID");
 // Create a Set to store unique keys
-const uniqueKeysSet = new Set();
+const uniqueKeysSet = new Set(); //
     //get Properties related to broker id
     axios.get(`http://localhost:3000/readPropertiesForUser/${brokerId}`)
       .then(async (response) => {
@@ -27,7 +27,7 @@ const uniqueKeysSet = new Set();
         if (response.data) {
           const properties = response.data;
           //get visit requests for each property
-          const promises = properties.map((property: { propertyId: any }) =>
+          const promises = properties.map((property: { propertyId: any }) => //
             axios.get(`http://localhost:3000/manageVisitRequests/${brokerId}`)
               .then((visitRequestsResponse) => visitRequestsResponse.data)
               .catch((error) => {
@@ -46,7 +46,7 @@ const uniqueKeysSet = new Set();
                 const key = `${request._id}-${request.property}-${request.requester}`;
                 if (uniqueKeysSet.has(key)) {
                   return false; // Skip duplicates
-                }
+                } //
                 uniqueKeysSet.add(key); // Add unique keys to the Set
                 return true;
               });
@@ -71,7 +71,7 @@ const uniqueKeysSet = new Set();
         <p className="no-requests-message">There are no visit requests.</p>
       ) : (
         <ul className="visit-request-list">
-          {visitRequests.map((request) => (
+          {visitRequests.map((request) => ( //
             <li key={`${request._id}-${request.property}-${request.requester}`}>
              <div className="visit-card">
                 <div className="visit-card-body">

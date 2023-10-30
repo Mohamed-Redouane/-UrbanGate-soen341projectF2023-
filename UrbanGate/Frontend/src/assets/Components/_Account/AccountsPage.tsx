@@ -24,7 +24,6 @@ function SignIn() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -33,9 +32,7 @@ function SignIn() {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
+ 
 
   /*
    * Handles Sign-in request from user
@@ -49,11 +46,12 @@ function SignIn() {
     const data = {
       email: email,
       password: password,
-    };
-    axios
-      .post("http://localhost:3000/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/
-      .then((res) => {
-        toast.success(res.data.popup);
+
+    }
+    axios.post("http://localhost:3000/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/
+      .then((res)=>{
+        toast.success(res.data.popup); //
+
         window.localStorage.setItem("UserID", res.data.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:15:57
         navigate("/"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:16:51
         window.location.reload(); //Refresh and display the new header, I think this forces a rerender of the page
@@ -130,11 +128,12 @@ function SignUp() {
       password: password,
       role: role,
     };
-    axios
-      .post("http://localhost:3000/createUser", data)
-      .then((res) => toast.success(res.data.popup))
-      .catch((err) => toast.error(err.response.data.popup)); //in case something goes wrong
-  };
+
+    axios.post("http://localhost:3000/createUser", data)
+      .then((res)=> toast.success(res.data.popup)) //
+      .catch((err)=>  toast.error(err.response.data.popup)); //in case something goes wrong
+  }
+
 
   return (
     <div className="container">
