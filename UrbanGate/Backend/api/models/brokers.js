@@ -1,9 +1,7 @@
   // reference for schema : https://www.tutorialspoint.com/mongodb/mongodb_data_modeling.htm
-  import mongoose from "mongoose";//broker
+  import mongoose from "mongoose";
 const BrokerSchema = new mongoose.Schema({
-//
 
-    //_id: mongoose.Schema.Types.ObjectId,
     firstName: {
         type: String,
         required: true,
