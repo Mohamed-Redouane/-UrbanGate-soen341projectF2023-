@@ -11,6 +11,12 @@ function Broker() {
   const [user, checkUser] = useState("");
   const [isLoading, setLoading] = useState(true);
   const brokerId = localStorage.getItem("UserID");
+  const [brokers, setBrokers] = useState<any[]>([]); //
+  const [search, setSearch] = useState("");
+
+
+
+  
 
   const f = async () => {
     await setLoading(true); //
@@ -24,7 +30,26 @@ function Broker() {
         checkUser(err.response.data);
       });
     await setLoading(false); //
+
+
   };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  }
+
+  const handleSubmit = () => {
+
+    axios.post("http://localhost:3000/searchBroker", {name: search}).then((res) => {
+      console.log(res.data.response[0]);
+
+    }).catch((err) => {
+      alert("not found!");
+    });
+
+
+
+  }
 
   useEffect(() => {
     f();
@@ -80,11 +105,21 @@ function Broker() {
           </div>
         </div>
       )}
-      {!isLoading && user != "broker" && user != "admin" && (
+      {!isLoading && user != "broker" && user != "admin"  && user != "homebuyer" && user != "renter" && (
         <div>
           <p style={{color: 'white'}}>
-            This page is reserved to Brokers and Admins. Please log in or create
-            a Broker/Admin account
+            This page is reserved to users that are signed in. Please log in or create
+            a homebuyer or broker account.
+          </p>
+        </div>
+      )}
+      {!isLoading && (user == "homebuyer" || user == "renter") && (
+        <div>
+          <p style={{color: 'white'}}>
+            Welcome {user}!
+            <br></br>
+            <br></br>
+            <input type = "text" placeholder = "Enter the name of a broker" style = {{width: "50vw"}} value = {search} onChange = {handleSearchChange} onSubmit = {handleSubmit}></input> <button className = "nav-box4" onClick = {handleSubmit}>Search</button>
           </p>
         </div>
       )}
