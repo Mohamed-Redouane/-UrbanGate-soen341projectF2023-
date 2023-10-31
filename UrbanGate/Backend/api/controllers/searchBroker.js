@@ -10,7 +10,7 @@ export default async function searchBrokers(req, res) {
                 response: response,
                 popup: "Good"});
         }else{
-            const response = await User.find({role: "broker", name: req.body.name}); //https://mongoosejs.com/docs/api/model.html#Model.find()
+            const response = await User.find({role: "broker", name: {"$regex": req.body.name, "$options" : "i"}}); //https://mongoosejs.com/docs/api/model.html#Model.find() and https://www.mongodb.com/docs/manual/reference/operator/query/regex/ 
             return res.status(200).json({
                 response: response,
                 popup: "Good"});
