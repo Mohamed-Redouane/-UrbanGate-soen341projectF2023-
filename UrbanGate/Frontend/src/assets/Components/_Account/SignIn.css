@@ -1,49 +1,58 @@
 /*
 // [1] CSS Documentation: https://www.w3schools.com/css/default.asp
 */
+
 .sign {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Roboto", Arial, sans-serif;
 }
 .accountsDiv {
-  background-color: rgb(212, 204, 176);
-  padding: 20px;
-  border-radius: 5px;
+  background-image: url("avi-waxman-ZdtOy25eNn4-unsplash.jpg"); /* Replace 'your-image-url.jpg' with the actual URL or path to your image */
+  background-size: cover; /* This will make the image cover the entire container */
+  background-repeat: no-repeat; /* This prevents the image from repeating */
+  background-position: center center; /* Center the image both horizontally and vertically */
   display: flex;
   justify-content: space-between;
-}
-.container {
-  padding: 25px;
-  justify-content: space-between;
-  max-width: 400px;
-  margin: auto;
-  border: 1px, solid;
-  border-color: black;
-  background-color: rgb(212, 204, 176);
-  border-radius: 5px;
 }
 
 form {
-  width: 300px;
+  width: 50%;
   border: 1px solid #2a0403;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: white;
-  margin: 10px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
   transition: background 0.3s;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
-
 form label {
-  display: flex;
-  margin: auto;
-  padding: 4px;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 form input {
   width: 100%;
-  padding: 7px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+form input:focus {
+  border-color: #007bff;
 }
 form button {
-  margin-top: 10px;
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px;
+  background-color: rgb(135, 139, 115);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 form button:hover {
