@@ -10,13 +10,8 @@ import "./BrokerPage.css";
 function Broker() {
   const [user, checkUser] = useState("");
   const [isLoading, setLoading] = useState(true);
-  const brokerId = localStorage.getItem("UserID");
   const [brokers, setBrokers] = useState<any[]>([]); //
   const [search, setSearch] = useState("");
-
-
-
-  
 
   const f = async () => {
     await setLoading(true); //
@@ -30,16 +25,12 @@ function Broker() {
         checkUser(err.response.data);
       });
     await setLoading(false); //
-
     axios.post("http://localhost:3000/searchBroker", {name: search}).then((res) => {
-      console.log(res.data.response[0]);
       setBrokers(res.data.response);
-
-    }).catch((err) => {
-     
+    })
+    .catch((err) => {
+     console.log(err);
     });
-
-
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,36 +38,35 @@ function Broker() {
   }
 
   const handleSubmit = () => {
-
-    axios.post("http://localhost:3000/searchBroker", {name: search}).then((res) => {
-      console.log(res.data.response[0]);
+    axios.post("http://localhost:3000/searchBroker", {name: search})
+    .then((res) => {
       setBrokers(res.data.response);
-
-    }).catch((err) => {
-     
+    })
+    .catch((err) => {
+      console.log(err.response.data.popup);
     });
-
-
-
   }
 
-  const handleClear= () => {
+  // When user clicks on clear, it clears the search and displays all brokers again
+  const handleClear = () => {
     setSearch("");
-    axios.post("http://localhost:3000/searchBroker", {name: ''}).then((res) => {
-      console.log(res.data.response[0]);
+    axios.post("http://localhost:3000/searchBroker", {name: ''})
+    .then((res) => {
       setBrokers(res.data.response);
-
-    }).catch((err) => {
-     
+    })
+    .catch((err) => {
+      console.log(err.response.data.popup);
     });
-
-
-
   }
 
-  useEffect(() => {
-    f();
-  }, []); // Will only be called once on reload https://stackoverflow.com/questions/72824151/react-useeffect-keeps-fetching + https://www.tutorialspoint.com/how-to-call-the-loading-function-with-react-useeffect
+  const handleSort = () => {
+    const filterBrokers = (brokers.sort(cmpFunction)); //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+    setBrokers([...filterBrokers]); // Spread operator: https://stackoverflow.com/questions/68106950/react-renders-when-changing-state-using-spread-operator-but-not-when-passing-th
+  }
+  const cmpFunction = (broker1: any, broker2: any) => {
+    return (broker1.name).localeCompare(broker2.name);
+  }
+  useEffect(() => {f();}, []); // Will only be called once on reload https://stackoverflow.com/questions/72824151/react-useeffect-keeps-fetching + https://www.tutorialspoint.com/how-to-call-the-loading-function-with-react-useeffect
 
   return (
     <div className="broker-container"> 
@@ -142,10 +132,11 @@ function Broker() {
             Welcome {user}!
             <br></br>
             <br></br>
-            <input type = "text" placeholder = "Enter the name of a broker" style = {{width: "50vw"}} value = {search} onChange = {handleSearchChange} onSubmit = {handleSubmit}></input> <button className = "nav-box4" onClick = {handleSubmit}>Search</button>
+            <input type = "text" placeholder = "Enter the name of a broker" style = {{width: "40vw"}} value = {search} onChange = {handleSearchChange} onSubmit = {handleSubmit}></input> <button className = "nav-box4" onClick = {handleSubmit}>Search</button>
             <button className = "nav-box4" onClick = {handleClear}>Clear</button>
+            <button className = "nav-box4" onClick = {handleSort}>Sort by name</button>
           </p>
-          {brokers.map((broker) =>
+      {brokers.map((broker) =>
        <div className="card bg-dark text-white mx-2 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
          <img src={"https://icon-library.com/images/person-icon-outline/person-icon-outline-2.jpg"} className="card-img-top" alt="..." style={{ height: "200px" }}></img>
          <div className="card-body">
@@ -154,9 +145,6 @@ function Broker() {
              <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "110px", padding: "none" }}>Email:<br></br> <p style={{ textAlign: "center" }}> {broker.email} </p> </li>
              <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "110px", padding: "none" }}>Role:<br></br> <p style={{ textAlign: "center" }}> {broker.role} </p> </li>
            </ul><br></br>
-           <h5 className="card-title mt-1"> {broker.price} </h5>
-           <p className="card-text" style={{ fontSize: "15px" }}> {broker.description}</p>
-           
          </div>
        </div>
      )
