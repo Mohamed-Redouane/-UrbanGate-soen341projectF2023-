@@ -1,13 +1,12 @@
 import { useParams, useNavigate} from "react-router-dom";
 import axios from 'axios';
-import { useState, useEffect, } from "react";
 
 
 function DeleteProperties() {
     const navigate = useNavigate();
     //const [property, setProperty] = useState({title: "string", description: "string", type: "string", price: "string", location: "string", area: "string", bedroom: "string", bathroom: "string", status:"string", imageUrl: "string"});
 
-    const {_id} = useParams();
+    const {_id} = useParams(); //
     console.log(_id);
 
     const handleDeleteProperty = () => {

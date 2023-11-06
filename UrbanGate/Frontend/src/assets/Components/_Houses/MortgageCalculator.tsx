@@ -12,10 +12,12 @@ const MortgageCalculator: React.FC = () => {
   let monthlyPayment = 0;
 
   const openModal = () => {
+    //https://mui.com/material-ui/react-modal/
     setModalIsOpen(true);
   };
 
   const closeModal = () => {
+    //https://mui.com/material-ui/react-modal/
     setModalIsOpen(false);
     setSentence(" ");
     resetValues();
@@ -121,7 +123,11 @@ const MortgageCalculator: React.FC = () => {
               <option value={52}>Weekly</option>
             </select>
           </label>
-          <button type="button" onClick={calculateMortgage} className="calculate-button">
+          <button
+            type="button"
+            onClick={calculateMortgage}
+            className="calculate-button"
+          >
             Calculate
           </button>
         </form>
@@ -131,5 +137,5 @@ const MortgageCalculator: React.FC = () => {
   );
 };
 
-Modal.setAppElement("#root");
+Modal.setAppElement("#root"); // This line is used to configure the root element to facilitate accessibility for users with disabilities when using a modal component.
 export default MortgageCalculator;

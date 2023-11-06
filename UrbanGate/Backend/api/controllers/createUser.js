@@ -16,7 +16,7 @@ export default async function createUser(req, res) {
             return res.status(500).json({popup: "This email already has an associated account"}); //return to end the execution of function: https://stackoverflow.com/questions/43055600/app-get-is-there-any-difference-between-res-send-vs-return-res-send + https://www.geeksforgeeks.org/which-http-response-status-codes-result-in-then-and-which-in-catch/
         }
         else {
-            const user = new User({ name: req.body.name, email: req.body.email, password: req.body.password, role: req.body.role }) //https://mongoosejs.com/docs/models.html + https://www.youtube.com/watch?v=wgGkF4k9c7A at 17:32
+            const user = new User({ name: req.body.name, email: req.body.email, password: req.body.password, role: req.body.role }) //https://mongoosejs.com/docs/models.html + https://www.youtube.com/watch?v=wgGkF4k9c7A at 17:32 +  https://www.youtube.com/watch?v=enOsPhp2Z6Q at 49:23
             await user.save(); //await because .save is a promise
             return res.status(200).json({popup: "Successfully created user"}); 
         }

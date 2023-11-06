@@ -39,7 +39,7 @@ function BrokerDetail() {
   }
 
   const getBroker = () => {
-    axios.get(`http://localhost:3000/readBrokerID/${_id}`).then((response) => {
+    axios.get(`http://localhost:3000/readBrokerID/${_id}`).then((response) => { //
       setBroker(response.data);
       console.log(response.data);
       setEmail(response.data.email); //to have the initial values be the one already there; https://www.youtube.com/watch?v=enOsPhp2Z6Q at 44:55
@@ -54,7 +54,7 @@ function BrokerDetail() {
     getBroker();
   }, []); // Will only be called once on reload https://stackoverflow.com/questions/72824151/react-useeffect-keeps-fetching + https://www.tutorialspoint.com/how-to-call-the-loading-function-with-react-useeffect
 
-
+  {/* */}
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
       <div className="card bg-dark text-white mx-4 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
@@ -79,9 +79,9 @@ function BrokerDetail() {
             <input
               type="email"
               id="email"
-              name="email"
+              name="email" 
               value={email}
-              onChange={handleEmailChange}
+              onChange={handleEmailChange} 
               required
             />
           </div>
