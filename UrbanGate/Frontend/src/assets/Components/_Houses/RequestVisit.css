@@ -8,11 +8,11 @@
   font-size: 16px;
   width: 150px;
   height: 45px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.request-button:hover{
-    background-color: #0a1f09;
+.request-button:hover {
+  background-color: #0a1f09;
 }
 
 /* Style for the modal overlay */
@@ -38,36 +38,25 @@
 }
 
 .submit-button {
-  background-color:#93a29c;
+  background-color: #93a29c;
   color: #fff;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 18px;
   margin-top: 20px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.submit-button:hover{
+.submit-button:hover {
   background-color: #adbbb0;
-}
-/* Style for the close button */
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  color: #007bff;
-  background: none;
-  border: none;
-  cursor: pointer;
 }
 
 /* Style for the "Select a Date" heading */
 .select-date-heading {
   font-size: 20px;
   margin-bottom: 10px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 /* Style for the date input field */
@@ -77,9 +66,15 @@
   border-radius: 5px;
   width: 100%;
   font-size: 16px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.time-select{
-  font-family: Georgia, 'Times New Roman', Times, serif;
+.time-select {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#offer-form {
+  width: auto;
+  border-color: #93a29c;
+  border-width: 5px;
 }
