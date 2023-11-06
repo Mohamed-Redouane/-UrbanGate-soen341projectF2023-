@@ -19,7 +19,9 @@ import { createVisitRequest } from './controllers/visitRequest.js';
 import { manageVisitRequests } from './controllers/manageVisitRequests.js';
 import readPropertiesForUser from './controllers/readPropertiesForUser.js';
 import updateProperty from './controllers/updateProperty.js';
+import { createOffer } from './controllers/Offer.js';
 import searchBroker from './controllers/searchBroker.js';
+
 
 
 
@@ -41,7 +43,9 @@ router.post('/visitRequest', createVisitRequest);
 router.get('/manageVisitRequests/:brokerId', manageVisitRequests);
 router.get('/readPropertiesForUser/:brokerId',readPropertiesForUser);
 router.post('/updateProperty', updateProperty);
+router.post('/Offer', createOffer);
 router.post('/searchBroker', searchBroker);
+
 
 
 export default router;

@@ -1,5 +1,6 @@
 import MortgageCalculator from "./MortgageCalculator";
 import RequestVisitButton from "./RequestVisitButton";
+import SendOfferButton from "./SendOfferButton";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from "react";
@@ -54,7 +55,9 @@ const getProperty = () => {
            <tr className="button-display-row">
             
             {(userRole == "homebuyer" || userRole == "renter") ? <td className="button-display-column"> <RequestVisitButton/> </td> : <></>}
+            {userRole == "homebuyer" ? <td className="button-display-column"> <SendOfferButton/> </td> : <></>}
             {userRole == "homebuyer" ? <td className="button-display-column"> <MortgageCalculator/> </td> : <></>}
+            
             </tr>
           </table>
           
