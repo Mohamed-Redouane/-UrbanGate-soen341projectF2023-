@@ -15,7 +15,7 @@ import { createVisitRequest } from './controllers/visitRequest.js';
 import { manageVisitRequests } from './controllers/manageVisitRequests.js';
 import readPropertiesForUser from './controllers/readPropertiesForUser.js';
 import updateProperty from './controllers/updateProperty.js';
-
+import { createOffer } from './controllers/Offer.js';
 
 
 const router = express.Router();
@@ -36,6 +36,6 @@ router.post('/visitRequest', createVisitRequest);
 router.get('/manageVisitRequests/:brokerId', manageVisitRequests);
 router.get('/readPropertiesForUser/:brokerId',readPropertiesForUser);
 router.post('/updateProperty', updateProperty);
-
+router.post('/Offer', createOffer);
 
 export default router;
