@@ -44,18 +44,20 @@ form input:focus {
   border-color: #007bff;
 }
 form button {
-  width: 100%;
-  margin-top: 5px;
-  padding: 10px;
-  background-color: rgb(135, 139, 115);
+
+  background-color: #2a9d8f  ; /* Modern blue */
   color: #fff;
+  padding: 8px 18px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 16px;
+  margin-top: 12px;
+  transition: background-color 0.3s ease;
+
 }
 
 form button:hover {
-  background-color: rgb(212, 204, 176);
-  color: black;
+  background-color: #d62828;
+  color: whitesmoke;
 }
