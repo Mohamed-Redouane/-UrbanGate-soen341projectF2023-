@@ -1,3 +1,7 @@
+// Separating routes from index.js
+//https://www.w3schools.com/js/js_es6.asp
+//https://www.youtube.com/watch?v=kBhkPufW8Cw&t=573s
+
 import express from 'express';
 import createUser from './controllers/createUser.js';
 import signIn from './controllers/signIn.js';
@@ -16,6 +20,9 @@ import { manageVisitRequests } from './controllers/manageVisitRequests.js';
 import readPropertiesForUser from './controllers/readPropertiesForUser.js';
 import updateProperty from './controllers/updateProperty.js';
 import { createOffer } from './controllers/Offer.js';
+import searchBroker from './controllers/searchBroker.js';
+
+
 
 
 const router = express.Router();
@@ -37,5 +44,8 @@ router.get('/manageVisitRequests/:brokerId', manageVisitRequests);
 router.get('/readPropertiesForUser/:brokerId',readPropertiesForUser);
 router.post('/updateProperty', updateProperty);
 router.post('/Offer', createOffer);
+router.post('/searchBroker', searchBroker);
+
+
 
 export default router;

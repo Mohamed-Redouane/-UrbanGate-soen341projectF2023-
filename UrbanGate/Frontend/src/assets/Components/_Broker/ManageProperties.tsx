@@ -22,7 +22,7 @@ function ManageProperties() {
 
   return (
     <div>
-      {/*https://www.w3schools.com/jsref/jsref_map.asp */}
+      {/*https://www.w3schools.com/jsref/jsref_map.asp + https://intellipaat.com/blog/map-in-react/ */}
       {properties.map((House) =>
         <div className="card bg-dark text-white mx-4 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
         <div className="card-image"> <img src={House.image} className="card-img-top" alt="..." style={{ height: "200px" }}></img></div>
@@ -32,7 +32,7 @@ function ManageProperties() {
             <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "90px", padding:"8px" }}>Type:<br></br> <p style={{ textAlign: "center" }}> {House.type} </p> </li>
             <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "100px", padding:"8px" }}> {House.bedroom} <br></br>{House.bathroom}</li>
           </ul><br></br>
-          <p className="card-price"> {(House.status === "for_rent") ? <p>${House.price}/month</p> : <p>${House.price}</p> } <p className="card-status">{House.status}</p></p>
+          <p className="card-price"> {(House.status === "for_rent") ? <p>${House.price}/month</p> : <p>${House.price}</p> } <p className="card-status">{House.status}</p></p> {/* */}
           <p className="card-text"> {House.description}</p>
             <div>
             <button className="btn btn-secondary text-white mx-3">

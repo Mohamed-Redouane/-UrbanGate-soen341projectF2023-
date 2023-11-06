@@ -100,7 +100,7 @@ function EditProperties(){
         const data = {title: title, description: description,image: image, type : types, location: location, price: price, area: area, bedroom: bedroom, bathroom: bathroom, status: status, propertyID: _id};
         console.log(data.propertyID);
         axios.post("http://localhost:3000/updateProperty", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
-        .then(()=> {toast.success("Property updated successfully");
+        .then(()=> {toast.success("Property updated successfully"); //
         window.location.reload();
     })
         .catch((res)=> toast.error("Error updating property: " + res));
@@ -238,9 +238,7 @@ function EditProperties(){
               <button onClick={handleNo}>Cancel</button>
           </form>
       </div>
-
   )
-    
 }
 
 export default EditProperties;

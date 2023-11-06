@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import axios from 'axios';
-import { useCookies } from 'react-cookie';
 import  Select from 'react-select'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -25,7 +24,7 @@ const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDescription(e.target.value);
   };
-  const handleTypesChange = (selectedOption : any) => { 
+  const handleTypesChange = (selectedOption : any) => { //the :any 
     setTypes(selectedOption.value);
   };
   const handleLocationChange = (selectedOption : any) => { 

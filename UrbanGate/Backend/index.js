@@ -8,6 +8,8 @@ const app = express();
 app.use(cors());  //helps control and secure cross origin requests between frontend and backend applications hosted on different domains(ports).
 app.use(express.json());
 
+//
+
 connectDB().then(() => { // connect the server with the database
         console.log("Connected to the database")
     }).catch((err) => {
