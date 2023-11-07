@@ -41,12 +41,11 @@ export async function createVisitRequest(req, res) {
 }
 
 // Approve a visit request
-export async function approveVisitRequest(req, res) {
+export async function AcceptVisitRequest(req, res) {
     try {
         const { visitRequestId } = req.params; // Extract the visitRequestId from request parameters
-
         const visitRequest = await VisitRequest.findByIdAndUpdate(visitRequestId, { 
-            Status: 'approved', 
+            Status: 'accepted', 
             approvedDate: new Date(), // Set the approvedDate to the current date and time
         });
 
@@ -57,10 +56,10 @@ export async function approveVisitRequest(req, res) {
 }
 
 // Reject a visit request
-export async function rejectVisitRequest(req, res) {
+export async function RejectVisitRequest(req, res) {
     try {
         const { visitRequestId } = req.params;
-
+    
         const visitRequest = await VisitRequest.findByIdAndUpdate(visitRequestId, {
             Status: 'rejected', 
             rejectedDate: new Date(), // Set the rejectedDate to the current date and time
