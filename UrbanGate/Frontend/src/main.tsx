@@ -28,7 +28,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import ManageOffersRequests from './assets/Components/_Offers/ManageOffersRequests.tsx';
 import AcceptVisitRequest from './assets/Components/_Broker/AcceptVisitRequest.tsx';
 import RejectVisitRequest from './assets/Components/_Broker/RejectVisitRequest.tsx';
-
+import AcceptOfferRequest from './assets/Components/_Offers/AcceptOffersRequests.tsx';
+import RejectOfferRequest from './assets/Components/_Offers/RejectOffersRequests.tsx';
 //https://reactrouter.com/en/main/start/tutorial
 const router = createBrowserRouter([
 {path: "/", element: <AboutPage/>,}, //[2], it associates a URL path with a component
@@ -46,7 +47,10 @@ const router = createBrowserRouter([
 {path: "/broker/ManageProperties/DeleteProperties/:_id", element:<DeleteProperties/>}, //https://blog.stackademic.com/practical-steps-on-how-to-apply-the-useparams-hook-of-react-router-5cd43a2106b2
 {path: "/broker/manageVisitRequests/:brokerId", element:<ManageVisitRequests/>},
 {path: "/broker/ManageProperties/EditProperties/:_id", element:<EditProperties/>},
-{path: "/offers", element:<ManageOffersRequests/>},
+{path: "/ManageOffersRequests", element:<ManageOffersRequests/>},
+{path: "/ManageOffersRequests/AcceptOfferRequest/:offerId", element:<AcceptOfferRequest/>},
+{path: "/ManageOffersRequests/RejectOfferRequest/:offerId", element:<RejectOfferRequest/>},
+
 {path: "/broker/manageVisitRequests/AcceptVisitRequest/:visitRequestId", element:<AcceptVisitRequest/>},
 {path: "/broker/manageVisitRequests/RejectVisitRequest/:visitRequestId", element:<RejectVisitRequest/>},
 

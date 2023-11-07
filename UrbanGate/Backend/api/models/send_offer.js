@@ -17,7 +17,7 @@ const send_OfferSchema = new mongoose.Schema({
     },
 
     amount:{
-        type: Number,
+        type: String,
         required: true
     },
 
