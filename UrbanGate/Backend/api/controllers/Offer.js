@@ -35,36 +35,33 @@ export async function createOffer(req, res) {
         res.status(500).json({ message: 'Failed to create visit request' });
     }
 }
-/*
 // Approve a visit request
-export async function approveSendOffer(req, res) {
+export async function AcceptOfferRequest(req, res) {
     try {
-        const { SendOfferId } = req.params;
-
-        const sendOffer = await SendOffer.findByIdAndUpdate(SendOfferId, {
-            Status: 'approved', 
-            approvedOffer: new Date(),
+        const { offerId} = req.params; // Extract the visitRequestId from request parameters
+        const offers = await SendOffer.findByIdAndUpdate(offerId, { 
+            Status: 'accepted', 
+            approvedDate: new Date(), // Set the approvedDate to the current date and time
         });
 
-        res.status(200).json(sendOffer);
+        res.status(200).json(offers);
     } catch (error) {
         res.status(500).json({ message: 'Failed to approve visit request' });
     }
 }
 
-// Reject a visit request
-export async function rejectSendOffer(req, res) {
+// Reject an offer
+export async function RejectOfferRequest(req, res) {
     try {
-        const { SendOfferId } = req.params;
-
-        const sendOffer = await SendOffer.findByIdAndUpdate(SendOfferId, {
+        const { offerId } = req.params;
+    
+        const offers = await SendOffer.findByIdAndUpdate(offerId, {
             Status: 'rejected', 
-            rejectedOffer: new Date(),
+            rejectedDate: new Date(), // Set the rejectedDate to the current date and time
         });
 
-        res.status(200).json(sendOffer);
+        res.status(200).json(offers);
     } catch (error) {
         res.status(500).json({ message: 'Failed to reject visit request' });
     }
 }
-*/
