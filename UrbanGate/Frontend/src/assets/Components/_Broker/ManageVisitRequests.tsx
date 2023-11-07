@@ -81,8 +81,13 @@ const uniqueKeysSet = new Set(); // https://www.npmjs.com/package/hashset
                   <p>Requested Date: {request.requestedDate}</p>
                   <div className="visit-details-button">
                      <button className="btn btn-secondary text-white">
-                      <Link to={`/broker/manageVisitRequests/${request.property}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>
-                        Visit Details
+                      <Link to={`/broker/manageVisitRequests/AcceptVisitRequest/${request._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>
+                        Accept
+                      </Link>
+                    </button>
+                    <button className="btn btn-secondary text-white">
+                      <Link to={`/broker/manageVisitRequests/RejectVisitRequest/${request._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>
+                        Reject
                       </Link>
                     </button>
                   </div>

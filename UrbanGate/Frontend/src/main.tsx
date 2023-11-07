@@ -26,7 +26,8 @@ import EditProperties from './assets/Components/_Broker/EditProperties.tsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
 import ManageOffersRequests from './assets/Components/_Offers/ManageOffersRequests.tsx';
-
+import AcceptVisitRequest from './assets/Components/_Broker/AcceptVisitRequest.tsx';
+import RejectVisitRequest from './assets/Components/_Broker/RejectVisitRequest.tsx';
 
 //https://reactrouter.com/en/main/start/tutorial
 const router = createBrowserRouter([
@@ -46,6 +47,9 @@ const router = createBrowserRouter([
 {path: "/broker/manageVisitRequests/:brokerId", element:<ManageVisitRequests/>},
 {path: "/broker/ManageProperties/EditProperties/:_id", element:<EditProperties/>},
 {path: "/offers", element:<ManageOffersRequests/>},
+{path: "/broker/manageVisitRequests/AcceptVisitRequest/:visitRequestId", element:<AcceptVisitRequest/>},
+{path: "/broker/manageVisitRequests/RejectVisitRequest/:visitRequestId", element:<RejectVisitRequest/>},
+
 ])
 
 //https://reactrouter.com/en/main/start/tutorial
