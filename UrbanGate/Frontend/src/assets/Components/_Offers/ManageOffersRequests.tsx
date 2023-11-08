@@ -99,8 +99,10 @@ const uniqueKeysSet = new Set(); // https://www.npmjs.com/package/hashset
           ))}
         </ul>
       )}
-    </div>
-  );
-}
 
-export default ManageOffersRequests;
+    </div>
+    )}
+    </>
+  )
+  }
+export default ManageOffersRequests; 

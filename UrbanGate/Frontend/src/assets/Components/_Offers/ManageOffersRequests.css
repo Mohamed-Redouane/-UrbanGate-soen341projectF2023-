@@ -1,3 +1,4 @@
+
 /* ManageOffersRequests.css */
 
 .visit-requests-container {
@@ -77,3 +78,61 @@
     background-color: #0056b3;
   }
   
+
+.offer-page-text{
+font-size: 14px;
+border-style: solid; 
+position: absolute;
+margin-top: -30%;
+margin-left: 45%;
+height: 45vh; 
+width: 750px; 
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-weight: bolder;
+padding: 30px;
+padding-bottom: 20px;
+color:rgb(234, 229, 229); 
+background-color: rgb(78, 78, 74);
+text-align: center;
+
+}
+
+.offer-page-picture{
+    float:left;
+    z-index:-1;
+    position: relative;
+    height: 500px; 
+}
+
+.offer-page-login-title{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+    text-align: center;
+    color:rgb(162, 151, 116)
+}
+
+.offer-page-login-message{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 13px;
+    text-align: center;
+}
+
+.offer-page-login{
+    border-radius: 10px;
+    background-color: rgb(215, 218, 226);
+    text-decoration: none;
+    color: black;
+    height: 50px;
+}
+
+.offer-page-login:hover{
+background-color: rgb(123, 125, 131);
+}
+
+.color-background-picture-offer-page{
+    height: 600px;
+    position: relative;
+    background-color: rgb(36, 49, 49);
+    z-index: -3;
+}
+
