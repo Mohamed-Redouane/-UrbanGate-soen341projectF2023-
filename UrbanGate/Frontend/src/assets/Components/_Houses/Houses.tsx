@@ -188,7 +188,7 @@ function Houses() {
           <img src="https://www.decorilla.com/online-decorating/wp-content/uploads/2022/01/Airy-biophilic-interior-design-Wanda-P.jpg" style={{height: "400px", borderTopRightRadius: "20px", borderBottomRightRadius:"20px"}}></img>
         </div>
         <p className="filter-box-title">Search for available properties &nbsp;&nbsp;&nbsp; <br/> <small className="specify-status">To select a price range, please click on for sale or for rent</small></p>
-        <div className="status">
+        <div className="status" style={{marginLeft:"50px"}}>
         <input type="radio" value="for_sale" name="status" onChange={handleStatusChange}></input>
         <label>&nbsp;&nbsp;For Sale &nbsp;&nbsp;</label>
         <input type="radio" value="for_rent" name="status" onChange={handleStatusChange}></input>
@@ -258,7 +258,7 @@ function Houses() {
       </div>
       </div>
 
-
+      <div>
       {/*https://www.w3schools.com/jsref/jsref_map.asp + https://intellipaat.com/blog/map-in-react/ */}
       {/*https://getbootstrap.com/docs/5.0/components/card/*/}
       {filteredProperties.map((property) =>
@@ -279,6 +279,7 @@ function Houses() {
           </div>
         </div>
       )}
+      </div>
     </>
   );
 }
