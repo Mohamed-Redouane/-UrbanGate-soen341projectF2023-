@@ -125,7 +125,7 @@ function Header() {
           </div>
           <div className="col-2">
             {" "}
-            <a href="/offers" style={{ textDecorationLine: "none" }}>
+            <a href="/ManageOffersRequests" style={{ textDecorationLine: "none" }}>
               {" "}
               <h5 className="nav-box-3">
                 {" "}

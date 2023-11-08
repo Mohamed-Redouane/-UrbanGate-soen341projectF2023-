@@ -1,4 +1,84 @@
 
+/* ManageOffersRequests.css */
+
+.visit-requests-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .visit-requests-heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .no-requests-message {
+    font-size: 18px;
+    color: #888;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .visit-request-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .visit-request-item {
+    margin-bottom: 20px;
+  }
+  
+  .visit-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+  }
+  
+  .visit-card-body {
+    padding: 10px;
+  }
+  
+  .property-name,
+  .requester-name,
+  .status,
+  .requested-date {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #333;
+  }
+  
+  .visit-details-button {
+    margin-top: 10px;
+    text-align: right;
+  }
+  
+  .btn-secondary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #0056b3;
+  }
+  
+
 .offer-page-text{
 font-size: 14px;
 border-style: solid; 
@@ -55,3 +135,4 @@ background-color: rgb(123, 125, 131);
     background-color: rgb(36, 49, 49);
     z-index: -3;
 }
+

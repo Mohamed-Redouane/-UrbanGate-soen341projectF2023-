@@ -12,6 +12,7 @@ function Broker() {
   const [isLoading, setLoading] = useState(true);
   const [brokers, setBrokers] = useState<any[]>([]); //
   const [search, setSearch] = useState("");
+  const brokerId = localStorage.getItem("UserID");
 
   const f = async () => {
     await setLoading(true); //
@@ -82,7 +83,7 @@ function Broker() {
             <Link to="/broker/ManageProperties" className="broker-button">
               Manage Properties
             </Link>
-            <Link to="/broker/ManageVisitRequests/${brokerId}"className="broker-button">
+            <Link to={`/broker/ManageVisitRequests/${brokerId}`}className="broker-button">
               Visit Requests
             </Link>
           </div>

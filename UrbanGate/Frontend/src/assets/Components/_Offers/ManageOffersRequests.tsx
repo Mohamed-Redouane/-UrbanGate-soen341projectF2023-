@@ -1,39 +1,105 @@
+//references: How to use HashSet : https://www.npmjs.com/package/hashset
+// How to use promise "https://dmitripavlutin.com/promise-all/"
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
-import "./ManageOffersRequests.css"; 
+import "./ManageOffersRequests.css";
 
-function ManageOffersRequests() {
-    const [user, checkUser] = useState("");
+function  ManageOffersRequests() {
+  const { propertyId } = useParams();
+  const [Offers, setOffers] = useState<{
+    _id: string,
+    property: string;
+    requester: string;
+    amount: String;
+    Status: string;
+    requestedDate: string;
+  }[]>([]);
+
+  useEffect(() => {
+    //get user id (broker id) from localStorage
+    const brokerId = localStorage.getItem("UserID");
+// Create a Set to store unique keys
+const uniqueKeysSet = new Set(); // https://www.npmjs.com/package/hashset
+    //get Properties related to broker id
+    axios.get(`http://localhost:3000/readPropertiesForUser/${brokerId}`)
+      .then(async (response) => {
+        console.log(response.data);
+        if (response.data) {
+          const properties = response.data;
+          //get visit requests for each property
+          const promises = properties.map((property: { propertyId: any }) => // https://dmitripavlutin.com/promise-all/
+            axios.get(`http://localhost:3000/manageOffersRequests/${brokerId}`)
+              .then((offersRequestsResponse) => offersRequestsResponse.data)
+              .catch((error) => {
+                console.error(error);
+                return [];
+              })
+          );
   
-    const f = () => {
-      axios.post("http://localhost:3000/checkUser", {userID: window.localStorage.getItem("UserID"),}) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
-        .then((res) => {
-          console.log("valid");
-          checkUser(res.data);
-        })
-        .catch((err) => {
-          console.log("not valid");
-          checkUser(err.response.data);
-        });
-    };
-  
-  useEffect(() => {f();}, []); 
+          Promise.all(promises)
+            .then((offersRequestsForProperties) => {
+              // Flatten the array of visit requests
+              const allOffersRequests = offersRequestsForProperties.flat();
+              
+              // Filter out duplicates before setting state
+              const filteredOffersRequests = allOffersRequests.filter(request => {
+                const key = `${request._id}-${request.property}-${request.requester}`;
+                if (uniqueKeysSet.has(key)) {
+                  return false; // Skip duplicates
+                } //
+                uniqueKeysSet.add(key); // Add unique keys to the Set
+                return true;
+              });
+              setOffers(filteredOffersRequests);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        } else {
+          console.log("No data found for these properties.");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
-    <>
-  {user != "broker" && user != "admin"  && user != "homebuyer" && user != "renter" && (
-    <div className="offer-guest-page">
-      <div className = "offer-page-picture">
-      <img height="600px" src="https://www.treehugger.com/thmb/rAgSXnE9wAaV6rjjnpiQPo4ymFk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Cas.28ftPayetteUrban_NavalForceWalls-2511-e42ce2eb724748b0bf8a412b068f9051.jpg" alt="image"></img>
-      </div>
-      <div className="color-background-picture-offer-page"></div>
-      <div className="offer-page-text">
-        <p className="offer-page-login-title"> Log In and Make An Offer</p>
-        <p className="offer-page-login-message">  Once you are logged in, you can start making offers on the properties that catch your eye. <br></br>
-          Our user-friendly interface makes it easy to submit your offers with just a few clicks. <br></br>
-          To facilitate user experience, all offers made and their updates will be displayed under this page. </p> <br/>
-        <button className="offer-page-login"><a href="/accounts" style={{textDecoration:"none", color:"black"}}> Click Here to Log in/Sign up</a></button>
-        </div>
+    <div className="visit-requests-container">
+      <h1 className="visit-requests-heading">Offers</h1>
+      {Offers.length === 0 ? (
+        <p className="no-requests-message">There are no Offers.</p>
+      ) : (
+        <ul className="visit-request-list">
+          {Offers.map((request) => ( //
+            <li key={`${request._id}-${request.property}-${request.requester}`}>
+             <div className="visit-card">
+                <div className="visit-card-body">
+                  <p>property: {request.property}</p>
+                  <p>requester: {request.requester}</p>
+                  <p>amount: ${request.amount}</p>
+                  <p>Status: {request.Status}</p>
+                  <p>Requested Date: {request.requestedDate}</p>
+                  <div className="visit-details-button">
+                     <button className="btn btn-secondary text-white">
+                      <Link to={`/manageOffersRequests/AcceptOfferRequest/${request._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>
+                        Accept
+                      </Link>
+                    </button>
+                    <button className="btn btn-secondary text-white">
+                      <Link to={`/manageOffersRequests/RejectOfferRequest/${request._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>
+                        Reject
+                      </Link>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+
     </div>
     )}
     </>

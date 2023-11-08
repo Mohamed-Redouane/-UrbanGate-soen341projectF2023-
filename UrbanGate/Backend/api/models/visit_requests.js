@@ -22,7 +22,7 @@ const visit_requestSchema = new mongoose.Schema({
     Status:{
         type: String,
         default: "pending",
-        enum: ["pending","approved","rejected"],
+        enum: ["pending","accepted","rejected"],
         required: true,
         },
    

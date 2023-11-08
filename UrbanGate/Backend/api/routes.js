@@ -15,16 +15,17 @@ import updateBroker from './controllers/updateBroker.js';
 import deleteBroker from './controllers/deleteBroker.js';
 import readPropertyID from './controllers/readPropertyID.js';
 import deletePropertyID from './controllers/deletePropertyID.js';
-import { createVisitRequest } from './controllers/visitRequest.js';
+import { createVisitRequest, RejectVisitRequest } from './controllers/visitRequest.js';
 import { manageVisitRequests } from './controllers/manageVisitRequests.js';
 import readPropertiesForUser from './controllers/readPropertiesForUser.js';
 import updateProperty from './controllers/updateProperty.js';
 import { createOffer } from './controllers/Offer.js';
 import searchBroker from './controllers/searchBroker.js';
-
-
-
-
+import { AcceptVisitRequest } from './controllers/visitRequest.js';
+import { readVisitRequest } from './controllers/readVisitRequest.js';
+import { manageOffersRequests } from './controllers/manageOffersRequests.js';
+import { AcceptOfferRequest, RejectOfferRequest } from './controllers/Offer.js';
+import { readOfferRequest } from './controllers/readOfferRequest.js';
 const router = express.Router();
 
 router.post('/createUser', createUser);
@@ -45,7 +46,11 @@ router.get('/readPropertiesForUser/:brokerId',readPropertiesForUser);
 router.post('/updateProperty', updateProperty);
 router.post('/Offer', createOffer);
 router.post('/searchBroker', searchBroker);
-
-
-
+router.put('/AcceptVisitRequest/:visitRequestId',AcceptVisitRequest);
+router.put('/RejectVisitRequest/:visitRequestId',RejectVisitRequest);
+router.get('/readVisitRequest/:visitRequestId',readVisitRequest);
+router.get('/manageOffersRequests/:brokerId', manageOffersRequests);
+router.put('/AcceptOfferRequest/:offerId',AcceptOfferRequest);
+router.put('/RejectOfferRequest/:offerId',RejectOfferRequest);
+router.get('/readOfferRequest/:offerId', readOfferRequest);
 export default router;
