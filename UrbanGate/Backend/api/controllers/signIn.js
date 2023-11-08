@@ -1,4 +1,6 @@
 import User from '../models/users.js';
+import bcrypt from 'bcrypt';
+
 /*
 * Receives Sign-in request from User
 * Sends an object containing the appropriate message
@@ -16,7 +18,9 @@ export default async function signIn(req, res) {
       console.log("User not found with email:", email);
       return res.status(500).json({ popup: "Account does not exist" });
     }
-    if (password !== user.password) {
+    // Compare the provided password with the stored hashed password
+    const passwordMatch = await bcrypt.compare(password, user.password); // https://www.honeybadger.io/blog/javascript-authentication-guide/
+    if (!passwordMatch) {
       return res.status(500).json({popup: "Incorrect password"});
     }
     return res.status(200).json({
