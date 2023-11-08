@@ -290,8 +290,9 @@ function Houses() {
             value="for_sale"
             name="status"
             onChange={handleStatusChange}
+            style={{marginLeft:'5vw'}}
           ></input>
-          <label className="rent/sale">&nbsp;&nbsp;For Sale &nbsp;&nbsp;</label>
+          <label className="rent/sale">&nbsp;&nbsp; For Sale &nbsp;&nbsp;</label>
           <input
             type="radio"
             value="for_rent"
@@ -371,13 +372,12 @@ function Houses() {
         </div>
       </div>
 
-      <div>
 
       {/*https://www.w3schools.com/jsref/jsref_map.asp + https://intellipaat.com/blog/map-in-react/ */}
       {/*https://getbootstrap.com/docs/5.0/components/card/*/}
       {filteredProperties.map((property) => (
         <div
-          className="card bg-dark text-white mx-4 mt-5"
+          className="card bg-dark text-white mx-2 mt-5"
           style={{ width: "310px", height: "460px", display: "inline-block" }}
         >
           <div className="card-image">
@@ -468,11 +468,7 @@ function Houses() {
             {/*https://www.youtube.com/watch?v=enOsPhp2Z6Q at 36:39*/}
           </div>
         </div>
-      )}
-      </div>
-
       ))}
-
     </>
   );
 }

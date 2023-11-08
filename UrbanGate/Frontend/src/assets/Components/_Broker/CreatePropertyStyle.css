@@ -6,9 +6,6 @@ body {
 #CreatePropertyPage {
   background-image: url("owen-lystrup-boLgiM0qwkg-unsplash.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  display: flex;
-  margin: 0;
-  width: 100%;
+  margin-left: 10%;
+  margin-right:0%;
 }

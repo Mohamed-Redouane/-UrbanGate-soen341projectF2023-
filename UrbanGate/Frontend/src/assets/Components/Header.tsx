@@ -148,9 +148,9 @@ function Header() {
             <a href="/accounts" style={{ textDecorationLine: "none" }}>
               {/*https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:19:15*/}
               {!window.localStorage.getItem("UserID") ? (
-                <h5 className="nav-box-4">
+                <h5 className="navACC">
                   {" "}
-                  Accounts
+                  Sign in
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -163,14 +163,14 @@ function Header() {
                   </svg>{" "}
                 </h5>
               ) : (
-                <button onClick={logout} className="nav-box-4">
+                <button onClick={logout} className="navACC">
                   {" "}
                   Logout{" "}
                 </button>
               )}
               {isSignedIn && (
-                <div className="user-type" style={{ color: "black" }}>
-                  You are signed in as a {userRole}
+                <div style={{ color: "white", backgroundColor: "gray" }}>
+                 Welcome {userRole}
                 </div>
               )}{" "}
               {!isSignedIn && <></>}

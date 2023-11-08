@@ -37,6 +37,22 @@
   margin-bottom: 20px;
 }
 
+.navACC {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: black;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50px;
+  height: 2vw;
+  width: 100px;
+  margin-left: 15vw;
+  padding-top: 5%;
+  font-size:small;
+}
+.navACC:hover{
+  background-color: rgba(236, 236, 236, 0.733);
+}
+
 .dropd1:hover {
   border: "solid";
 }

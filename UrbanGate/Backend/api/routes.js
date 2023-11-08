@@ -26,6 +26,7 @@ import { readVisitRequest } from './controllers/readVisitRequest.js';
 import { manageOffersRequests } from './controllers/manageOffersRequests.js';
 import { AcceptOfferRequest, RejectOfferRequest } from './controllers/Offer.js';
 import { readOfferRequest } from './controllers/readOfferRequest.js';
+import OfferHomebuyer from './controllers/OfferHomebuyer.js'
 const router = express.Router();
 
 router.post('/createUser', createUser);
@@ -53,4 +54,6 @@ router.get('/manageOffersRequests/:brokerId', manageOffersRequests);
 router.put('/AcceptOfferRequest/:offerId',AcceptOfferRequest);
 router.put('/RejectOfferRequest/:offerId',RejectOfferRequest);
 router.get('/readOfferRequest/:offerId', readOfferRequest);
+router.post('/findOffersForHomebuyer', OfferHomebuyer);
+
 export default router;

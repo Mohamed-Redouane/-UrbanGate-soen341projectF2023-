@@ -17,7 +17,7 @@ color:rgb(212, 204, 176)
 }
 
 .picture{
-    margin-left: 15%; 
+    margin-left: 20.5%; 
     z-index:-1;
     align-items: center;
     position: relative;
@@ -58,11 +58,12 @@ color:rgb(212, 204, 176)
     margin-top: 60px;
     line-height: 30px;
     text-align: left;
-    position: relative; 
+    margin-left: 25%; 
+
 }
 
 .box-picture{
     margin-top: -400px;
     margin-left:850px; 
     position: absolute; 
-}
+}   
