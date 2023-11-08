@@ -58,9 +58,6 @@ function RequestVisitButton() {
   const handleDateSelect = (date: string, time: string) => {
     setSelectedDate(date);
     setSelectedTime(time);
-    closeModal();
-
-    // ******* implement a way to collect user details etc...
   };
 
   const navigate = useNavigate();
@@ -105,10 +102,12 @@ function RequestVisitButton() {
       </button>
 
       <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal} // https://mui.com/material-ui/react-modal/
+        isOpen={modalIsOpen} // https://mui.com/material-ui/react-modal/
+        onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Select Date Modal"
+        shouldCloseOnOverlayClick={true}
+        shouldCloseOnEsc={true}
       >
         <h3 className="select-date-heading">Select a date and time</h3>
         <input
