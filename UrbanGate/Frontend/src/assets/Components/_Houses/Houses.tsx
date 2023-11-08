@@ -277,6 +277,7 @@ function Houses() {
             }}
           ></img>
         </div>
+
         <p className="filter-box-title">
           Search for available properties &nbsp;&nbsp;&nbsp; <br />{" "}
           <small className="specify-status">
@@ -299,6 +300,7 @@ function Houses() {
           ></input>
           <label className="rent/sale">&nbsp;&nbsp;For Rent &nbsp;&nbsp;</label>
           <br></br>
+
         </div>
         <div className="filters">
           <table className="filter-table">
@@ -368,6 +370,8 @@ function Houses() {
           </button>
         </div>
       </div>
+
+      <div>
 
       {/*https://www.w3schools.com/jsref/jsref_map.asp + https://intellipaat.com/blog/map-in-react/ */}
       {/*https://getbootstrap.com/docs/5.0/components/card/*/}
@@ -464,7 +468,11 @@ function Houses() {
             {/*https://www.youtube.com/watch?v=enOsPhp2Z6Q at 36:39*/}
           </div>
         </div>
+      )}
+      </div>
+
       ))}
+
     </>
   );
 }
