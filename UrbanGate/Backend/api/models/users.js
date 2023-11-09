@@ -1,32 +1,26 @@
-  // reference for schema : https://www.tutorialspoint.com/mongodb/mongodb_data_modeling.htm
+// reference for schema : https://www.tutorialspoint.com/mongodb/mongodb_data_modeling.htm
 import mongoose from "mongoose";
 
 const usersSchema = new mongoose.Schema({
-
-
-// _id: mongoose.Schema.Types.ObjectId,
-
-    name:{
-        type:String,
+    name: {
+        type: String,
         required: true
-    }, 
-
-email:{
-    type:String,
-    required: true,
-    unique:true,
-    lowercase: true
-
-},
-password:{
-    type: String,
-    required:true
-},
-role:{
-    type:String,
-    enum: ["homebuyer","renter","broker", "admin"],
-    required:true
-},
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    role: {
+        type: String,
+        enum: ["homebuyer", "renter", "broker", "admin"],
+        required: true
+    },
 
     createdAt: {
         type: Date,

@@ -1,12 +1,10 @@
 import Property from '../models/properties.js'
 import User from '../models/users.js'
-
 /* 
 * This function checks if the user is a broker and creates a property in the database
 * I Followed this guide:
 * https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:39:18
 */
-
 export default async function createProperty(req, res) {
   try { //An error can be caught; https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:32:01
     const user = await User.findById(req.body.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:38:07
@@ -36,4 +34,4 @@ export default async function createProperty(req, res) {
   catch (err) { //An error can be caught; https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:32:01
     return res.status(500).json(err);
   }
-}
+} 

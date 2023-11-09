@@ -11,5 +11,4 @@ function Footer() { //[1] functional component
     )
 }
 
-
 export default Footer

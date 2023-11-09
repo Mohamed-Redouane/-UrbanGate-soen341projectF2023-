@@ -31,4 +31,4 @@ export default async function updateBroker(req, res) {
     catch (err) {
         return res.status(500).json(err);
     }
-}
+} 

@@ -99,7 +99,7 @@ function  ManageOffersRequests() {
                   <p>amount: ${request.amount}</p>
                   <p>Status: {request.Status}</p>
                   <p>Requested Date: {request.requestedDate}</p>
-                  {!user &&  <div className="visit-details-button">
+                  {!user &&  <div className="visit-details-button"> {/*https://legacy.reactjs.org/docs/conditional-rendering.html*/}
                      <button className="btn btn-secondary text-white">
                       <Link to={`/manageOffersRequests/AcceptOfferRequest/${request._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>
                         Accept
@@ -117,7 +117,6 @@ function  ManageOffersRequests() {
           ))}
         </ul>
       )}
-
     </div>
     )}
     

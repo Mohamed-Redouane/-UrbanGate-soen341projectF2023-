@@ -1,7 +1,5 @@
 import User from '../models/users.js' 
-
 export default async function searchBrokers(req, res) {
-
       try {
         if(req.body.name == ''){
             console.log("yes");

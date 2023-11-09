@@ -21,10 +21,6 @@ function AcceptOfferRequest() {
         toast.info("Offer is already accepted.");
         return;
       }
-
-      console.log( offerId);
-      console.log(brokerId);
-
       //send a PUT request to backend API to update the visit request status
       const response = await axios.put(`http://localhost:3000/AcceptOfferRequest/${offerId}`, {
       

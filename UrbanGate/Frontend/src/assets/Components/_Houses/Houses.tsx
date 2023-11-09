@@ -17,7 +17,7 @@ const locationOptions = [
   { label: "Angrignon", value: "Angrignon" },
   { label: "Mile-End", value: "Mile-End" },
 ];
-
+ 
 const propertyTypeOptions = [
   { label: "Any", value: "" },
   { label: "Appartment", value: "apartment" },

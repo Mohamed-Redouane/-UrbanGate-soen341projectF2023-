@@ -9,18 +9,15 @@ const send_OfferSchema = new mongoose.Schema({
         ref: "Property",
         required: true,
     },
-
     requester: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User", 
         required: true,
     },
-
     amount:{
         type: String,
         required: true
     },
-
     Status:{
         type: String,
         default: "pending",
@@ -32,7 +29,6 @@ const send_OfferSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    
     approvedDate: {
         type: Date,
     },

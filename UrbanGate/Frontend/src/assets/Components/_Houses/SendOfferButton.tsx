@@ -123,7 +123,7 @@ function SendOfferButton() {
           <button className="submit-button" onClick={handleSubmit}>
             Submit
           </button>
-        </form>
+        </form> 
       </Modal>
     </div>
   );
