@@ -106,7 +106,7 @@ function ManagingProperties() {
         toast.success(res.data.popup);
       })
       .catch((err) => toast.error(err.response.data.popup)); //you have to write err.response because the data is treated differently than in the .then
-  };
+  }; 
   return (
     <div className="container" id="CreatePropertyPage">
       <form onSubmit={handleSubmit}>

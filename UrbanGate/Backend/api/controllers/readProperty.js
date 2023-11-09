@@ -8,4 +8,4 @@ export default async function readProperty(req, res) {
     catch (err) {
         res.status(500).json(err);
     }
-}
+} 

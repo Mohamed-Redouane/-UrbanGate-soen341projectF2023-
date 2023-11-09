@@ -9,4 +9,4 @@ export default async function deleteProperty (req, res) {
   catch (err) {
     res.status(500).json(err);
   }
-}
+} 

@@ -15,7 +15,7 @@ const MortgageCalculator: React.FC = () => {
     //https://mui.com/material-ui/react-modal/
     setModalIsOpen(true);
   };
-
+ 
   const closeModal = () => {
     //https://mui.com/material-ui/react-modal/
     setModalIsOpen(false);

@@ -3,9 +3,6 @@ import axios from 'axios';
 import { useState, useEffect } from "react";
 import React from 'react';
 
-
-
-
 function BrokerDetail() {
 
   const [email, setEmail] = useState('');
@@ -111,7 +108,6 @@ function BrokerDetail() {
           </div>
           <br />
           <button type="submit">Update</button>
-
         </form>
       </div>
     </div>

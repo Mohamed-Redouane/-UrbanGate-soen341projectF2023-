@@ -15,7 +15,6 @@ function ManageProperties() {
       console.log(error + "Houses not found");
     });
   }
-
   useEffect(() => {
     getHouses();
   }, []);

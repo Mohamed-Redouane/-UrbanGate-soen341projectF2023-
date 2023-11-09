@@ -10,7 +10,7 @@ function CreateBroker(){
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [role, setRole] = useState('broker');
-  
+
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setEmail(e.target.value);
     };
@@ -22,8 +22,6 @@ function CreateBroker(){
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setName(e.target.value);
     }
-  
-  
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const data = {email: email, name: name, password: password, role: role};
@@ -32,7 +30,6 @@ function CreateBroker(){
       .catch((err)=> toast.error(err.response.data.popup));
       //console.log(email +  "" + password +"" + name+""   + role);
     }
-
     return(
         <div className="container">
           <form onSubmit={handleSubmit}>
@@ -75,12 +72,9 @@ function CreateBroker(){
                 </div>
                  <br/>
                 <button type="submit">Sign Up</button>
-                
           </form>
         </div>
           );
-
-
 }
 
 export default CreateBroker;

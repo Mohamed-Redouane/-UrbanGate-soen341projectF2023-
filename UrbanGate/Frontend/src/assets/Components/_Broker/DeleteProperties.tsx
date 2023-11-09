@@ -16,7 +16,7 @@ function DeleteProperties() {
           //https://www.youtube.com/watch?v=-42K44A1oMA 45:15
         console.log("Property deleted");
        }).catch((error) => {
-       
+        
         alert("Error deleting property");
          console.log(error);
        });

@@ -8,7 +8,7 @@ import "./Header.css";
 import logo from "./logo.png"; //font from https://www.fontget.com/font/lequire/
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+ 
 function Header() {
   const [userRole, setUserRole] = useState("");
   const [isSignedIn, setIsSignedIn] = useState(false);

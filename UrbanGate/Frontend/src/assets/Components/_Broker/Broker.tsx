@@ -60,12 +60,11 @@ function Broker() {
     });
   }
 
-  const handleSort = () => {
-    const filterBrokers = (brokers.sort(cmpFunction)); //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-    setBrokers([...filterBrokers]); // Spread operator: https://stackoverflow.com/questions/68106950/react-renders-when-changing-state-using-spread-operator-but-not-when-passing-th
+  const handleSort = () => { //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+    setBrokers([...brokers].sort(cmpFunction)); // Spread operator: https://stackoverflow.com/questions/68106950/react-renders-when-changing-state-using-spread-operator-but-not-when-passing-th + https://stackoverflow.com/questions/74287243/react-state-variable-does-not-trigger-rerender-when-sorted?rq=3
   }
   const cmpFunction = (broker1: any, broker2: any) => {
-    return (broker1.name).localeCompare(broker2.name);
+    return (broker1.name).localeCompare(broker2.name); //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
   }
   useEffect(() => {f();}, []); // Will only be called once on reload https://stackoverflow.com/questions/72824151/react-useeffect-keeps-fetching + https://www.tutorialspoint.com/how-to-call-the-loading-function-with-react-useeffect
 

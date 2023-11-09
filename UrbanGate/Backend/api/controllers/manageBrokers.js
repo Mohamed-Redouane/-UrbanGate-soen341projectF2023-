@@ -17,4 +17,4 @@ export default async function manageBrokers(req, res) {
     catch (Err) {
         return res.status(500).json(Err);
     } 
-}
+} 

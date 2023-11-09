@@ -6,9 +6,7 @@ import {useNavigate} from "react-router-dom";
 import  Select from 'react-select'
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-
-
-
+ 
 function EditProperties(){
 
   const [title, setTitle] = useState('');

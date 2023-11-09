@@ -13,7 +13,7 @@ function RejectVisitRequest() {
       if (!visitRequestId) {
         toast.error("Visit request ID is missing.");
         return;
-      }
+      } 
       const getResponse = await axios.get(`http://localhost:3000/readVisitRequest/${visitRequestId}`);
       
       if (getResponse.data.Status === 'rejected') {

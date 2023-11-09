@@ -23,8 +23,6 @@ function ManageBrokers(){
    getBrokers();
  }, []);
 
-
-
  return (
    <div>
     {/*https://www.w3schools.com/jsref/jsref_map.asp + https://intellipaat.com/blog/map-in-react/ */}

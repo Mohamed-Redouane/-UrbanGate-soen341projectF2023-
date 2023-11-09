@@ -15,15 +15,11 @@ function RejectOfferRequest() {
         return;
       }
       const getResponse = await axios.get(`http://localhost:3000/readOfferRequest/${offerId}`);
-      
       if (getResponse.data.Status === 'rejected') {
         //if the offer is already rejected then show a message.
         toast.info("offer is already rejected.");
         return;
       }
-
-      console.log( offerId);
-      console.log(brokerId);
       //send a PUT request to backend API to update the visit request status.
       const response = await axios.put(`http://localhost:3000/RejectOfferRequest/${offerId}`, {
       

@@ -8,4 +8,4 @@ export default async function checkUser(req, res){
     catch (err) { //catches the error at "user.role" if user is found to be null
         return res.status(500).json({popup: "NOT SIGNED IN"});
     }
-}
+} 

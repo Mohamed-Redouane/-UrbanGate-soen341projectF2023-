@@ -14,7 +14,7 @@ function ManageVisitRequests() {
     Status: string;
     requestedDate: string;
   }[]>([]);
-
+ 
   useEffect(() => {
     //get user id (broker id) from localStorage
     const brokerId = localStorage.getItem("UserID");

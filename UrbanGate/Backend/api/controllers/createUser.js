@@ -7,7 +7,6 @@ import bcrypt from 'bcrypt';
 * I Followed this guide:
 * https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 50:12
 */
-
 export default async function createUser(req, res) {
     const email = req.body.email;
     try { //An error can be thrown; https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:32:01
@@ -19,7 +18,6 @@ export default async function createUser(req, res) {
         else {
             const saltRounds = 10; // Number of salt rounds .
             const hashedPassword = await bcrypt.hash(req.body.password, saltRounds); // https://www.honeybadger.io/blog/javascript-authentication-guide/
-
             const user = new User({ name: req.body.name, email: req.body.email, password: hashedPassword , role: req.body.role }) //https://mongoosejs.com/docs/models.html + https://www.youtube.com/watch?v=wgGkF4k9c7A at 17:32 +  https://www.youtube.com/watch?v=enOsPhp2Z6Q at 49:23
             await user.save(); //await because .save is a promise
             return res.status(200).json({popup: "Successfully created user"}); 
@@ -28,4 +26,4 @@ export default async function createUser(req, res) {
     catch (err) { //An error can be caught; https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s 1:32:01
       return  res.status(500).json(err);
     }
-}
+} 

@@ -20,8 +20,7 @@ export default async function updateProperty(req, res) {
         console.log("property UPDATED");
         return res.status(200).json({popup: "property updated successfully!",});
     }
-
     catch (Exception) {
         return res.status(401).json({message:"property error"});
     }
-}
+}  

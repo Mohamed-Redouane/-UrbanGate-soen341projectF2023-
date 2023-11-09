@@ -50,21 +50,16 @@ const router = createBrowserRouter([
 {path: "/ManageOffersRequests", element:<ManageOffersRequests/>},
 {path: "/ManageOffersRequests/AcceptOfferRequest/:offerId", element:<AcceptOfferRequest/>},
 {path: "/ManageOffersRequests/RejectOfferRequest/:offerId", element:<RejectOfferRequest/>},
-
 {path: "/broker/manageVisitRequests/AcceptVisitRequest/:visitRequestId", element:<AcceptVisitRequest/>},
 {path: "/broker/manageVisitRequests/RejectVisitRequest/:visitRequestId", element:<RejectVisitRequest/>},
-
 ])
 
 //https://reactrouter.com/en/main/start/tutorial
 ReactDOM.createRoot(document.getElementById('root')!).render(
- 
-  <React.StrictMode>
-<ToastContainer />  {/* */}
-
+<React.StrictMode>
+  <ToastContainer />  
     <Header/>
    <RouterProvider router = {router}/>
     <Footer/>
-
   </React.StrictMode>
 )

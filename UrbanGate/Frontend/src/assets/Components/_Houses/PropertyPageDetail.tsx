@@ -5,16 +5,13 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import "./PropertyPageDetail.css";
-//import { useLocation } from 'react-router-dom';
 
 function PropertyPageDetail() {
 
 const [property, setProperty] = useState({ title: "string", description: "string", type: "string", price: "string", location: "string", area: "string", bedroom: "string", bathroom: "string", status: "string", image: "string" });
 const {_id} = useParams(); //https://reactrouter.com/en/main/hooks/use-params
 const userID = localStorage.getItem("UserID");
-const [userRole, setUserRole] = useState("");
-//const [isSignedIn, setIsSignedIn] = useState(false);
-
+const [userRole, setUserRole] = useState(""); 
 console.log(userID);
 const getProperty = () => {
   axios.get(`http://localhost:3000/readPropertyID/${_id}`).then((response) => { //
@@ -28,18 +25,16 @@ const getProperty = () => {
   }
 
   const getUserRole = () => {
-
     axios.post("http://localhost:3000/checkUser", {userID: userID}).then((res) => { //
       setUserRole(res.data);
       //setIsSignedIn(true);
     })
   }
-
   useEffect(() => {
     getProperty();
     getUserRole();
   }, []);
- 
+
   return (
     <>
       <div className="row"> 
@@ -53,11 +48,9 @@ const getProperty = () => {
           </div>
           <table className="button-display">
            <tr className="button-display-row">
-            
             {(userRole == "homebuyer" || userRole == "renter") ? <td className="button-display-column"> <RequestVisitButton/> </td> : <></>}
             {userRole == "homebuyer" ? <td className="button-display-column"> <SendOfferButton/> </td> : <></>}
             {userRole == "homebuyer" ? <td className="button-display-column"> <MortgageCalculator/> </td> : <></>}
-            
             </tr>
           </table>
           
@@ -92,6 +85,4 @@ const getProperty = () => {
     </>
   );
 }
-
-
 export default PropertyPageDetail;

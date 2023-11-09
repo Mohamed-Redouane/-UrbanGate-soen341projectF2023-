@@ -14,3 +14,4 @@ export default async function readPropertiesForUser(req, res) {
         res.status(500).json(err);
     }
 }
+ 

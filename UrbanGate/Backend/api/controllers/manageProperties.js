@@ -19,4 +19,4 @@ export default async function manageProperties(req, res) {
   catch (err) {
     return res.status(500).json(err);
   }
-}
+} 
