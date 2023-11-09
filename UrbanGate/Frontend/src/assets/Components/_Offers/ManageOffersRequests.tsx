@@ -15,61 +15,79 @@ function  ManageOffersRequests() {
     Status: string;
     requestedDate: string;
   }[]>([]);
+  const [user,setUser] = useState(false);
 
   useEffect(() => {
-    //get user id (broker id) from localStorage
+    axios.post('http://localhost:3000/checkUser',{userID: window.localStorage.getItem("UserID")})
+    .then((res) => {
+      if (res.data == 'homebuyer') {
+        setUser(true);
+        axios.post('http://localhost:3000/findOffersForHomebuyer',{userID: window.localStorage.getItem("UserID")})
+        .then((res)=> {
+        setOffers(res.data);
+        })
+      }
+      else {
+        setUser(false);
+        //get user id (broker id) from localStorage
     const brokerId = localStorage.getItem("UserID");
-// Create a Set to store unique keys
-const uniqueKeysSet = new Set(); // https://www.npmjs.com/package/hashset
-    //get Properties related to broker id
-    axios.get(`http://localhost:3000/readPropertiesForUser/${brokerId}`)
-      .then(async (response) => {
-        console.log(response.data);
-        if (response.data) {
-          const properties = response.data;
-          //get visit requests for each property
-          const promises = properties.map((property: { propertyId: any }) => // https://dmitripavlutin.com/promise-all/
-            axios.get(`http://localhost:3000/manageOffersRequests/${brokerId}`)
-              .then((offersRequestsResponse) => offersRequestsResponse.data)
-              .catch((error) => {
-                console.error(error);
-                return [];
-              })
-          );
-  
-          Promise.all(promises)
-            .then((offersRequestsForProperties) => {
-              // Flatten the array of visit requests
-              const allOffersRequests = offersRequestsForProperties.flat();
-              
-              // Filter out duplicates before setting state
-              const filteredOffersRequests = allOffersRequests.filter(request => {
-                const key = `${request._id}-${request.property}-${request.requester}`;
-                if (uniqueKeysSet.has(key)) {
-                  return false; // Skip duplicates
-                } //
-                uniqueKeysSet.add(key); // Add unique keys to the Set
-                return true;
-              });
-              setOffers(filteredOffersRequests);
-            })
-            .catch((error) => {
-              console.error(error);
-            });
-        } else {
-          console.log("No data found for these properties.");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // Create a Set to store unique keys
+    const uniqueKeysSet = new Set(); // https://www.npmjs.com/package/hashset
+        //get Properties related to broker id
+        axios.get(`http://localhost:3000/readPropertiesForUser/${brokerId}`)
+          .then(async (response) => {
+            console.log(response.data);
+            if (response.data) {
+              const properties = response.data;
+              //get visit requests for each property
+              const promises = properties.map((property: { propertyId: any }) => // https://dmitripavlutin.com/promise-all/
+                axios.get(`http://localhost:3000/manageOffersRequests/${brokerId}`)
+                  .then((offersRequestsResponse) => offersRequestsResponse.data)
+                  .catch((error) => {
+                    console.error(error);
+                    return [];
+                  })
+              );
+      
+              Promise.all(promises)
+                .then((offersRequestsForProperties) => {
+                  // Flatten the array of visit requests
+                  const allOffersRequests = offersRequestsForProperties.flat();
+                  
+                  // Filter out duplicates before setting state
+                  const filteredOffersRequests = allOffersRequests.filter(request => {
+                    const key = `${request._id}-${request.property}-${request.requester}`;
+                    if (uniqueKeysSet.has(key)) {
+                      return false; // Skip duplicates
+                    } //
+                    uniqueKeysSet.add(key); // Add unique keys to the Set
+                    return true;
+                  });
+                  setOffers(filteredOffersRequests);
+                })
+                .catch((error) => {
+                  console.error(error);
+                });
+            } else {
+              console.log("No data found for these properties.");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    })
+    
   }, []);
 
   return (
     <div className="visit-requests-container">
       <h1 className="visit-requests-heading">Offers</h1>
+
+      {user && <p>Homebuyer</p>}
       {Offers.length === 0 ? (
         <p className="no-requests-message">There are no Offers.</p>
+
       ) : (
         <ul className="visit-request-list">
           {Offers.map((request) => ( //
@@ -81,7 +99,7 @@ const uniqueKeysSet = new Set(); // https://www.npmjs.com/package/hashset
                   <p>amount: ${request.amount}</p>
                   <p>Status: {request.Status}</p>
                   <p>Requested Date: {request.requestedDate}</p>
-                  <div className="visit-details-button">
+                  {!user &&  <div className="visit-details-button">
                      <button className="btn btn-secondary text-white">
                       <Link to={`/manageOffersRequests/AcceptOfferRequest/${request._id}`} style={{ textDecoration: "none", color: "white", fontSize: "14px" }}>
                         Accept
@@ -92,7 +110,7 @@ const uniqueKeysSet = new Set(); // https://www.npmjs.com/package/hashset
                         Reject
                       </Link>
                     </button>
-                  </div>
+                  </div>}
                 </div>
               </div>
             </li>
@@ -102,7 +120,5 @@ const uniqueKeysSet = new Set(); // https://www.npmjs.com/package/hashset
 
     </div>
     )}
-    </>
-  )
-  }
+    
 export default ManageOffersRequests; 
