@@ -11,7 +11,7 @@ function DeleteProperties() {
 
     const handleDeleteProperty = () => {
         
-        axios.delete(`http://localhost:3000/deletePropertyID/${_id}`).then(() => { 
+        axios.delete(`https://urbangatebackend-production-1218.up.railway.app/deletePropertyID/${_id}`).then(() => { 
           //https://www.freecodecamp.org/news/how-to-use-axios-with-react/#how-to-make-a-delete-request
           //https://www.youtube.com/watch?v=-42K44A1oMA 45:15
         console.log("Property deleted");

@@ -10,7 +10,7 @@ function ManageBrokers(){
 
  const getBrokers = () => {
 
-   axios.post('http://localhost:3000/manageBrokers', {userID: window.localStorage.getItem("UserID")}) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+   axios.post('https://urbangatebackend-production-1218.up.railway.app/manageBrokers', {userID: window.localStorage.getItem("UserID")}) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
    .then((res) => {
      setBrokers(res.data.response);
    })
@@ -43,7 +43,7 @@ function ManageBrokers(){
                {/*https://stackoverflow.com/questions/70855260/how-to-pass-data-between-pages-in-react-with-react-router-dom-v6*/}
                <button className="deleteBroker" onClick = {async () => {
                  if(confirm("Are you sure?")){
-                  axios.get(`http://localhost:3000/deleteBroker/${broker._id}`).then(() => {
+                  axios.get(`https://urbangatebackend-production-1218.up.railway.app/deleteBroker/${broker._id}`).then(() => {
                     alert("BROKER SUCCESSFULLY DELETED");
                     window.location.reload();
                   }).catch((error) => {

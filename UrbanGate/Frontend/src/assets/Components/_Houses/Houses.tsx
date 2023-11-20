@@ -112,7 +112,7 @@ function Houses() {
 
   const getHouses = () => {
     axios
-      .get("http://localhost:3000/readProperty") //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+      .get("https://urbangatebackend-production-1218.up.railway.app/readProperty") //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
       .then((response) => {
         setProperties(response.data);
         setFilteredProperties(response.data);

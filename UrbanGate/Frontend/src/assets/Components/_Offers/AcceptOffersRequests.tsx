@@ -14,7 +14,7 @@ function AcceptOfferRequest() {
         toast.error("Offer ID is missing.");
         return;
       }
-      const getResponse = await axios.get(`http://localhost:3000/readOfferRequest/${offerId}`);
+      const getResponse = await axios.get(`https://urbangatebackend-production-1218.up.railway.app/readOfferRequest/${offerId}`);
       
       if (getResponse.data.Status === 'accepted') {
         //if the visit request is already accepted then show a message and return
@@ -22,7 +22,7 @@ function AcceptOfferRequest() {
         return;
       }
       //send a PUT request to backend API to update the visit request status
-      const response = await axios.put(`http://localhost:3000/AcceptOfferRequest/${offerId}`, {
+      const response = await axios.put(`https://urbangatebackend-production-1218.up.railway.app/AcceptOfferRequest/${offerId}`, {
       
       Status: 'accepted',
       brokerId: brokerId,

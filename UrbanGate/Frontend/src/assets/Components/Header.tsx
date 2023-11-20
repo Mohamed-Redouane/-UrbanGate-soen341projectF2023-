@@ -19,7 +19,7 @@ function Header() {
 
   const f = () => {
     axios
-      .post("http://localhost:3000/checkUser", {
+      .post("https://urbangatebackend-production-1218.up.railway.app/checkUser", {
         userID: window.localStorage.getItem("UserID"),
       }) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
       .then((res) => {

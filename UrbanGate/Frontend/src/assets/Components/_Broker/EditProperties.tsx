@@ -97,7 +97,7 @@ function EditProperties(){
         e.preventDefault();
         const data = {title: title, description: description,image: image, type : types, location: location, price: price, area: area, bedroom: bedroom, bathroom: bathroom, status: status, propertyID: _id};
         console.log(data.propertyID);
-        axios.post("http://localhost:3000/updateProperty", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+        axios.post("https://urbangatebackend-production-1218.up.railway.app/updateProperty", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
         .then(()=> {toast.success("Property updated successfully"); //
         window.location.reload();
     })
@@ -107,7 +107,7 @@ function EditProperties(){
 
     const getProperty = () => {
 
-        axios.get(`http://localhost:3000/readPropertyID/${_id}`) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+        axios.get(`https://urbangatebackend-production-1218.up.railway.app/readPropertyID/${_id}`) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
         .then((response) => {
             //setProperty(response.data);
             //setTitle(response.data.title);

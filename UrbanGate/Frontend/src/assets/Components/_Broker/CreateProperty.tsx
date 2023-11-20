@@ -101,7 +101,7 @@ function ManagingProperties() {
       userID: window.localStorage.getItem("UserID"),
     };
     axios
-      .post("http://localhost:3000/createProperty", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+      .post("https://urbangatebackend-production-1218.up.railway.app/createProperty", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
       .then((res) => {
         toast.success(res.data.popup);
       })

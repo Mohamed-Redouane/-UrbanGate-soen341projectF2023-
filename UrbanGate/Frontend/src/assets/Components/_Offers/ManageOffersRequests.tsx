@@ -7,6 +7,7 @@ import "./ManageOffersRequests.css";
 
 function  ManageOffersRequests() {
   const { propertyId } = useParams();
+  console.log(propertyId);
   const [Offers, setOffers] = useState<{
     _id: string,
     property: string;
@@ -18,11 +19,11 @@ function  ManageOffersRequests() {
   const [user,setUser] = useState(false);
 
   useEffect(() => {
-    axios.post('http://localhost:3000/checkUser',{userID: window.localStorage.getItem("UserID")})
+    axios.post('https://urbangatebackend-production-1218.up.railway.app/checkUser',{userID: window.localStorage.getItem("UserID")})
     .then((res) => {
       if (res.data == 'homebuyer') {
         setUser(true);
-        axios.post('http://localhost:3000/findOffersForHomebuyer',{userID: window.localStorage.getItem("UserID")})
+        axios.post('https://urbangatebackend-production-1218.up.railway.app/findOffersForHomebuyer',{userID: window.localStorage.getItem("UserID")})
         .then((res)=> {
         setOffers(res.data);
         })
@@ -34,14 +35,14 @@ function  ManageOffersRequests() {
     // Create a Set to store unique keys
     const uniqueKeysSet = new Set(); // https://www.npmjs.com/package/hashset
         //get Properties related to broker id
-        axios.get(`http://localhost:3000/readPropertiesForUser/${brokerId}`)
+        axios.get(`https://urbangatebackend-production-1218.up.railway.app/readPropertiesForUser/${brokerId}`)
           .then(async (response) => {
             console.log(response.data);
             if (response.data) {
               const properties = response.data;
               //get visit requests for each property
-              const promises = properties.map((property: { propertyId: any }) => // https://dmitripavlutin.com/promise-all/
-                axios.get(`http://localhost:3000/manageOffersRequests/${brokerId}`)
+              const promises = properties.map((_: { propertyId: any }) => // https://dmitripavlutin.com/promise-all/
+                axios.get(`https://urbangatebackend-production-1218.up.railway.app/manageOffersRequests/${brokerId}`)
                   .then((offersRequestsResponse) => offersRequestsResponse.data)
                   .catch((error) => {
                     console.error(error);

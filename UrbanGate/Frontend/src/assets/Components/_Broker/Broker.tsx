@@ -16,7 +16,7 @@ function Broker() {
 
   const f = async () => {
     await setLoading(true); //
-    await axios.post("http://localhost:3000/checkUser", {userID: window.localStorage.getItem("UserID"),}) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+    await axios.post("https://urbangatebackend-production-1218.up.railway.app/checkUser", {userID: window.localStorage.getItem("UserID"),}) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
       .then((res) => {
         console.log("valid");
         checkUser(res.data);
@@ -26,7 +26,7 @@ function Broker() {
         checkUser(err.response.data);
       });
     await setLoading(false); //
-    axios.post("http://localhost:3000/searchBroker", {name: search}).then((res) => {
+    axios.post("https://urbangatebackend-production-1218.up.railway.app/searchBroker", {name: search}).then((res) => {
       setBrokers(res.data.response);
     })
     .catch((err) => {
@@ -39,7 +39,7 @@ function Broker() {
   }
 
   const handleSubmit = () => {
-    axios.post("http://localhost:3000/searchBroker", {name: search})
+    axios.post("https://urbangatebackend-production-1218.up.railway.app/searchBroker", {name: search})
     .then((res) => {
       setBrokers(res.data.response);
     })
@@ -51,7 +51,7 @@ function Broker() {
   // When user clicks on clear, it clears the search and displays all brokers again
   const handleClear = () => {
     setSearch("");
-    axios.post("http://localhost:3000/searchBroker", {name: ''})
+    axios.post("https://urbangatebackend-production-1218.up.railway.app/searchBroker", {name: ''})
     .then((res) => {
       setBrokers(res.data.response);
     })
