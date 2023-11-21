@@ -1,4 +1,4 @@
-import request from 'supertest';
+import request from 'supertest'; //test
 import express from 'express';
 import createUser from '../controllers/createUser.js'; 
 import User from '../models/users.js'; 
