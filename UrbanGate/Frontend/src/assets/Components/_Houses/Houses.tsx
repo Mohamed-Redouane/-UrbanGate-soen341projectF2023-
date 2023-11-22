@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 import "./Houses.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 
 const locationOptions = [
   { label: "Any", value: "" },
@@ -17,7 +19,7 @@ const locationOptions = [
   { label: "Angrignon", value: "Angrignon" },
   { label: "Mile-End", value: "Mile-End" },
 ];
- 
+
 const propertyTypeOptions = [
   { label: "Any", value: "" },
   { label: "Appartment", value: "apartment" },
@@ -109,6 +111,7 @@ function Houses() {
   //[1], functional component
   const [properties, setProperties] = useState<any[]>([]);
   const [filteredProperties, setFilteredProperties] = useState(properties);
+  const [isHomebuyer, setIsHomebuyer] = useState(false);
 
   const getHouses = () => {
     axios
@@ -259,9 +262,48 @@ function Houses() {
     );
   };
 
+  const checkIfHomebuyer = () => {
+    if (window.localStorage.getItem("UserID")){
+    axios.post('http://localhost:3000/checkUser', { userID: window.localStorage.getItem("UserID") })
+      .then((res) => {
+        if (res.data === 'homebuyer') {
+          setIsHomebuyer(true);
+          console.log("IS HOMEBUYER");
+        }
+      })
+    }
+  }
+   
+  const displayfavorited = (propertyID:String) => {
+
+    axios.post('http://localhost:3000/savedProperties', {propertyID: propertyID, userID: window.localStorage.getItem("UserID") })
+    .then((res) => {
+      toast(res.data.popup, { //https://fkhadra.github.io/react-toastify/positioning-toast/
+        position: toast.POSITION.TOP_CENTER,
+        className: 'saved'
+      });
+    })
+    .catch ((err) => {
+      toast(err.response.data.popup, { //https://fkhadra.github.io/react-toastify/positioning-toast/
+        position: toast.POSITION.TOP_CENTER,
+        className: 'saved'
+      });
+    })
+  
+  }
+
+  const FilterByFavorites = () => {
+    axios.post('http://localhost:3000/getSavedProperties',{userID: window.localStorage.getItem("UserID")})
+    .then((res) => {
+      console.log(res.data.houses)
+      setFilteredProperties(res.data.houses)
+    })
+  }
+
   useEffect(() => {
     getHouses();
-  }, []); // Will only be called once on reload https://stackoverflow.com/questions/72824151/react-useeffect-keeps-fetching + https://www.tutorialspoint.com/how-to-call-the-loading-function-with-react-useeffect
+    checkIfHomebuyer();
+    },[]); // Will only be called once on reload https://stackoverflow.com/questions/72824151/react-useeffect-keeps-fetching + https://www.tutorialspoint.com/how-to-call-the-loading-function-with-react-useeffect
 
   /* https://getbootstrap.com/docs/5.0/components/card/ */
   return (
@@ -290,7 +332,7 @@ function Houses() {
             value="for_sale"
             name="status"
             onChange={handleStatusChange}
-            style={{marginLeft:'5vw'}}
+            style={{ marginLeft: '5vw' }}
           ></input>
           <label className="rent/sale">&nbsp;&nbsp; For Sale &nbsp;&nbsp;</label>
           <input
@@ -347,8 +389,8 @@ function Houses() {
                     selectedStatus === ""
                       ? emptyPriceRangeOptions
                       : selectedStatus === "for_rent"
-                      ? renterPriceRangeOptions
-                      : buyerPriceRangeOptions
+                        ? renterPriceRangeOptions
+                        : buyerPriceRangeOptions
                   }
                   onChange={handlePriceRangeChange}
                 />
@@ -366,9 +408,23 @@ function Houses() {
               fontSize: "14px",
             }}
           >
-            {" "}
             Search Now
           </button>
+
+          <button
+            onClick={FilterByFavorites}
+            className="searchnow-button"
+            style={{
+              width: "150px",
+              marginTop: "10px",
+              marginLeft: "43%",
+              height: "50px",
+              fontSize: "14px",
+            }}
+          >
+            Look at Favorites
+          </button>
+
         </div>
       </div>
 
@@ -464,7 +520,13 @@ function Houses() {
                   See More Detail
                 </Link>
               </button>
-            </div>{" "}
+              <span className = "STAR"> 
+                {/* https://icons.getbootstrap.com/icons/star/ */}
+                {isHomebuyer? <svg onClick={() => {displayfavorited(property._id)}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star" viewBox="0 0 16 16">
+                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                </svg> : <></>}
+              </span>
+            </div> 
             {/*https://www.youtube.com/watch?v=enOsPhp2Z6Q at 36:39*/}
           </div>
         </div>
