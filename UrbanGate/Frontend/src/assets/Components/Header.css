@@ -95,3 +95,8 @@
   font-family: Georgia, "Times New Roman", Times, serif;
   z-index: 0;
 }
+
+.header-user-role{
+  background-color: #878b73;
+  color: white;
+}

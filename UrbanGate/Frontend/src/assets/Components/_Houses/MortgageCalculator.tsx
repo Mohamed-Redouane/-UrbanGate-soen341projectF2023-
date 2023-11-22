@@ -66,14 +66,15 @@ const MortgageCalculator: React.FC = () => {
       transform: "translate(-50%, -50%)",
       boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
       borderRadius: "10px",
-      height: "500px",
+      height: "600px",
       backgroundColor: "#e9e7e7",
-      width: "900px",
+      width: '50%',
+      maxWidth: '50rem',
     },
   };
 
   return (
-    <div style={{ width: "900px" }}>
+    <div style={{ width: "4000px" }}>
       <button className="open-button" onClick={openModal}>
         Open Calculator
       </button>
@@ -86,19 +87,20 @@ const MortgageCalculator: React.FC = () => {
       >
         <h2 className="modal-title">Mortgage Calculator</h2>
         <small className="prompt">
-          Please enter numerical values to estimate your monthly payment.
+          Please enter values to estimate your monthly payment.
         </small>
         <form className="modal-form">
           <label>
-            Mortgage Amount:
+            Principal Loan Amount:&nbsp;&nbsp; 
             <input
               type="number"
               min="0"
               onChange={(e) => setMortgageAmount(Number(e.target.value))}
             />
-          </label>
+            </label>
+          
           <label>
-            Interest Rate (%):
+            Interest Rate (%):&nbsp;&nbsp;
             <input
               type="number"
               min="0"
@@ -106,7 +108,7 @@ const MortgageCalculator: React.FC = () => {
             />
           </label>
           <label>
-            Term (years):
+            Term (years):&nbsp;&nbsp;
             <input
               type="number"
               min="0"
@@ -114,7 +116,7 @@ const MortgageCalculator: React.FC = () => {
             />
           </label>
           <label>
-            Payment Frequency:
+            Payment Frequency:&nbsp;&nbsp;
             <select
               onChange={(e) => setPaymentFrequency(Number(e.target.value))}
             >
