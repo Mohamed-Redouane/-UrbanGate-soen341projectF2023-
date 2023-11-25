@@ -15,6 +15,6 @@ async function connectDB() {
         }
     }
     return db;
-};
+}
 
 export default connectDB;

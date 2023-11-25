@@ -5,6 +5,6 @@ export default async function OfferHomebuyer (req, res) {
         const response = await send_offer.find({requester: req.body.userID}); //
         return res.status(200).json(response);
     }
-    catch (err) {return res.status(500).json(err);};
+    catch (err) {return res.status(500).json(err);}
 }
  
