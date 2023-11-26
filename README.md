@@ -63,6 +63,8 @@ Click on the localhost link that appears in the Frontend terminal
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Deployment
+The project is deployed and accessible online. You can visit the live version by following this link: https://urban-afa9b.web.app/
 ## Usage guidelines
 * Use Gitbash terminal: https://education.github.com/git-cheat-sheet-education.pdf
 * Use VScode commit extension: https://code.visualstudio.com/docs/sourcecontrol/overview
