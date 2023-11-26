@@ -264,7 +264,7 @@ function Houses() {
 
   const checkIfHomebuyer = () => {
     if (window.localStorage.getItem("UserID")){
-    axios.post('http://localhost:3000/checkUser', {userID: window.localStorage.getItem("UserID")}) //https://blog.logrocket.com/how-to-use-axios-post-requests/
+    axios.post('https://urbangatebackend-production-1218.up.railway.app/checkUser', {userID: window.localStorage.getItem("UserID")}) //https://blog.logrocket.com/how-to-use-axios-post-requests/
       .then((res) => {
         if (res.data === 'homebuyer') {
           setIsHomebuyer(true);
@@ -275,7 +275,7 @@ function Houses() {
    
   const displayfavorited = (propertyID:String) => {
 
-    axios.post('http://localhost:3000/savedProperties', {propertyID: propertyID, userID: window.localStorage.getItem("UserID") }) //https://blog.logrocket.com/how-to-use-axios-post-requests/
+    axios.post('https://urbangatebackend-production-1218.up.railway.app/savedProperties', {propertyID: propertyID, userID: window.localStorage.getItem("UserID") }) //https://blog.logrocket.com/how-to-use-axios-post-requests/
     .then((res) => {
       toast(res.data.popup, { //https://fkhadra.github.io/react-toastify/positioning-toast/
         position: toast.POSITION.TOP_CENTER,
@@ -292,7 +292,7 @@ function Houses() {
   }
 
   const FilterByFavorites = () => {
-    axios.post('http://localhost:3000/getSavedProperties',{userID: window.localStorage.getItem("UserID")})
+    axios.post('https://urbangatebackend-production-1218.up.railway.app/getSavedProperties',{userID: window.localStorage.getItem("UserID")})
     .then((res) => {
       //console.log(res.data.houses)
       setFilteredProperties(res.data.houses)
