@@ -410,6 +410,7 @@ function Houses() {
             Search Now
           </button>
 
+          {isHomebuyer?
           <button
             onClick={FilterByFavorites}
             className="searchnow-button"
@@ -422,7 +423,7 @@ function Houses() {
             }}
           >
             Look at Favorites
-          </button>
+          </button> : <></> }
 
         </div>
       </div>
