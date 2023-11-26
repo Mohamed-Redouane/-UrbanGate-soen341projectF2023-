@@ -48,7 +48,7 @@ function SignIn() {
       password: password,
 
     }
-    axios.post("http://localhost:3000/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/
+    axios.post("https://urbangatebackend-production-1218.up.railway.app/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/
       .then((res)=>{
         toast.success(res.data.popup); //
 
@@ -129,7 +129,7 @@ function SignUp() {
       role: role,
     };
 
-    axios.post("http://localhost:3000/createUser", data)
+    axios.post("https://urbangatebackend-production-1218.up.railway.app/createUser", data)
       .then((res)=> toast.success(res.data.popup)) //
       .catch((err)=>  toast.error(err.response.data.popup)); //in case something goes wrong
   }

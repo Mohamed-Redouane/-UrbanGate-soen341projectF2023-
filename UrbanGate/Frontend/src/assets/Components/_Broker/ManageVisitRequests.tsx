@@ -7,6 +7,7 @@ import "./ManageVisitRequests.css";
 
 function ManageVisitRequests() {
   const { propertyId } = useParams();
+  console.log(propertyId);
   const [visitRequests, setVisitRequests] = useState<{
     _id: string,
     property: string;
@@ -21,14 +22,14 @@ function ManageVisitRequests() {
 // Create a Set to store unique keys
 const uniqueKeysSet = new Set(); // https://www.npmjs.com/package/hashset
     //get Properties related to broker id
-    axios.get(`http://localhost:3000/readPropertiesForUser/${brokerId}`)
+    axios.get(`https://urbangatebackend-production-1218.up.railway.app/readPropertiesForUser/${brokerId}`)
       .then(async (response) => {
         console.log(response.data);
         if (response.data) {
           const properties = response.data;
           //get visit requests for each property
-          const promises = properties.map((property: { propertyId: any }) => // https://dmitripavlutin.com/promise-all/
-            axios.get(`http://localhost:3000/manageVisitRequests/${brokerId}`)
+          const promises = properties.map((_: { propertyId: any }) => // https://dmitripavlutin.com/promise-all/
+            axios.get(`https://urbangatebackend-production-1218.up.railway.app/manageVisitRequests/${brokerId}`)
               .then((visitRequestsResponse) => visitRequestsResponse.data)
               .catch((error) => {
                 console.error(error);

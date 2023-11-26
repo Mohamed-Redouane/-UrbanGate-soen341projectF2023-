@@ -14,7 +14,7 @@ const userID = localStorage.getItem("UserID");
 const [userRole, setUserRole] = useState(""); 
 console.log(userID);
 const getProperty = () => {
-  axios.get(`http://localhost:3000/readPropertyID/${_id}`).then((response) => { //
+  axios.get(`https://urbangatebackend-production-1218.up.railway.app/readPropertyID/${_id}`).then((response) => { //
       setProperty(response.data);
       console.log(response.data);
       console.log(response.data.title);
@@ -25,7 +25,7 @@ const getProperty = () => {
   }
 
   const getUserRole = () => {
-    axios.post("http://localhost:3000/checkUser", {userID: userID}).then((res) => { //
+    axios.post("https://urbangatebackend-production-1218.up.railway.app/checkUser", {userID: userID}).then((res) => { //
       setUserRole(res.data);
       //setIsSignedIn(true);
     })

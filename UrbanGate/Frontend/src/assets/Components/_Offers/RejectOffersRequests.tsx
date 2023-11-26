@@ -14,14 +14,14 @@ function RejectOfferRequest() {
         toast.error(" offer ID is missing.");
         return;
       }
-      const getResponse = await axios.get(`http://localhost:3000/readOfferRequest/${offerId}`);
+      const getResponse = await axios.get(`https://urbangatebackend-production-1218.up.railway.app/readOfferRequest/${offerId}`);
       if (getResponse.data.Status === 'rejected') {
         //if the offer is already rejected then show a message.
         toast.info("offer is already rejected.");
         return;
       }
       //send a PUT request to backend API to update the visit request status.
-      const response = await axios.put(`http://localhost:3000/RejectOfferRequest/${offerId}`, {
+      const response = await axios.put(`https://urbangatebackend-production-1218.up.railway.app/RejectOfferRequest/${offerId}`, {
       
       Status: 'rejected',
       brokerId: brokerId,

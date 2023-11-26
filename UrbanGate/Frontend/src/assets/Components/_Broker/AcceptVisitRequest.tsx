@@ -14,14 +14,14 @@ function AcceptVisitRequest() {
         toast.error("Visit request ID is missing.");
         return;
       }
-      const getResponse = await axios.get(`http://localhost:3000/readVisitRequest/${visitRequestId}`);
+      const getResponse = await axios.get(`https://urbangatebackend-production-1218.up.railway.app/readVisitRequest/${visitRequestId}`);
       if (getResponse.data.Status === 'accepted') {
         //if the visit request is already accepted then show a message and return
         toast.info("Visit request is already accepted.");
         return;
       }
       //send a PUT request to backend API to update the visit request status
-      const response = await axios.put(`http://localhost:3000/AcceptVisitRequest/${visitRequestId}`, {
+      const response = await axios.put(`https://urbangatebackend-production-1218.up.railway.app/AcceptVisitRequest/${visitRequestId}`, {
       Status: 'accepted',
       brokerId: brokerId,
 });

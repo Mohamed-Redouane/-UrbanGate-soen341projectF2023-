@@ -1,4 +1,5 @@
-// jest.config.jS
+
+// jest.config.js
 module.exports = {
     extensionsToTreatAsEsm: ['.js', '.mjs'],
     testEnvironment: 'node',

@@ -7,7 +7,7 @@ function ManageProperties() {
   const [properties, setProperties] = useState<any[]>([]);
 
   const getHouses = () => {
-    axios.post('http://localhost:3000/manageProperties', {userID: window.localStorage.getItem("UserID")}) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+    axios.post('https://urbangatebackend-production-1218.up.railway.app/manageProperties', {userID: window.localStorage.getItem("UserID")}) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
     .then((response) => {
       setProperties(response.data);
     })

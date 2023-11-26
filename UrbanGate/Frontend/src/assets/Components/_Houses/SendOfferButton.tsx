@@ -6,13 +6,13 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import "./RequestVisit.css";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function SendOfferButton() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [offerPrice, setOfferPrice] = useState("");
-  const [property, setProperty] = useState({
+  const [_, setProperty] = useState({
     title: "string",
     description: "string",
     type: "string",
@@ -29,7 +29,7 @@ function SendOfferButton() {
 
   const getProperty = () => {
     axios
-      .get(`http://localhost:3000/readPropertyID/${_id}`)
+      .get(`https://urbangatebackend-production-1218.up.railway.app/readPropertyID/${_id}`)
       .then((response) => {
         setProperty(response.data);
         console.log(response.data);
@@ -59,7 +59,7 @@ function SendOfferButton() {
     console.log(offerPrice);
   };
 
-  const navigate = useNavigate();
+
 
   const handleSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -74,7 +74,7 @@ function SendOfferButton() {
       console.log(data);
       console.log(offerPrice);
       axios
-        .post("http://localhost:3000/Offer", data)
+        .post("https://urbangatebackend-production-1218.up.railway.app/Offer", data)
         .then(() => toast.success("Offer submitted successfully"))
         .catch((res) => toast.error("Error submitting offer: " + res));
       // navigate("/houses");

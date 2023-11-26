@@ -1,7 +1,6 @@
 import React from 'react'; 
 import { useState } from 'react';
 import axios from 'axios';
-import {useNavigate} from "react-router-dom";
 import { toast } from 'react-toastify';
 
 function CreateBroker(){
@@ -9,7 +8,7 @@ function CreateBroker(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [role, setRole] = useState('broker');
+    const [role, _] = useState('broker');
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setEmail(e.target.value);
@@ -25,7 +24,7 @@ function CreateBroker(){
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const data = {email: email, name: name, password: password, role: role};
-      axios.post("http://localhost:3000/createUser", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
+      axios.post("https://urbangatebackend-production-1218.up.railway.app/createUser", data) //https://www.youtube.com/watch?v=enOsPhp2Z6Q at 28:12
       .then((res)=> toast.success(res.data.popup))
       .catch((err)=> toast.error(err.response.data.popup));
       //console.log(email +  "" + password +"" + name+""   + role);

@@ -14,7 +14,7 @@ function RejectVisitRequest() {
         toast.error("Visit request ID is missing.");
         return;
       } 
-      const getResponse = await axios.get(`http://localhost:3000/readVisitRequest/${visitRequestId}`);
+      const getResponse = await axios.get(`https://urbangatebackend-production-1218.up.railway.app/readVisitRequest/${visitRequestId}`);
       
       if (getResponse.data.Status === 'rejected') {
         //if the visit request is already rejected then show a message.
@@ -25,7 +25,7 @@ function RejectVisitRequest() {
       console.log( visitRequestId);
       console.log(brokerId);
       //send a PUT request to backend API to update the visit request status.
-      const response = await axios.put(`http://localhost:3000/RejectVisitRequest/${visitRequestId}`, {
+      const response = await axios.put(`https://urbangatebackend-production-1218.up.railway.app/RejectVisitRequest/${visitRequestId}`, {
       
       Status: 'rejected',
       brokerId: brokerId,
