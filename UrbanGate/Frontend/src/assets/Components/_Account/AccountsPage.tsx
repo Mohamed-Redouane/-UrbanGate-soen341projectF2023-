@@ -51,7 +51,7 @@ function SignIn() {
     axios.post("http://localhost:3000/signIn", data) //https://blog.logrocket.com/how-to-use-axios-post-requests/
       .then((res)=>{
         toast.success(res.data.popup); //
-
+        //toast.success(typeof(res.data.userID));
         window.localStorage.setItem("UserID", res.data.userID); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:15:57
         navigate("/"); //https://www.youtube.com/watch?v=P43DW3HUUH8&t=5957s at 1:16:51
         window.location.reload(); //Refresh and display the new header, I think this forces a rerender of the page
