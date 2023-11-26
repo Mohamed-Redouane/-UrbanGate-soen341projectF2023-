@@ -140,10 +140,10 @@ function Broker() {
        <div className="card bg-dark text-white mx-2 mt-5" style={{ width: "310px", height: "460px", display: "inline-block" }}>
          <img src={"https://icon-library.com/images/person-icon-outline/person-icon-outline-2.jpg"} className="card-img-top" alt="..." style={{ height: "200px" }}></img>
          <div className="card-body">
-           <ul className="list-group list-group-horizontal" style={{ fontSize: "11px", height: "30px", width: "270px" }}>
-             <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "110px", padding: "none" }}> Name:  <br></br> <p style={{ textAlign: "center" }}> {broker.name}</p></li>
-             <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "110px", padding: "none" }}>Email:<br></br> <p style={{ textAlign: "center" }}> {broker.email} </p> </li>
-             <li className="list-group-item bg-dark text-white rounded-0 pt-0" style={{ borderTop: "none", borderBottom: "none", width: "110px", padding: "none" }}>Role:<br></br> <p style={{ textAlign: "center" }}> {broker.role} </p> </li>
+           <ul className="list-group" style={{ fontSize: "11px", height: "30px", width: "270px", textAlign:"left" }}>
+             <p> Name: &nbsp;{broker.name}</p>
+             <p>Email: &nbsp;{broker.email} </p>
+             <p>Role: &nbsp;{broker.role} </p>
            </ul><br></br>
          </div>
        </div>
@@ -157,3 +157,15 @@ function Broker() {
 }
 
 export default Broker;
+
+
+/**
+ * <div className="card bg-dark text-white mx-2 mt-5" style={{ width: "310px", height: "450px", display: "inline-block"}}>
+       <img src={"https://icon-library.com/images/person-icon-outline/person-icon-outline-2.jpg"} className="card-img-top" alt="..." style={{ height: "200px" }}></img>
+       <div className="card-body-broker">
+          <p> Name: {broker.name} </p>
+          <p> Email: {broker.email} </p>
+          <p> Role: {broker.role}</p>
+       </div>
+     </div>
+ */

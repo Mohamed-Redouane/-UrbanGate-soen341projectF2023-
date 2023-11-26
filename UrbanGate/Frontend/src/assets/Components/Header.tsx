@@ -169,7 +169,7 @@ function Header() {
                 </button>
               )}
               {isSignedIn && (
-                <div style={{ color: "white", backgroundColor: "gray" }}>
+                <div className="header-user-role">
                  Welcome {userRole}
                 </div>
               )}{" "}

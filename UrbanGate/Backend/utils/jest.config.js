@@ -1,6 +1,6 @@
+
 // jest.config.js
 module.exports = {
-    // ... other Jest configurations
     extensionsToTreatAsEsm: ['.js', '.mjs'],
     testEnvironment: 'node',
     transform: {
